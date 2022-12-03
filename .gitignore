@@ -1,0 +1,4 @@
+/tmp
+/mount_*/*
+/installer
+/disk*.img

@@ -1,0 +1,16 @@
+
+# Ignore UNIX backup files
+*~
+*.swp
+
+# File locks
+*.ulock
+*.lock
+
+# Ignore object files
+*.o
+*.obj
+*.class
+# Ignore logs and core dumps
+*.log
+core.*
