@@ -10,7 +10,8 @@ Please reinstall the router.
 
 - Same serial of storage will get different "Software ID" if it emulated as USB or as HDD
 - Same serial but different installation will get different serial
-
+- https://github.com/Ygnecz/MTLic - Mikrotik license file structure
+- https://elixir.bootlin.com/linux/v5.6.3/C/ident/__le16 - Usefull to explore Linux sources
 
 ## Linux Kernel
 
