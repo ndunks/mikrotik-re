@@ -1,5 +1,8 @@
 
-partition-boot/linux.x86_64:     file format pei-x86-64
+vmlinuz:     file format pei-x86-64
+architecture: i386:x86-64, flags 0x00000103:
+HAS_RELOC, EXEC_P, D_PAGED
+start address 0x00000000002ffa80
 
 Sections:
 Idx Name          Size      VMA               LMA               File off  Algn

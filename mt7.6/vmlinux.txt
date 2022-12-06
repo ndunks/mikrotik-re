@@ -1,5 +1,8 @@
 
 vmlinux:     file format elf64-x86-64
+architecture: i386:x86-64, flags 0x00000102:
+EXEC_P, D_PAGED
+start address 0x0000000001000000
 
 Sections:
 Idx Name          Size      VMA               LMA               File off  Algn
