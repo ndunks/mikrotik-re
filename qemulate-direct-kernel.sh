@@ -3,8 +3,11 @@
 qemu-system-x86_64 \
 	-m 128 \
 	-smp 1 \
+    -bios /usr/share/ovmf/OVMF.fd \
+	-drive file=fat:rw:mt7.6/partition-boot \
+	-net none \
+	-serial mon:stdio \
 	-drive format=raw,file=disk.img \
-	-kernel ./mt7.6/vmc
     $*
 
 # -drive if=none,id=disk00,format=qcow2,file=tmp/disk1.qcow2 \

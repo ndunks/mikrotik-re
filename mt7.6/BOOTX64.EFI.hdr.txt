@@ -1,0 +1,110 @@
+DOS Header
+    Magic number:                    0x5a4d (MZ)
+    Bytes in last page:              2026
+    Pages in file:                   49152
+    Relocations:                     35847
+    Size of header in paragraphs:    36552
+    Minimum extra paragraphs:        36568
+    Maximum extra paragraphs:        36544
+    Initial (relative) SS value:     0x31d0
+    Initial SP value:                0xfbe4
+    Initial IP value:                0x40
+    Initial (relative) CS value:     0x20ac
+    Address of relocation table:     0x74c0
+    Overlay number:                  0xb409
+    OEM identifier:                  0xc031
+    OEM information:                 0x16cd
+    PE header offset:                0x82
+COFF/File header
+    Machine:                         0x8664 IMAGE_FILE_MACHINE_AMD64
+    Number of sections:              4
+    Date/time stamp:                 0 (Thu, 01 Jan 1970 00:00:00 UTC)
+    Symbol Table offset:             0
+    Number of symbols:               1
+    Size of optional header:         0xa0
+    Characteristics:                 0x206
+    Characteristics names
+                                         IMAGE_FILE_EXECUTABLE_IMAGE
+                                         IMAGE_FILE_LINE_NUMS_STRIPPED
+                                         IMAGE_FILE_DEBUG_STRIPPED
+Optional/Image header
+    Magic number:                    0x20b (PE32+)
+    Linker major version:            2
+    Linker minor version:            20
+    Size of .text section:           0x3256e0
+    Size of .data section:           0
+    Size of .bss section:            0x1381720
+    Entrypoint:                      0x2ffa80
+    Address of .text section:        0x200
+    ImageBase:                       0
+    Alignment of sections:           0x20
+    Alignment factor:                0x20
+    Major version of required OS:    0
+    Minor version of required OS:    0
+    Major version of image:          0
+    Minor version of image:          0
+    Major version of subsystem:      0
+    Minor version of subsystem:      0
+    Size of image:                   0x16a7000
+    Size of headers:                 0x200
+    Checksum:                        0
+    Subsystem required:              0xa (IMAGE_SUBSYSTEM_EFI_APPLICATION)
+    DLL characteristics:             0
+    DLL characteristics names
+    Size of stack to reserve:        0
+    Size of stack to commit:         0
+    Size of heap space to reserve:   0
+    Size of heap space to commit:    0
+Data directories
+Imported functions
+Exported functions
+Sections
+    Section
+        Name:                            .setup
+        Virtual Size:                    0x33e0 (13280 bytes)
+        Virtual Address:                 0x200
+        Size Of Raw Data:                0x33e0 (13280 bytes)
+        Pointer To Raw Data:             0x200
+        Number Of Relocations:           0
+        Characteristics:                 0x60500020
+        Characteristic Names
+                                             IMAGE_SCN_CNT_CODE
+                                             IMAGE_SCN_MEM_EXECUTE
+                                             IMAGE_SCN_MEM_READ
+    Section
+        Name:                            .reloc
+        Virtual Size:                    0x20 (32 bytes)
+        Virtual Address:                 0x35e0
+        Size Of Raw Data:                0x20 (32 bytes)
+        Pointer To Raw Data:             0x35e0
+        Number Of Relocations:           0
+        Characteristics:                 0x42100040
+        Characteristic Names
+                                             IMAGE_SCN_CNT_INITIALIZED_DATA
+                                             IMAGE_SCN_MEM_DISCARDABLE
+                                             IMAGE_SCN_MEM_READ
+    Section
+        Name:                            .text
+        Virtual Size:                    0x3222e0 (3285728 bytes)
+        Virtual Address:                 0x3600
+        Size Of Raw Data:                0x3222e0 (3285728 bytes)
+        Pointer To Raw Data:             0x3600
+        Number Of Relocations:           0
+        Characteristics:                 0x60500020
+        Characteristic Names
+                                             IMAGE_SCN_CNT_CODE
+                                             IMAGE_SCN_MEM_EXECUTE
+                                             IMAGE_SCN_MEM_READ
+    Section
+        Name:                            .bss
+        Virtual Size:                    0x1381720 (20453152 bytes)
+        Virtual Address:                 0x3258e0
+        Size Of Raw Data:                0 (0 bytes)
+        Pointer To Raw Data:             0
+        Number Of Relocations:           0
+        Characteristics:                 0xc8000080
+        Characteristic Names
+                                             IMAGE_SCN_CNT_UNINITIALIZED_DATA
+                                             IMAGE_SCN_MEM_NOT_PAGED
+                                             IMAGE_SCN_MEM_READ
+                                             IMAGE_SCN_MEM_WRITE

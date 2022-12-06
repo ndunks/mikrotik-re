@@ -2,6 +2,7 @@
 ## String to search in Static Analysis
 
 ```
+in init:
 Demo license expired!
 Please reinstall the router.
 ```
