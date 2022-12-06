@@ -1,0 +1,63 @@
+
+vmlinux:     file format elf64-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         00800aed  ffffffff81000000  0000000001000000  00200000  2**12
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .rodata       0011dc30  ffffffff81a00000  0000000001a00000  00c00000  2**12
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .pci_fixup    00002ee0  ffffffff81b1dc30  0000000001b1dc30  00d1dc30  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  3 __ksymtab     0000ce40  ffffffff81b20b10  0000000001b20b10  00d20b10  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 __ksymtab_gpl 0000b160  ffffffff81b2d950  0000000001b2d950  00d2d950  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  5 __ksymtab_strings 00024f7d  ffffffff81b38ab0  0000000001b38ab0  00d38ab0  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  6 __param       000034a8  ffffffff81b5da30  0000000001b5da30  00d5da30  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  7 __modver      00000210  ffffffff81b60ed8  0000000001b60ed8  00d60ed8  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  8 __ex_table    00001f08  ffffffff81b610f0  0000000001b610f0  00d610f0  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  9 .notes        00000204  ffffffff81b62ff8  0000000001b62ff8  00d62ff8  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 10 .data         000a4640  ffffffff81c00000  0000000001c00000  00e00000  2**12
+                  CONTENTS, ALLOC, LOAD, DATA
+ 11 _kprobe_blacklist 00000138  ffffffff81ca4640  0000000001ca4640  00ea4640  2**3
+                  CONTENTS, ALLOC, LOAD, DATA
+ 12 __bug_table   00008e08  ffffffff81ca4778  0000000001ca4778  00ea4778  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+ 13 .vvar         00001000  ffffffff81cae000  0000000001cae000  00eae000  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+ 14 .data..percpu 00021518  0000000000000000  0000000001caf000  01000000  2**12
+                  CONTENTS, ALLOC, LOAD, DATA
+ 15 .init.text    0003bc8f  ffffffff81cd1000  0000000001cd1000  010d1000  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .altinstr_aux 000004ea  ffffffff81d0cc8f  0000000001d0cc8f  0110cc8f  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .init.data    005403f0  ffffffff81d0e000  0000000001d0e000  0110e000  2**12
+                  CONTENTS, ALLOC, LOAD, DATA
+ 18 .x86_cpu_dev.init 00000028  ffffffff8224e3f0  000000000224e3f0  0164e3f0  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 19 .parainstructions 000000ec  ffffffff8224e418  000000000224e418  0164e418  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 20 .altinstructions 00001ad0  ffffffff8224e508  000000000224e508  0164e508  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 21 .altinstr_replacement 000007b0  ffffffff8224ffd8  000000000224ffd8  0164ffd8  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .iommu_table  000000f0  ffffffff82250788  0000000002250788  01650788  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 23 .apicdrivers  00000010  ffffffff82250878  0000000002250878  01650878  2**3
+                  CONTENTS, ALLOC, LOAD, DATA
+ 24 .exit.text    000012e3  ffffffff82250888  0000000002250888  01650888  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 25 .smp_locks    00003000  ffffffff82252000  0000000002252000  01652000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+ 26 .data_nosave  00000000  ffffffff82255000  ffffffff82255000  01655000  2**0
+                  CONTENTS
+ 27 .bss          001ab000  ffffffff82255000  0000000002255000  01655000  2**12
+                  ALLOC
+ 28 .brk          00026000  ffffffff82400000  0000000002400000  01655000  2**0
+                  ALLOC
