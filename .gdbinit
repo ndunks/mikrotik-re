@@ -6,10 +6,12 @@ focus cmd
 #b *0x7c00
 #b *0x7c3b
 #b *0x7c6c
-file mt7.6/BOOTX64.EFI
-# EFI Entrypoint
+#file mt7.6/vmlinuz
+set architecture i386:x86-64
+# Entrypoint vmlinuz
 b *0x2ffa80
 
-# Linux kernel
-#b *0x1000000
+# Entrypoint
+b *0x0000000001000000
+
 target remote :1234

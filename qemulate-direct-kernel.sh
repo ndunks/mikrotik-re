@@ -6,7 +6,7 @@ qemu-system-x86_64 \
 	-net none \
 	-serial mon:stdio \
 	-kernel mt7.6/vmlinuz \
-	-append "root=/dev/sda debug console=ttyS0 initrd=/initrd.xz init=/asdff load_ramdisk=1" \
+	-append "root=/dev/sda debug earlyprintk=ttyS0 console=ttyS0 initrd=/initrd.xz init=/asdff load_ramdisk=1" \
 	-initrd mt7.6/partition-boot/initrd.xz \
     $*
 

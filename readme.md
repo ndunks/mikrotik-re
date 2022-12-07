@@ -18,6 +18,45 @@ Please reinstall the router.
 
     Linux version 5.6.3-64 (agent@cicd-a06.mt.lv) (gcc version 11.1.0 (GCC)) #1 SMP Mon Oct 17 11:05:29 UTC 2022
 
+
+Kernel boot vmlinuz:
+
+Setup -> efi/vmlinuz -> extract -> run vmlinux -> mount ramdisk -> run init
+
+### 0. Bootloader setup realmode
+
+### 1. vmLinuz / bzImane
+
+- Structure: https://github.com/torvalds/linux/blob/v5.6/Documentation/x86/boot.rst#the-real-mode-kernel-header
+- Header code: https://github.com/torvalds/linux/blob/v5.6/arch/x86/boot/header.S
+
+### 2. Extract 
+
+Vmlinuz text section source: (head_64.S)[https://github.com/torvalds/linux/blob/v5.6/arch/x86/boot/compressed/head_64.S#L488]
+
+``` asm
+/*
+ * Do the extraction, and jump to the new kernel..
+ */
+	pushq	%rsi			/* Save the real mode argument */
+	movq	%rsi, %rdi		/* real mode address */
+	leaq	boot_heap(%rip), %rsi	/* malloc area for uncompression */
+	leaq	input_data(%rip), %rdx  /* input_data */
+	movl	$z_input_len, %ecx	/* input_len */
+	movq	%rbp, %r8		/* output target address */
+	movq	$z_output_len, %r9	/* decompressed length, end of relocs */
+	call	extract_kernel		/* returns kernel location in %rax */
+	popq	%rsi
+```
+
+
+### 3. Run vmlinux/ELF in protected mode
+
+- Switch to protected mode: https://elixir.bootlin.com/linux/v5.6.3/source/arch/x86/boot/pm.c#L102
+
+
+
+
 - https://docs.kernel.org/admin-guide/efi-stub.html
 - https://github.com/torvalds/linux/blob/v5.6/arch/x86/boot/compressed/head_32.S
 - https://github.com/torvalds/linux/blob/v5.6/arch/x86/boot/compressed/eboot.c

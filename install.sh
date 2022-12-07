@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Run this script to install Mikrotik to disk.img
+
+# Create disk.img if not exist
 if [ ! -f disk.img ]; then
     SIZE="128"
     echo "Creating disk.img ($SIZE MiB)"
@@ -7,6 +10,7 @@ if [ ! -f disk.img ]; then
     #qemu-img create -f qcow2 disk.qcow2 ${SIZE}M
 fi
 
+# Run emulator with installer cd
 qemu-system-x86_64 \
 	-m 128 \
 	-smp 1 \
