@@ -54,9 +54,17 @@ Vmlinuz text section source: (head_64.S)[https://github.com/torvalds/linux/blob/
 
 - Switch to protected mode: https://elixir.bootlin.com/linux/v5.6.3/source/arch/x86/boot/pm.c#L102
 
+## HDD Serial Number
+
+https://forums.tomshardware.com/threads/where-is-hdd-serial-number-stored-and-how-to-access.663413/
+
+The drive's model number, serial number, capacity, feature set, etc are returned in a 512-byte information block in response to an ATA Identify Device command.
+
+Working Draft AT Attachment 8 - ATA/ATAPI Command Set (ATA8-ACS):
+http://www.t13.org/documents/UploadedDocuments/docs2008/D1699r6a-ATA8-ACS.pdf
 
 
-
+## Other Refs
 - https://docs.kernel.org/admin-guide/efi-stub.html
 - https://github.com/torvalds/linux/blob/v5.6/arch/x86/boot/compressed/head_32.S
 - https://github.com/torvalds/linux/blob/v5.6/arch/x86/boot/compressed/eboot.c

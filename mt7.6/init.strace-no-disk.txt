@@ -1,0 +1,66 @@
+execve("./init.ori", ["./init.ori"], [/* 3 vars */]) = 0
+[ Process PID=69 runs in 32 bit mode. ]
+set_thread_area(0x7fff0f88)             = 0
+set_tid_address(0x8071cb8)              = 69
+brk(0)                                  = 0x8072000
+brk(0x8073000[   11.630076] random: fast init done
+)                          = 0x8073000
+open("/ram/rosmode", O_RDONLY|O_LARGEFILE) = -1 ENOENT (No such file or directory)
+open("/dev/jiffies", O_RDONLY|O_LARGEFILE) = -1 ENOENT (No such file or directory)
+open("/proc/meminfo", O_RDONLY|O_LARGEFILE) = 3
+readv(3, [{"", 0}, {"MemTotal:          66228 kB\nMemF"..., 1024}], 2) = 1024
+brk(0x8076000)                          = 0x8076000
+sigaltstack({ss_sp=0x80728e0, ss_flags=0x2000 /* SS_??? */, ss_size=578344817017225216}, NULL) = 0
+_llseek(3, -1000, [24], SEEK_CUR)       = 0
+close(3)                                = 0
+rt_sigprocmask(SIG_UNBLOCK, [RT_1 RT_2], NULL, 8) = 0
+rt_sigaction(SIGSEGV, {0x805d584, [], SA_STACK|SA_RESTART|SA_NODEFER|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGILL, {0x805d584, [], SA_STACK|SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGABRT, {0x805d584, [], SA_STACK|SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGBUS, {0x805d584, [], SA_STACK|SA_RESTART|SA_NODEFER|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGFPE, {0x805d584, [], SA_STACK|SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGUSR2, {0x805d584, [], SA_STACK|SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGTRAP, {0x805d584, [], SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+reboot(LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, LINUX_REBOOT_CMD_CAD_OFF) = 0
+pipe([3, 4])                            = 0
+fcntl64(3, F_SETFL, O_RDONLY|O_NONBLOCK|O_LARGEFILE) = 0
+fcntl64(4, F_SETFL, O_RDONLY|O_NONBLOCK|O_LARGEFILE) = 0
+rt_sigaction(SIGINT, {0x80564a7, [], SA_RESTART|SA_SIGINFO|SA_NOCLDSTOP}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGWINCH, {0x80564a7, [], SA_RESTART|SA_SIGINFO|SA_NOCLDSTOP}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGUSR1, {0x80564a7, [], SA_RESTART|SA_SIGINFO|SA_NOCLDSTOP}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGUSR2, {0x80564a7, [], SA_RESTART|SA_SIGINFO|SA_NOCLDSTOP}, {0x805d584, [], SA_STACK|SA_RESTART|SA_SIGINFO}, 8) = 0
+rt_sigaction(SIGPIPE, {0x80564a7, [], SA_RESTART|SA_SIGINFO|SA_NOCLDSTOP}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGCHLD, {0x80564a7, [], SA_RESTART|SA_SIGINFO|SA_NOCLDSTOP}, {SIG_DFL, [], 0}, 8) = 0
+mkdir("/proc", 0755)                    = -1 EEXIST (File exists)
+mount("proc", "/proc", "proc", 0, NULL) = -1 EBUSY (Device or resource busy)
+mkdir("/ram", 0755)                     = 0
+mount("tmpfs", "/ram", "tmpfs", 0, NULL) = 0
+mkdir("/dev", 0755)                     = -1 EEXIST (File exists)
+mount("devtmpfs", "/dev", "devtmpfs", 0, NULL) = 0
+mkdir("/flash", 0755)                   = 0
+symlink("/system/bin", "/bin")          = -1 EEXIST (File exists)
+symlink("/system/sbin", "/sbin")        = 0
+symlink("/system/lib", "/lib")          = 0
+open("/ramroot", O_RDONLY|O_LARGEFILE)  = -1 ENOENT (No such file or directory)
+mkdir("/sys", 0755)                     = -1 EEXIST (File exists)
+mount("sysfs", "/sys", "sysfs", 0, NULL) = -1 EBUSY (Device or resource busy)
+open("/sys/block", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 5
+fcntl64(5, F_SETFD, FD_CLOEXEC)         = 0
+getdents64(5, /* 4 entries */, 2048)    = 104
+getdents64(5, /* 0 entries */, 2048)    = 0
+close(5)                                = 0
+poll(0, 0, 1000)                        = 0 (Timeout)
+open("/sys/block", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 5
+fcntl64(5, F_SETFD, FD_CLOEXEC)         = 0
+getdents64(5, /* 4 entries */, 2048)    = 104
+getdents64(5, /* 0 entries */, 2048)    = 0
+close(5)                                = 0
+
+..... polling repeats .....
+
+poll(0, 0, 1000)                        = 0 (Timeout)
+ioctl(1, SNDCTL_TMR_TIMEBASE or SNDRV_TIMER_IOCTL_NEXT_DEVICE or TCGETS, {B115200 opost isig icanon echo ...}) = 0
+writev(1, [{"ERROR: could not find disk!", 27}, {"\n", 1}], 2ERROR: could not find disk!
+) = 28
+writev(1, [{"Please attach it somewhere else.", 32}, {"\n", 1}], 2Please attach it somewhere else.
+) = 33

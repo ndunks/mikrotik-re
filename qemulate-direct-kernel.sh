@@ -3,12 +3,23 @@
 qemu-system-x86_64 \
 	-m 128 \
 	-smp 1 \
-	-net none \
 	-serial mon:stdio \
 	-kernel mt7.6/vmlinuz \
-	-append "root=/dev/sda debug earlyprintk=ttyS0 console=ttyS0 initrd=/initrd.xz init=/asdff load_ramdisk=1" \
-	-initrd mt7.6/partition-boot/initrd.xz \
-    $*
+	-nographic \
+	-append "debug earlyprintk=ttyS0 console=ttyS0" \
+	-initrd mt7.6/partition-boot/initrd.cpio \
+	-drive format=raw,file=disk.img \
+     $*
+
+# qemu-system-x86_64 \
+# 	-m 128 \
+# 	-smp 1 \
+# 	-net none \
+# 	-serial mon:stdio \
+# 	-kernel mt7.6/vmlinuz \
+# 	-append "root=/dev/ram0 load_ramdisk=1 debug earlyprintk=ttyS0 console=ttyS0" \
+# 	-initrd /rifin/app/linux-5.6.3/usr/initramfs_data.cpio \
+#     $*
 
 #	-drive format=raw,file=disk.img \
     # -bios /usr/share/ovmf/OVMF.fd \

@@ -1,0 +1,201 @@
+execve("./init.ori", ["./init.ori"], [/* 3 vars */]) = 0
+[ Process PID=69 runs in 32 bit mode. ]
+set_thread_area(0x7fff0f88)             = 0
+set_tid_address(0x8071cb8)              = 69
+brk(0)                                  = 0x8072000
+brk(0x8073000[   11.630076] random: fast init done
+)                          = 0x8073000
+open("/ram/rosmode", O_RDONLY|O_LARGEFILE) = -1 ENOENT (No such file or directory)
+open("/dev/jiffies", O_RDONLY|O_LARGEFILE) = -1 ENOENT (No such file or directory)
+open("/proc/meminfo", O_RDONLY|O_LARGEFILE) = 3
+readv(3, [{"", 0}, {"MemTotal:          66228 kB\nMemF"..., 1024}], 2) = 1024
+brk(0x8076000)                          = 0x8076000
+sigaltstack({ss_sp=0x80728e0, ss_flags=0x2000 /* SS_??? */, ss_size=578344817017225216}, NULL) = 0
+_llseek(3, -1000, [24], SEEK_CUR)       = 0
+close(3)                                = 0
+rt_sigprocmask(SIG_UNBLOCK, [RT_1 RT_2], NULL, 8) = 0
+rt_sigaction(SIGSEGV, {0x805d584, [], SA_STACK|SA_RESTART|SA_NODEFER|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGILL, {0x805d584, [], SA_STACK|SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGABRT, {0x805d584, [], SA_STACK|SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGBUS, {0x805d584, [], SA_STACK|SA_RESTART|SA_NODEFER|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGFPE, {0x805d584, [], SA_STACK|SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGUSR2, {0x805d584, [], SA_STACK|SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+rt_sigaction(SIGTRAP, {0x805d584, [], SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+reboot(LINUX_REBOOT_MAGIC1, LINUX_REBOOT_MAGIC2, LINUX_REBOOT_CMD_CAD_OFF) = 0
+pipe([3, 4])                            = 0
+fcntl64(3, F_SETFL, O_RDONLY|O_NONBLOCK|O_LARGEFILE) = 0
+fcntl64(4, F_SETFL, O_RDONLY|O_NONBLOCK|O_LARGEFILE) = 0
+rt_sigaction(SIGINT, {0x80564a7, [], SA_RESTART|SA_SIGINFO|SA_NOCLDSTOP}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGWINCH, {0x80564a7, [], SA_RESTART|SA_SIGINFO|SA_NOCLDSTOP}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGUSR1, {0x80564a7, [], SA_RESTART|SA_SIGINFO|SA_NOCLDSTOP}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGUSR2, {0x80564a7, [], SA_RESTART|SA_SIGINFO|SA_NOCLDSTOP}, {0x805d584, [], SA_STACK|SA_RESTART|SA_SIGINFO}, 8) = 0
+rt_sigaction(SIGPIPE, {0x80564a7, [], SA_RESTART|SA_SIGINFO|SA_NOCLDSTOP}, {SIG_DFL, [], 0}, 8) = 0
+rt_sigaction(SIGCHLD, {0x80564a7, [], SA_RESTART|SA_SIGINFO|SA_NOCLDSTOP}, {SIG_DFL, [], 0}, 8) = 0
+mkdir("/proc", 0755)                    = -1 EEXIST (File exists)
+mount("proc", "/proc", "proc", 0, NULL) = -1 EBUSY (Device or resource busy)
+mkdir("/ram", 0755)                     = 0
+mount("tmpfs", "/ram", "tmpfs", 0, NULL) = 0
+mkdir("/dev", 0755)                     = -1 EEXIST (File exists)
+mount("devtmpfs", "/dev", "devtmpfs", 0, NULL) = 0
+mkdir("/flash", 0755)                   = 0
+symlink("/system/bin", "/bin")          = -1 EEXIST (File exists)
+symlink("/system/sbin", "/sbin")        = 0
+symlink("/system/lib", "/lib")          = 0
+open("/ramroot", O_RDONLY|O_LARGEFILE)  = -1 ENOENT (No such file or directory)
+mkdir("/sys", 0755)                     = -1 EEXIST (File exists)
+mount("sysfs", "/sys", "sysfs", 0, NULL) = -1 EBUSY (Device or resource busy)
+open("/sys/block", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 5
+fcntl64(5, F_SETFD, FD_CLOEXEC)         = 0
+getdents64(5, /* 5 entries */, 2048)    = 128
+open("/dev/sda", O_RDONLY|O_LARGEFILE)  = 6
+read(6, "\3721\300\216\320\274\0|\211\346P\7P\37\373\374\277\0\6\271\0\1\362\245\352\35\6\0\0\276\276\7"..., 512) = 512
+close(6)                                = 0
+close(5)                                = 0
+mount("/dev/sda2", "/flash", "ext3", MS_RDONLY|MS_NOATIME, NULL[   13.449647] EXT4-fs (sda2): mounting ext3 file system using the ext4 subsystem
+[   13.455456] EXT4-fs (sda2): INFO: recovery required on readonly filesystem
+[   13.455754] EXT4-fs (sda2): write access will be enabled during recovery
+[   13.471202] EXT4-fs (sda2): recovery complete
+[   13.478138] EXT4-fs (sda2): mounted filesystem with ordered data mode. Opts: (null)
+) = 0
+symlink("/dev/sda", "/dev/root-disk")   = 0
+open("/flash/MANIFEST", O_RDONLY|O_LARGEFILE) = -1 ENOENT (No such file or directory)
+open("/flash/var/pdb", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 5
+fcntl64(5, F_SETFD, FD_CLOEXEC)         = 0
+getdents64(5, /* 3 entries */, 2048)    = 80
+open("/flash/var/pdb/system/image", O_RDONLY|O_LARGEFILE) = 6
+read(6, "\36\361\320\272\206c\25\1\31\0\0\0\0\0\1\0$\0\0\0system\0\0\0\0\0\0"..., 240) = 240
+
+..... read repeats .....
+
+read(6, "\t\0\204\0\0\0\330\320x\216 \10?\23\26ax\370b4\352\266\314\345U\216\2535#\236\217\374"..., 240) = 145
+brk(0x8077000)                          = 0x8077000
+read(6, "", 240)                        = 0
+close(6)                                = 0
+getdents64(5, /* 0 entries */, 2048)    = 0
+close(5)                                = 0
+mkdir("/system", 0755)                  = 0
+mkdir("/system", 0755)                  = -1 EEXIST (File exists)
+open("/dev/loop-control", O_RDONLY|O_LARGEFILE) = 5
+ioctl(5, LOOP_CTL_GET_FREE)             = 0
+open("/dev/loop0", O_RDONLY|O_LARGEFILE) = 6
+open("/flash/var/pdb/system/image", O_RDONLY|O_LARGEFILE) = 7
+ioctl(6, LOOP_SET_FD, 0x7)              = 0
+ioctl(6, LOOP_SET_STATUS, {number=0, offset=0x616c662f, encrypt_type=0x762f6873 /* LO_CRYPT_??? */, encrypt_key_size=1882157665, flags=LO_FLAGS_AUTOCLEAR|0x732f6260, name="ystem/image", encrypt_key="\0\0\0\0\0\0\0\0\0\0\00
+mount("/dev/loop0", "/system", "squashfs", MS_RDONLY, NULL) = 0
+close(7)                                = 0
+close(6)                                = 0
+mount("/ram", "/system/ram", 0x806a21d, MS_MOVE, NULL) = 0
+mkdir("/system/sys", 0755)              = -1 EEXIST (File exists)
+mount("sysfs", "/system/sys", "sysfs", 0, NULL) = 0
+mount("debugfs", "/system/sys/kernel/debug", "debugfs", 0, NULL) = -1 ENOENT (No such file or directory)
+mount("configfs", "/system/sys/kernel/config", "configfs", 0, NULL) = 0
+open("/system/ram/mounted", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE, 0655) = 6
+close(6)                                = 0
+mkdir("/system/ram/pckg", 0755)         = 0
+mount("/flash", "/system/flash", 0x806a21d, MS_MOVE, NULL) = 0
+rmdir("/flash")                         = 0
+symlink("/system/flash", "/flash")      = 0
+symlink("/system/ram/pckg", "/pckg")    = 0
+symlink("/system/bndl", "/bndl")        = 0
+mount("/dev", "/system/dev", 0x806a21d, MS_MOVE, NULL) = 0
+mkdir("/system/dev/pts", 0777)          = 0
+mount("devpts", "/system/dev/pts", "devpts", 0, NULL) = 0
+symlink("/rw/log", "/system/dev/log")   = 0
+symlink("/proc/self/fd", "/system/dev/fd") = 0
+symlink("/ram/ptmx", "/system/dev/ptmx") = -1 EEXIST (File exists)
+mount("/proc", "/system/proc", 0x806a21d, MS_MOVE, NULL) = 0
+rt_sigprocmask(SIG_BLOCK, ~[], [], 8)   = 0
+fork()                                  = 74
+rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+wait4(74, No errors found.
+
+[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 74
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=74, si_status=0, si_utime=2, si_stime=21} ---
+write(4, "\21\0\0\0", 4)                = 4
+rt_sigreturn()                          = 74
+mount("rootfs", "/system/flash", 0x806a0da, MS_REMOUNT|MS_NOATIME, NULL[   24.141854] EXT4-fs (sda2): re-mounted. Opts: (null)
+[   24.142407] ext3 filesystem being remounted at /system/flash supports timestamps until 2038 (0x7fffffff)
+) = 0
+mount("/system/dev/sda1", "/system/flash/boot", "vfat", MS_NOATIME, NULL[   24.149569] FAT-fs (sda1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+) = 0
+unlink("/system/flash/.fsck")           = -1 ENOENT (No such file or directory)
+open("/system/flash/.asked", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE, 0666) = 6
+close(6)                                = 0
+open("/system/proc/meminfo", O_RDONLY|O_LARGEFILE) = 6
+readv(6, [{"", 0}, {"MemTotal:          66228 kB\nMemF"..., 1024}], 2) = 1024
+_llseek(6, -996, [28], SEEK_CUR)        = 0
+close(6)                                = 0
+open("/system/bndl", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 6
+fcntl64(6, F_SETFD, FD_CLOEXEC)         = 0
+getdents64(6, /* 10 entries */, 2048)   = 280
+symlink("/bndl/advanced-tools", "/system/ram/pckg/advanced-tools") = 0
+symlink("/bndl/dhcp", "/system/ram/pckg/dhcp") = 0
+symlink("/bndl/hotspot", "/system/ram/pckg/hotspot") = 0
+symlink("/bndl/ipv6", "/system/ram/pckg/ipv6") = 0
+symlink("/bndl/ppp", "/system/ram/pckg/ppp") = 0
+symlink("/bndl/security", "/system/ram/pckg/security") = 0
+symlink("/bndl/ups", "/system/ram/pckg/ups") = 0
+symlink("/bndl/wireless", "/system/ram/pckg/wireless") = 0
+getdents64(6, /* 0 entries */, 2048)    = 0
+close(6)                                = 0
+mkdir("/system/flash/rw", 0755)         = -1 EEXIST (File exists)
+mkdir("/system/flash/rw/disk", 0755)    = -1 EEXIST (File exists)
+symlink("/rw/disk", "/system/flash/rw/pckg") = -1 EEXIST (File exists)
+open("/system/sys/bus/acpi/devices/LNXPWRBN:00/input/", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 6
+fcntl64(6, F_SETFD, FD_CLOEXEC)         = 0
+getdents64(6, /* 3 entries */, 2048)    = 80
+getdents64(6, /* 0 entries */, 2048)    = 0
+close(6)                                = 0
+open("/system/sys/bus/acpi/devices/LNXPWRBN:00/input//input0", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 6
+fcntl64(6, F_SETFD, FD_CLOEXEC)         = 0
+getdents64(6, /* 14 entries */, 2048)   = 400
+getdents64(6, /* 0 entries */, 2048)    = 0
+close(6)                                = 0
+open("/system/dev/input/event0", O_RDONLY|O_LARGEFILE) = 6
+open("/pckg", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 7
+fcntl64(7, F_SETFD, FD_CLOEXEC)         = 0
+getdents64(7, /* 10 entries */, 2048)   = 280
+stat64("/pckg/wireless/sbin", 0x7fc19920) = -1 ENOENT (No such file or directory)
+stat64("/pckg/ups/sbin", 0x7fc19920)    = -1 ENOENT (No such file or directory)
+stat64("/pckg/security/sbin", 0x7fc19920) = -1 ENOENT (No such file or directory)
+stat64("/pckg/ppp/sbin", 0x7fc19920)    = -1 ENOENT (No such file or directory)
+stat64("/pckg/ipv6/sbin", 0x7fc19920)   = -1 ENOENT (No such file or directory)
+stat64("/pckg/hotspot/sbin", 0x7fc19920) = -1 ENOENT (No such file or directory)
+stat64("/pckg/dhcp/sbin", 0x7fc19920)   = -1 ENOENT (No such file or directory)
+stat64("/pckg/advanced-tools/sbin", 0x7fc19920) = -1 ENOENT (No such file or directory)
+getdents64(7, /* 0 entries */, 2048)    = 0
+close(7)                                = 0
+stat64("/sbin", {st_mode=S_IFDIR|0755, st_size=121, ...}) = 0
+open("/pckg", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 7
+fcntl64(7, F_SETFD, FD_CLOEXEC)         = 0
+getdents64(7, /* 10 entries */, 2048)   = 280
+stat64("/pckg/wireless/bin", 0x7fc19920) = -1 ENOENT (No such file or directory)
+stat64("/pckg/ups/bin", 0x7fc19920)     = -1 ENOENT (No such file or directory)
+stat64("/pckg/security/bin", 0x7fc19920) = -1 ENOENT (No such file or directory)
+stat64("/pckg/ppp/bin", 0x7fc19920)     = -1 ENOENT (No such file or directory)
+stat64("/pckg/ipv6/bin", 0x7fc19920)    = -1 ENOENT (No such file or directory)
+stat64("/pckg/hotspot/bin", 0x7fc19920) = -1 ENOENT (No such file or directory)
+stat64("/pckg/dhcp/bin", 0x7fc19920)    = -1 ENOENT (No such file or directory)
+stat64("/pckg/advanced-tools/bin", 0x7fc19920) = -1 ENOENT (No such file or directory)
+getdents64(7, /* 0 entries */, 2048)    = 0
+close(7)                                = 0
+stat64("/bin", {st_mode=S_IFDIR|0755, st_size=8080, ...}) = 0
+open("/pckg", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 7
+fcntl64(7, F_SETFD, FD_CLOEXEC)         = 0
+getdents64(7, /* 10 entries */, 2048)   = 280
+stat64("/pckg/wireless/lib", {st_mode=S_IFDIR|0755, st_size=46, ...}) = 0
+statfs("/pckg/wireless/lib", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=7599595017440817199, f_frsize0
+stat64("/pckg/ups/lib", 0x7fc19920)     = -1 ENOENT (No such file or directory)
+stat64("/pckg/security/lib", {st_mode=S_IFDIR|0755, st_size=30, ...}) = 0
+statfs("/pckg/security/lib", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=7310238741382262831, f_frsize0
+stat64("/pckg/ppp/lib", {st_mode=S_IFDIR|0755, st_size=30, ...}) = 0
+statfs("/pckg/ppp/lib", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=8102027850869338159, f_frsize=77950
+stat64("/pckg/ipv6/lib", 0x7fc19920)    = -1 ENOENT (No such file or directory)
+stat64("/pckg/hotspot/lib", {st_mode=S_IFDIR|0755, st_size=30, ...}) = 0
+statfs("/pckg/hotspot/lib", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=8027718457017724975, f_frsize=0
+stat64("/pckg/dhcp/lib", {st_mode=S_IFDIR|0755, st_size=34, ...}) = 0
+statfs("/pckg/dhcp/lib", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=7522189398845386799, f_frsize=7560
+stat64("/pckg/advanced-tools/lib", 0x7fc19920) = -1 ENOENT (No such file or directory)
+getdents64(7, /* 0 entries */, 2048)    = 0
+MikroTik 7.6 (stable)
+MikroTik Login:
