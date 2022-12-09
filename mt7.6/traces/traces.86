@@ -1,0 +1,5 @@
+[77eced89] gettid()                     = 86
+[77eced89] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[77eced89] execve("/pckg/devtools/nova/bin/collect-rtrace", ["/pckg/devtools/nova/bin/collect-rtrace", "startup", "/rw/disk/rtrace-startup-rule"], ["SHLVL=3", "TERM=vt100", "PWD=/", "arch=i386", "PATH=/sbin:/bin", "LD_LIBRARY_PATH=/pckg/wireless/lib:/pckg/security/lib:/pckg/ppp/lib:/pckg/hotspot/lib:/pckg/dhcp/lib:/lib"]) = -1 ENOENT (No such file or directory)
+[77eced89] exit_group(127)              = ?
+[????????????????] +++ exited with 127 +++

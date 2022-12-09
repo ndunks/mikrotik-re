@@ -1,0 +1,633 @@
+[77fc2d89] gettid()                     = 91
+[77fc2d89] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[77ff6acb] write(1, "run\n", 4)         = 4
+[77fc2d89] pipe([5, 6])                 = 0
+[77fc2d89] fcntl64(5, F_SETFL, O_RDONLY|O_NONBLOCK|O_LARGEFILE) = 0
+[77fc2d89] fcntl64(6, F_SETFL, O_RDONLY|O_NONBLOCK|O_LARGEFILE) = 0
+[77fc2d89] rt_sigaction(SIGTERM, {0x77f90cfc, [], SA_RESTART|SA_SIGINFO|SA_NOCLDSTOP}, {SIG_DFL, [], 0}, 8) = 0
+[77fc2d89] rt_sigaction(SIGHUP, {0x77f90cfc, [], SA_RESTART|SA_SIGINFO|SA_NOCLDSTOP}, {SIG_DFL, [], 0}, 8) = 0
+[77fc2d89] times(NULL)                  = -27740
+[77fc2d89] times(NULL)                  = -27740
+[77fc2d89] mkdir("/ram/rtrace", 0777)   = -1 EEXIST (File exists)
+[77ff6acb] open("/ram/rtrace/control", O_RDWR|O_CREAT|O_LARGEFILE, 0666) = 7
+[77fc2d89] ftruncate64(7, 4096)         = 0
+[77fc2d89] mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_POPULATE, 7, 0) = 0x77f26000
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}], 2, 4294967295) = 1 ([{fd=4, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27739
+[77fc2d89] times(NULL)                  = -27739
+[77ff6acb] accept4(4, 0, NULL, 0)       = 8
+[77fc2d89] times(NULL)                  = -27739
+[77fc2d89] times(NULL)                  = -27739
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN|POLLHUP}])
+[77fc2d89] times(NULL)                  = -27739
+[77fc2d89] times(NULL)                  = -27739
+[77ff6acb] read(8, "", 65664)           = 0
+[77ff6acb] close(8)                     = 0
+[77fc2d89] times(NULL)                  = -27738
+[77fc2d89] times(NULL)                  = -27738
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}], 2, 4294967295) = 1 ([{fd=4, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27713
+[77fc2d89] times(NULL)                  = -27713
+[77ff6acb] accept4(4, 0, NULL, 0)       = 8
+[77fc2d89] times(NULL)                  = -27713
+[77fc2d89] times(NULL)                  = -27712
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27712
+[77fc2d89] times(NULL)                  = -27712
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0scheduler", 65664) = 21
+[77ff6acb] writev(8, [{"(\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27712
+[77fc2d89] times(NULL)                  = -27712
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27711
+[77fc2d89] times(NULL)                  = -27711
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0net/devices", 65664) = 23
+[77ff6acb] writev(8, [{"0\4\0\0\0\0\0\0\20\0\0\0", 12}, {"\1\0\0\0", 4}], 2) = 16
+[77fc2d89] times(NULL)                  = -27711
+[77fc2d89] times(NULL)                  = -27711
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27711
+[77fc2d89] times(NULL)                  = -27711
+[77ff6acb] read(8, "\1\0\0\0000\4\0\0\1\0\0\0\10\4\0\0", 65664) = 16
+[77ff6acb] preadv(3, [{"M2h\0\1\1\1\0\376\t\1\1\0\1\t\1\2\0\1\10o\"\4\0\f\0\1\10\374\377\377\377;\0\1\t\0\6\0\1!\6ether1\20\0\1!\f0000:00:03.00\0\1!\02152:54:00:12:34:56\t\0\1!\02152:54:00:12:34:56\10\0\1)\222M2\f\4\0\210\5\0\0\0\0\0\1\0\0\0\2\0\0\0\3\0\0\0\5\0\0\0\364\3\0\1\0\4\0\0\r\0\1\0\n\0\376\0\363\3\0\1\370\3\0\t\0\371\3\0\t\0\372\3\0\t\0\7\4\0\t\0\10\4\0\t\0.\0\1\t\1d\0\1\10\334\5\0\0\352\3\0\t\1\26\4\0\t\0\30\4\0\t\5\27\4\0\t\1\31\4\0\10,\1\0\0\362\3\0\t\2\365\3\0\t\2\4\4\0001\6RT\0\0224V\351\3\0001\6RT\0\0224V", 260}], 1, 8406) = 260
+[77ff6acb] write(8, "0\4\0\0\1\0\0\0\4\1\0\0M2h\0\1\1\1\0\376\t\1\1\0\1\t\1\2\0\1\10o\"\4\0\f\0\1\10\374\377\377\377;\0\1\t\0\6\0\1!\6ether1\20\0\1!\f0000:00:03.00\0\1!\02152:54:00:12:34:56\t\0\1!\02152:54:00:12:34:56\10\0\1)\222M2\f\4\0\210\5\0\0\0\0\0\1\0\0\0\2\0\0\0\3\0\0\0\5\0\0\0\364\3\0\1\0\4\0\0\r\0\1\0\n\0\376\0\363\3\0\1\370\3\0\t\0\371\3\0\t\0\372\3\0\t\0\7\4\0\t\0\10\4\0\t\0.\0\1\t\1d\0\1\10\334\5\0\0\352\3\0\t\1\26\4\0\t\0\30\4\0\t\5\27\4\0\t\1\31\4\0\10,\1\0\0\362\3\0\t\2\365\3\0\t\2\4\4\0001\6RT\0\0224V\351\3\0001\6RT\0\0224V", 272) = 272
+[77fc2d89] times(NULL)                  = -27710
+[77fc2d89] times(NULL)                  = -27710
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN|POLLHUP}])
+[77fc2d89] times(NULL)                  = -27710
+[77fc2d89] times(NULL)                  = -27709
+[77ff6acb] read(8, "", 65664)           = 0
+[77ff6acb] close(8)                     = 0
+[77fc2d89] times(NULL)                  = -27709
+[77fc2d89] times(NULL)                  = -27709
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}], 2, 4294967295) = 1 ([{fd=4, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27601
+[77fc2d89] times(NULL)                  = -27601
+[77ff6acb] accept4(4, 0, NULL, 0)       = 8
+[77fc2d89] times(NULL)                  = -27601
+[77fc2d89] times(NULL)                  = -27601
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27601
+[77fc2d89] times(NULL)                  = -27601
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0ipsec/policy", 65664) = 24
+[77ff6acb] writev(8, [{"K\4\0\0\0\0\0\0\24\0\0\0", 12}, {"\377\377\377\0\376\377\377\377", 8}], 2) = 20
+[77fc2d89] times(NULL)                  = -27601
+[77fc2d89] times(NULL)                  = -27601
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27600
+[77fc2d89] times(NULL)                  = -27600
+[77ff6acb] read(8, "\1\0\0\0K\4\0\0\377\377\377\0\10\4\0\0", 65664) = 16
+[77ff6acb] preadv(3, [{"M2\34\0\0\1\n\0\376\0\33\0\0\t\2\7\0\0\t\377\17\0\0\t\0\1\0\376\10\377\377\377\0\26\0\0\t\0\30\0\0\t\0\5\0\376\10\377\377\377\377\t\0\376!\0\27\0\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\25\0\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 96}], 1, 10676) = 96
+[77ff6acb] preadv(3, [{"M2\1\0\376\10\376\377\377\377\5\0\376\10\377\377\377\0", 18}], 1, 10784) = 18
+[77ff6acb] write(8, "K\4\0\0\377\377\377\0`\0\0\0M2\34\0\0\1\n\0\376\0\33\0\0\t\2\7\0\0\t\377\17\0\0\t\0\1\0\376\10\377\377\377\0\26\0\0\t\0\30\0\0\t\0\5\0\376\10\377\377\377\377\t\0\376!\0\27\0\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\25\0\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0K\4\0\0\376\377\377\377\22\0\0\0M2\1\0\376\10\376\377\377\377\5\0\376\10\377\377\377\0", 138) = 138
+[77fc2d89] times(NULL)                  = -27600
+[77fc2d89] times(NULL)                  = -27600
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27599
+[77fc2d89] times(NULL)                  = -27599
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0ipsec/peer", 65664) = 22
+[77ff6acb] writev(8, [{"L\4\0\0\0\0\0\0\20\0\0\0", 12}, {"\376\377\377\377", 4}], 2) = 16
+[77fc2d89] times(NULL)                  = -27599
+[77fc2d89] times(NULL)                  = -27599
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27599
+[77fc2d89] times(NULL)                  = -27599
+[77ff6acb] read(8, "\1\0\0\0L\4\0\0\376\377\377\377\10\4\0\0", 65664) = 16
+[77ff6acb] preadv(3, [{"M2\1\0\376\10\376\377\377\377\5\0\376\10\377\377\377\377", 18}], 1, 10445) = 18
+[77ff6acb] write(8, "L\4\0\0\376\377\377\377\22\0\0\0M2\1\0\376\10\376\377\377\377\5\0\376\10\377\377\377\377", 30) = 30
+[77fc2d89] times(NULL)                  = -27596
+[77fc2d89] times(NULL)                  = -27596
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27595
+[77fc2d89] times(NULL)                  = -27595
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0net/devices", 65664) = 23
+[77ff6acb] writev(8, [{"0\4\0\0\0\0\0\0\20\0\0\0", 12}, {"\1\0\0\0", 4}], 2) = 16
+[77fc2d89] times(NULL)                  = -27594
+[77fc2d89] times(NULL)                  = -27594
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27594
+[77fc2d89] times(NULL)                  = -27594
+[77ff6acb] read(8, "\1\0\0\0000\4\0\0\1\0\0\0\10\4\0\0", 65664) = 16
+[77ff6acb] preadv(3, [{"M2h\0\1\1\1\0\376\t\1\1\0\1\t\1\2\0\1\10o\"\4\0\f\0\1\10\374\377\377\377;\0\1\t\0\6\0\1!\6ether1\20\0\1!\f0000:00:03.00\0\1!\02152:54:00:12:34:56\t\0\1!\02152:54:00:12:34:56\10\0\1)\222M2\f\4\0\210\5\0\0\0\0\0\1\0\0\0\2\0\0\0\3\0\0\0\5\0\0\0\364\3\0\1\0\4\0\0\r\0\1\0\n\0\376\0\363\3\0\1\370\3\0\t\0\371\3\0\t\0\372\3\0\t\0\7\4\0\t\0\10\4\0\t\0.\0\1\t\1d\0\1\10\334\5\0\0\352\3\0\t\1\26\4\0\t\0\30\4\0\t\5\27\4\0\t\1\31\4\0\10,\1\0\0\362\3\0\t\2\365\3\0\t\2\4\4\0001\6RT\0\0224V\351\3\0001\6RT\0\0224V", 260}], 1, 8406) = 260
+[77ff6acb] write(8, "0\4\0\0\1\0\0\0\4\1\0\0M2h\0\1\1\1\0\376\t\1\1\0\1\t\1\2\0\1\10o\"\4\0\f\0\1\10\374\377\377\377;\0\1\t\0\6\0\1!\6ether1\20\0\1!\f0000:00:03.00\0\1!\02152:54:00:12:34:56\t\0\1!\02152:54:00:12:34:56\10\0\1)\222M2\f\4\0\210\5\0\0\0\0\0\1\0\0\0\2\0\0\0\3\0\0\0\5\0\0\0\364\3\0\1\0\4\0\0\r\0\1\0\n\0\376\0\363\3\0\1\370\3\0\t\0\371\3\0\t\0\372\3\0\t\0\7\4\0\t\0\10\4\0\t\0.\0\1\t\1d\0\1\10\334\5\0\0\352\3\0\t\1\26\4\0\t\0\30\4\0\t\5\27\4\0\t\1\31\4\0\10,\1\0\0\362\3\0\t\2\365\3\0\t\2\4\4\0001\6RT\0\0224V\351\3\0001\6RT\0\0224V", 272) = 272
+[77fc2d89] times(NULL)                  = -27593
+[77fc2d89] times(NULL)                  = -27593
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27593
+[77fc2d89] times(NULL)                  = -27593
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0pptp/server", 65664) = 23
+[77ff6acb] writev(8, [{")\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27593
+[77fc2d89] times(NULL)                  = -27593
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27593
+[77fc2d89] times(NULL)                  = -27593
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0pppoe-services", 65664) = 26
+[77ff6acb] writev(8, [{"*\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27592
+[77fc2d89] times(NULL)                  = -27592
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27592
+[77fc2d89] times(NULL)                  = -27592
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0l2tp/server", 65664) = 23
+[77ff6acb] writev(8, [{"+\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27592
+[77fc2d89] times(NULL)                  = -27591
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27591
+[77fc2d89] times(NULL)                  = -27591
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0ovpn/server", 65664) = 23
+[77ff6acb] writev(8, [{"P\4\0\0\0\0\0\0\20\0\0\0", 12}, {"\0\0\0\0", 4}], 2) = 16
+[77fc2d89] times(NULL)                  = -27591
+[77fc2d89] times(NULL)                  = -27591
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27591
+[77fc2d89] times(NULL)                  = -27591
+[77ff6acb] read(8, "\1\0\0\0P\4\0\0\0\0\0\0\10\4\0\0", 65664) = 16
+[77ff6acb] preadv(3, [{"M2\322\0\0\0\310\0\0\0\312\0\0\10\334\5\0\0\314\0\0\t\0\315\0\0\t\0\316\0\0\10\377\377\377\0\320\0\0\t<\321\0\0\t\0\323\0\0\t\33\324\0\0\t\3\325\0\0\t\0\326\0\0\t\0\311\0\0\10\252\4\0\0\317\0\0001\6\376\307\254t\215\357", 85}], 1, 11603) = 85
+[77ff6acb] write(8, "P\4\0\0\0\0\0\0U\0\0\0M2\322\0\0\0\310\0\0\0\312\0\0\10\334\5\0\0\314\0\0\t\0\315\0\0\t\0\316\0\0\10\377\377\377\0\320\0\0\t<\321\0\0\t\0\323\0\0\t\33\324\0\0\t\3\325\0\0\t\0\326\0\0\t\0\311\0\0\10\252\4\0\0\317\0\0001\6\376\307\254t\215\357", 97) = 97
+[77fc2d89] times(NULL)                  = -27590
+[77fc2d89] times(NULL)                  = -27590
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27590
+[77fc2d89] times(NULL)                  = -27590
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0sstp/server", 65664) = 23
+[77ff6acb] writev(8, [{",\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27587
+[77fc2d89] times(NULL)                  = -27587
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27585
+[77fc2d89] times(NULL)                  = -27585
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0radvd/prefix", 65664) = 24
+[77ff6acb] writev(8, [{"-\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27585
+[77fc2d89] times(NULL)                  = -27585
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27584
+[77fc2d89] times(NULL)                  = -27584
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0radvd/iface", 65664) = 23
+[77ff6acb] writev(8, [{"S\4\0\0\0\0\0\0\20\0\0\0", 12}, {"\1\0\0\0", 4}], 2) = 16
+[77fc2d89] times(NULL)                  = -27584
+[77fc2d89] times(NULL)                  = -27584
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27584
+[77fc2d89] times(NULL)                  = -27584
+[77ff6acb] read(8, "\1\0\0\0S\4\0\0\1\0\0\0\10\4\0\0", 65664) = 16
+[77ff6acb] preadv(3, [{"M2\17\0\0\250\0\0\10\0\376\0\n\0\376\0\v\0\0\1\f\0\0\1\r\0\0\0\16\0\0\0\r\0\376\1\4\0\0\10X\2\0\0\5\0\0\t\3\6\0\0\t\0\7\0\0\t\0\10\0\0\t\0\t\0\0\t\0\n\0\0\10\10\7\0\0\20\0\0\t\0\1\0\376\t\1\1\0\0\t\0\3\0\0\t\310", 97}], 1, 1791) = 97
+[77ff6acb] write(8, "S\4\0\0\1\0\0\0a\0\0\0M2\17\0\0\250\0\0\10\0\376\0\n\0\376\0\v\0\0\1\f\0\0\1\r\0\0\0\16\0\0\0\r\0\376\1\4\0\0\10X\2\0\0\5\0\0\t\3\6\0\0\t\0\7\0\0\t\0\10\0\0\t\0\t\0\0\t\0\n\0\0\10\10\7\0\0\20\0\0\t\0\1\0\376\t\1\1\0\0\t\0\3\0\0\t\310", 109) = 109
+[77fc2d89] times(NULL)                  = -27582
+[77fc2d89] times(NULL)                  = -27582
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27581
+[77fc2d89] times(NULL)                  = -27581
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0hotspot/iface", 65664) = 25
+[77ff6acb] writev(8, [{".\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27581
+[77fc2d89] times(NULL)                  = -27581
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27576
+[77fc2d89] times(NULL)                  = -27576
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0dhcp/client", 65664) = 23
+[77ff6acb] writev(8, [{"/\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27576
+[77fc2d89] times(NULL)                  = -27576
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27576
+[77fc2d89] times(NULL)                  = -27576
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0dhcp/alert", 65664) = 22
+[77ff6acb] writev(8, [{"0\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27575
+[77fc2d89] times(NULL)                  = -27575
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27575
+[77fc2d89] times(NULL)                  = -27575
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0dhcp/client6", 65664) = 24
+[77ff6acb] writev(8, [{"1\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27574
+[77fc2d89] times(NULL)                  = -27574
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27574
+[77fc2d89] times(NULL)                  = -27574
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0dhcp/server/server", 65664) = 30
+[77ff6acb] writev(8, [{"2\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27574
+[77fc2d89] times(NULL)                  = -27574
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27574
+[77fc2d89] times(NULL)                  = -27574
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0dhcp/server/server6", 65664) = 31
+[77ff6acb] writev(8, [{"3\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27573
+[77fc2d89] times(NULL)                  = -27573
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27573
+[77fc2d89] times(NULL)                  = -27573
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0dhcp/relay", 65664) = 22
+[77ff6acb] writev(8, [{"4\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27573
+[77fc2d89] times(NULL)                  = -27573
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27573
+[77fc2d89] times(NULL)                  = -27573
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0dhcp/relay6", 65664) = 23
+[77ff6acb] writev(8, [{"5\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27569
+[77fc2d89] times(NULL)                  = -27569
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27568
+[77fc2d89] times(NULL)                  = -27568
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0netwatch", 65664) = 20
+[77ff6acb] writev(8, [{"6\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27568
+[77fc2d89] times(NULL)                  = -27568
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27567
+[77fc2d89] times(NULL)                  = -27567
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0netwatch2", 65664) = 21
+[77ff6acb] writev(8, [{"7\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27567
+[77fc2d89] times(NULL)                  = -27567
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27567
+[77fc2d89] times(NULL)                  = -27567
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0sms-config", 65664) = 22
+[77ff6acb] writev(8, [{"8\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27566
+[77fc2d89] times(NULL)                  = -27566
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27566
+[77fc2d89] times(NULL)                  = -27566
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0sigwatch", 65664) = 20
+[77ff6acb] writev(8, [{"9\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27564
+[77fc2d89] times(NULL)                  = -27564
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27563
+[77fc2d89] times(NULL)                  = -27563
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0radius", 65664) = 18
+[77ff6acb] writev(8, [{"K\5\0\0\0\0\0\0\20\0\0\0", 12}, {"\376\377\377\377", 4}], 2) = 16
+[77fc2d89] times(NULL)                  = -27563
+[77fc2d89] times(NULL)                  = -27563
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27563
+[77fc2d89] times(NULL)                  = -27563
+[77ff6acb] read(8, "\1\0\0\0K\5\0\0\376\377\377\377\10\4\0\0", 65664) = 16
+[77ff6acb] preadv(3, [{"M2\1\0\376\10\376\377\377\377\5\0\376\10\377\377\377\377", 18}], 1, 18749) = 18
+[77ff6acb] write(8, "K\5\0\0\376\377\377\377\22\0\0\0M2\1\0\376\10\376\377\377\377\5\0\376\10\377\377\377\377", 30) = 30
+[77fc2d89] times(NULL)                  = -27562
+[77fc2d89] times(NULL)                  = -27562
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27562
+[77fc2d89] times(NULL)                  = -27562
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0radius/incoming", 65664) = 27
+[77ff6acb] writev(8, [{":\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27562
+[77fc2d89] times(NULL)                  = -27562
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27562
+[77fc2d89] times(NULL)                  = -27562
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0file-master", 65664) = 23
+[77ff6acb] writev(8, [{";\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27561
+[77fc2d89] times(NULL)                  = -27561
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27561
+[77fc2d89] times(NULL)                  = -27561
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0file-sources", 65664) = 24
+[77ff6acb] writev(8, [{"<\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27561
+[77fc2d89] times(NULL)                  = -27561
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27560
+[77fc2d89] times(NULL)                  = -27560
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0snmpd", 65664) = 17
+[77ff6acb] writev(8, [{"O\5\0\0\0\0\0\0\20\0\0\0", 12}, {"\0\0\0\0", 4}], 2) = 16
+[77fc2d89] times(NULL)                  = -27560
+[77fc2d89] times(NULL)                  = -27560
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27560
+[77fc2d89] times(NULL)                  = -27560
+[77ff6acb] read(8, "\1\0\0\0O\5\0\0\0\0\0\0\10\4\0\0", 65664) = 16
+[77ff6acb] preadv(3, [{"M2\23\0\0\210\1\0\2\0\274\n\32\0\0\250\0\0\1\0\0\0\22\0\376\t\1\21\0\0\t\0\22\0\0\t\0\35\0\0\t\0\r\0\0\t\2\34\0\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\n\0\0!\0\3\0\0!\0\2\0\0!\0\4\0\0!\6public", 93}], 1, 18969) = 93
+[77ff6acb] write(8, "O\5\0\0\0\0\0\0]\0\0\0M2\23\0\0\210\1\0\2\0\274\n\32\0\0\250\0\0\1\0\0\0\22\0\376\t\1\21\0\0\t\0\22\0\0\t\0\35\0\0\t\0\r\0\0\t\2\34\0\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\n\0\0!\0\3\0\0!\0\2\0\0!\0\4\0\0!\6public", 105) = 105
+[77fc2d89] times(NULL)                  = -27559
+[77fc2d89] times(NULL)                  = -27559
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27559
+[77fc2d89] times(NULL)                  = -27559
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0resolver/config", 65664) = 27
+[77ff6acb] writev(8, [{"=\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27559
+[77fc2d89] times(NULL)                  = -27559
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27559
+[77fc2d89] times(NULL)                  = -27559
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0trafflow-config", 65664) = 27
+[77ff6acb] writev(8, [{">\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27558
+[77fc2d89] times(NULL)                  = -27558
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27558
+[77fc2d89] times(NULL)                  = -27558
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0scheduler", 65664) = 21
+[77ff6acb] writev(8, [{"(\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27558
+[77fc2d89] times(NULL)                  = -27557
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27557
+[77fc2d89] times(NULL)                  = -27557
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0www/socks/config", 65664) = 28
+[77ff6acb] writev(8, [{"?\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27557
+[77fc2d89] times(NULL)                  = -27557
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27557
+[77fc2d89] times(NULL)                  = -27557
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0upnpm", 65664) = 17
+[77ff6acb] writev(8, [{"@\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27556
+[77fc2d89] times(NULL)                  = -27556
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27556
+[77fc2d89] times(NULL)                  = -27556
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0wproxy/config", 65664) = 25
+[77ff6acb] writev(8, [{"T\5\0\0\0\0\0\0\20\0\0\0", 12}, {"\0\0\0\0", 4}], 2) = 16
+[77fc2d89] times(NULL)                  = -27556
+[77fc2d89] times(NULL)                  = -27556
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27556
+[77fc2d89] times(NULL)                  = -27556
+[77ff6acb] read(8, "\1\0\0\0T\5\0\0\0\0\0\0\10\4\0\0", 65664) = 16
+[77ff6acb] preadv(3, [{"M2\2\0\0\210\1\0\220\37\0\0\33\0\0\250\1\0\26\0M2\27\0\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\0\0\r\0\0\0\34\0\0\0\22\0\0\0\23\0\0\0\0\1\0\t\0\1\1\0\t\0\2\1\0\t\0\3\1\0\t\0\4\1\0\t\0\5\1\0\t\0\6\1\0\t\0\7\1\0\t\0\10\1\0\t\0\t\1\0\t\0\n\1\0\t\0\v\1\0\t\0\4\0\0\t\0\5\0\0\10X\2\0\0\6\0\0\10X\2\0\0\v\0\0\10\377\377\377\377\21\0\0\10\200\364\3\0\30\0\0\t\4\32\0\0\10\0\10\0\0\200\0\0\t\0\201\0\0\t\0\202\0\0\t\0\203\0\0\t\0\204\0\0\t\0\205\0\0\t\0\206\0\0\t\0\207\0\0\t\0\16\0\0!\tweb-proxy\t\0\0!\twebmaster\26\0\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 260}], 1, 18057) = 260
+[77ff6acb] write(8, "T\5\0\0\0\0\0\0\4\1\0\0M2\2\0\0\210\1\0\220\37\0\0\33\0\0\250\1\0\26\0M2\27\0\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\0\0\r\0\0\0\34\0\0\0\22\0\0\0\23\0\0\0\0\1\0\t\0\1\1\0\t\0\2\1\0\t\0\3\1\0\t\0\4\1\0\t\0\5\1\0\t\0\6\1\0\t\0\7\1\0\t\0\10\1\0\t\0\t\1\0\t\0\n\1\0\t\0\v\1\0\t\0\4\0\0\t\0\5\0\0\10X\2\0\0\6\0\0\10X\2\0\0\v\0\0\10\377\377\377\377\21\0\0\10\200\364\3\0\30\0\0\t\4\32\0\0\10\0\10\0\0\200\0\0\t\0\201\0\0\t\0\202\0\0\t\0\203\0\0\t\0\204\0\0\t\0\205\0\0\t\0\206\0\0\t\0\207\0\0\t\0\16\0\0!\tweb-proxy\t\0\0!\twebmaster\26\0\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 272) = 272
+[77fc2d89] times(NULL)                  = -27555
+[77fc2d89] times(NULL)                  = -27555
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27555
+[77fc2d89] times(NULL)                  = -27555
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0net/devices", 65664) = 23
+[77ff6acb] writev(8, [{"0\4\0\0\0\0\0\0\20\0\0\0", 12}, {"\1\0\0\0", 4}], 2) = 16
+[77fc2d89] times(NULL)                  = -27554
+[77fc2d89] times(NULL)                  = -27554
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27554
+[77fc2d89] times(NULL)                  = -27554
+[77ff6acb] read(8, "\1\0\0\0000\4\0\0\1\0\0\0\10\4\0\0", 65664) = 16
+[77ff6acb] preadv(3, [{"M2h\0\1\1\1\0\376\t\1\1\0\1\t\1\2\0\1\10o\"\4\0\f\0\1\10\374\377\377\377;\0\1\t\0\6\0\1!\6ether1\20\0\1!\f0000:00:03.00\0\1!\02152:54:00:12:34:56\t\0\1!\02152:54:00:12:34:56\10\0\1)\222M2\f\4\0\210\5\0\0\0\0\0\1\0\0\0\2\0\0\0\3\0\0\0\5\0\0\0\364\3\0\1\0\4\0\0\r\0\1\0\n\0\376\0\363\3\0\1\370\3\0\t\0\371\3\0\t\0\372\3\0\t\0\7\4\0\t\0\10\4\0\t\0.\0\1\t\1d\0\1\10\334\5\0\0\352\3\0\t\1\26\4\0\t\0\30\4\0\t\5\27\4\0\t\1\31\4\0\10,\1\0\0\362\3\0\t\2\365\3\0\t\2\4\4\0001\6RT\0\0224V\351\3\0001\6RT\0\0224V", 260}], 1, 8406) = 260
+[77ff6acb] write(8, "0\4\0\0\1\0\0\0\4\1\0\0M2h\0\1\1\1\0\376\t\1\1\0\1\t\1\2\0\1\10o\"\4\0\f\0\1\10\374\377\377\377;\0\1\t\0\6\0\1!\6ether1\20\0\1!\f0000:00:03.00\0\1!\02152:54:00:12:34:56\t\0\1!\02152:54:00:12:34:56\10\0\1)\222M2\f\4\0\210\5\0\0\0\0\0\1\0\0\0\2\0\0\0\3\0\0\0\5\0\0\0\364\3\0\1\0\4\0\0\r\0\1\0\n\0\376\0\363\3\0\1\370\3\0\t\0\371\3\0\t\0\372\3\0\t\0\7\4\0\t\0\10\4\0\t\0.\0\1\t\1d\0\1\10\334\5\0\0\352\3\0\t\1\26\4\0\t\0\30\4\0\t\5\27\4\0\t\1\31\4\0\10,\1\0\0\362\3\0\t\2\365\3\0\t\2\4\4\0001\6RT\0\0224V\351\3\0001\6RT\0\0224V", 272) = 272
+[77fc2d89] times(NULL)                  = -27553
+[77fc2d89] times(NULL)                  = -27553
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27553
+[77fc2d89] times(NULL)                  = -27553
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0bridge-vlans", 65664) = 24
+[77ff6acb] writev(8, [{"A\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27553
+[77fc2d89] times(NULL)                  = -27552
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27552
+[77fc2d89] times(NULL)                  = -27552
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0graphing/conf/ifaces", 65664) = 32
+[77ff6acb] writev(8, [{"B\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27552
+[77fc2d89] times(NULL)                  = -27552
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27552
+[77fc2d89] times(NULL)                  = -27552
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0graphing/conf/queues", 65664) = 32
+[77ff6acb] writev(8, [{"C\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27551
+[77fc2d89] times(NULL)                  = -27551
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27551
+[77fc2d89] times(NULL)                  = -27551
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0graphing/conf/cpumem", 65664) = 32
+[77ff6acb] writev(8, [{"D\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27551
+[77fc2d89] times(NULL)                  = -27551
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27551
+[77fc2d89] times(NULL)                  = -27550
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0sertcp", 65664) = 18
+[77ff6acb] writev(8, [{"E\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27550
+[77fc2d89] times(NULL)                  = -27550
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27550
+[77fc2d89] times(NULL)                  = -27550
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0btest", 65664) = 17
+[77ff6acb] writev(8, [{"F\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27549
+[77fc2d89] times(NULL)                  = -27549
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27549
+[77fc2d89] times(NULL)                  = -27549
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0serial-login", 65664) = 24
+[77ff6acb] writev(8, [{"p\4\0\0\0\0\0\0\20\0\0\0", 12}, {"\1\0\0\0", 4}], 2) = 16
+[77fc2d89] times(NULL)                  = -27549
+[77fc2d89] times(NULL)                  = -27549
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27549
+[77fc2d89] times(NULL)                  = -27549
+[77ff6acb] read(8, "\1\0\0\0p\4\0\0\1\0\0\0\10\4\0\0", 65664) = 16
+[77ff6acb] preadv(3, [{"M2\r\0\376\1\n\0\376\0\7\0\0\t\0\1\0\376\t\1\1\0\0\t\1\2\0\0\10\377\377\377\377\3\0\0!\5vt102", 43}], 1, 2914) = 43
+[77ff6acb] write(8, "p\4\0\0\1\0\0\0+\0\0\0M2\r\0\376\1\n\0\376\0\7\0\0\t\0\1\0\376\t\1\1\0\0\t\1\2\0\0\10\377\377\377\377\3\0\0!\5vt102", 55) = 55
+[77fc2d89] times(NULL)                  = -27548
+[77fc2d89] times(NULL)                  = -27548
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27548
+[77fc2d89] times(NULL)                  = -27548
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0macping", 65664) = 19
+[77ff6acb] writev(8, [{"G\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27548
+[77fc2d89] times(NULL)                  = -27547
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27547
+[77fc2d89] times(NULL)                  = -27547
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0mactel", 65664) = 18
+[77ff6acb] writev(8, [{"H\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27547
+[77fc2d89] times(NULL)                  = -27547
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27547
+[77fc2d89] times(NULL)                  = -27547
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0vm", 65664) = 14
+[77ff6acb] writev(8, [{"I\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27546
+[77fc2d89] times(NULL)                  = -27546
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27546
+[77fc2d89] times(NULL)                  = -27546
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0tftp", 65664) = 16
+[77ff6acb] writev(8, [{"^\5\0\0\0\0\0\0\20\0\0\0", 12}, {"\376\377\377\377", 4}], 2) = 16
+[77fc2d89] times(NULL)                  = -27546
+[77fc2d89] times(NULL)                  = -27546
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27546
+[77fc2d89] times(NULL)                  = -27546
+[77ff6acb] read(8, "\1\0\0\0^\5\0\0\376\377\377\377\10\4\0\0", 65664) = 16
+[77ff6acb] preadv(3, [{"M2\1\0\376\10\376\377\377\377\5\0\376\10\377\377\377\377", 18}], 1, 18701) = 18
+[77ff6acb] write(8, "^\5\0\0\376\377\377\377\22\0\0\0M2\1\0\376\10\376\377\377\377\5\0\376\10\377\377\377\377", 30) = 30
+[77fc2d89] times(NULL)                  = -27545
+[77fc2d89] times(NULL)                  = -27545
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27545
+[77fc2d89] times(NULL)                  = -27545
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0smb", 65664) = 15
+[77ff6acb] writev(8, [{"J\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27544
+[77fc2d89] times(NULL)                  = -27544
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27544
+[77fc2d89] times(NULL)                  = -27544
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0usbip-exp", 65664) = 21
+[77ff6acb] writev(8, [{"K\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27544
+[77fc2d89] times(NULL)                  = -27544
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27544
+[77fc2d89] times(NULL)                  = -27544
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0usbip-imp", 65664) = 21
+[77ff6acb] writev(8, [{"L\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27543
+[77fc2d89] times(NULL)                  = -27543
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27543
+[77fc2d89] times(NULL)                  = -27543
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0cert/scep_server", 65664) = 28
+[77ff6acb] writev(8, [{"M\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27543
+[77fc2d89] times(NULL)                  = -27543
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27542
+[77fc2d89] times(NULL)                  = -27542
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0cert/scep_client", 65664) = 28
+[77ff6acb] writev(8, [{"N\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27542
+[77fc2d89] times(NULL)                  = -27542
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27542
+[77fc2d89] times(NULL)                  = -27542
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0lcdtouch", 65664) = 20
+[77ff6acb] writev(8, [{"z\4\0\0\0\0\0\0\20\0\0\0", 12}, {"\0\0\0\0", 4}], 2) = 16
+[77fc2d89] times(NULL)                  = -27541
+[77fc2d89] times(NULL)                  = -27541
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27541
+[77fc2d89] times(NULL)                  = -27541
+[77ff6acb] read(8, "\1\0\0\0z\4\0\0\0\0\0\0\10\4\0\0", 65664) = 16
+[77ff6acb] preadv(3, [{"M2n\0\0\1q\0\0\0s\0\0\0\n\0\376\0i\0\0\0k\0\0\0r\0\0\t\1e\0\0\10\10\7\0\0f\0\0\t\1g\0\0\t\1o\0\0\t\1p\0\0\t\1j\0\0!\0041234", 68}], 1, 14923) = 68
+[77ff6acb] write(8, "z\4\0\0\0\0\0\0D\0\0\0M2n\0\0\1q\0\0\0s\0\0\0\n\0\376\0i\0\0\0k\0\0\0r\0\0\t\1e\0\0\10\10\7\0\0f\0\0\t\1g\0\0\t\1o\0\0\t\1p\0\0\t\1j\0\0!\0041234", 80) = 80
+[77fc2d89] times(NULL)                  = -27541
+[77fc2d89] times(NULL)                  = -27541
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27541
+[77fc2d89] times(NULL)                  = -27541
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0upgrader", 65664) = 20
+[77ff6acb] writev(8, [{"O\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27540
+[77fc2d89] times(NULL)                  = -27540
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27540
+[77fc2d89] times(NULL)                  = -27540
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0cloud", 65664) = 17
+[77ff6acb] writev(8, [{"P\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27540
+[77fc2d89] times(NULL)                  = -27540
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27539
+[77fc2d89] times(NULL)                  = -27539
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0romon", 65664) = 17
+[77ff6acb] writev(8, [{"Q\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27539
+[77fc2d89] times(NULL)                  = -27539
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27539
+[77fc2d89] times(NULL)                  = -27539
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0ntp", 65664) = 15
+[77ff6acb] writev(8, [{"g\5\0\0\0\0\0\0\20\0\0\0", 12}, {"\0\0\0\0", 4}], 2) = 16
+[77fc2d89] times(NULL)                  = -27538
+[77fc2d89] times(NULL)                  = -27538
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27538
+[77fc2d89] times(NULL)                  = -27538
+[77ff6acb] read(8, "\1\0\0\0g\5\0\0\0\0\0\0\10\4\0\0", 65664) = 16
+[77ff6acb] preadv(3, [{"M2\f\0\0\240\0\0\n\0\0\210\0\0\4\0\0\0\6\0\0\0\7\0\0\0\10\0\0\0\t\0\0\0\17\0\0\0\21\0\0\1\5\0\0\t\0\16\0\0\t\0\20\0\0\t\5\22\0\0\t\0\24\0\0\t\0\25\0\0\t\0\1\0\0\t\0\2\0\0\t\0", 82}], 1, 15876) = 82
+[77ff6acb] write(8, "g\5\0\0\0\0\0\0R\0\0\0M2\f\0\0\240\0\0\n\0\0\210\0\0\4\0\0\0\6\0\0\0\7\0\0\0\10\0\0\0\t\0\0\0\17\0\0\0\21\0\0\1\5\0\0\t\0\16\0\0\t\0\20\0\0\t\5\22\0\0\t\0\24\0\0\t\0\25\0\0\t\0\1\0\0\t\0\2\0\0\t\0", 94) = 94
+[77fc2d89] times(NULL)                  = -27538
+[77fc2d89] times(NULL)                  = -27538
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27538
+[77fc2d89] times(NULL)                  = -27537
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0dot1x/client", 65664) = 24
+[77ff6acb] writev(8, [{"R\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27537
+[77fc2d89] times(NULL)                  = -27537
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27537
+[77fc2d89] times(NULL)                  = -27537
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0dot1x/port", 65664) = 22
+[77ff6acb] writev(8, [{"S\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27536
+[77fc2d89] times(NULL)                  = -27536
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27536
+[77fc2d89] times(NULL)                  = -27536
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0detnet-settings", 65664) = 27
+[77ff6acb] writev(8, [{"T\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27536
+[77fc2d89] times(NULL)                  = -27536
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27536
+[77fc2d89] times(NULL)                  = -27536
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0kidcontrol/user", 65664) = 27
+[77fc2d89] brk(0x8069000)               = 0x8069000
+[77ff6acb] writev(8, [{"U\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27535
+[77fc2d89] times(NULL)                  = -27535
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27535
+[77fc2d89] times(NULL)                  = -27535
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0ptp/ptp", 65664) = 19
+[77ff6acb] writev(8, [{"V\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27534
+[77fc2d89] times(NULL)                  = -27534
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27534
+[77fc2d89] times(NULL)                  = -27534
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0letsencrypt", 65664) = 23
+[77ff6acb] writev(8, [{"W\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -27534
+[77fc2d89] times(NULL)                  = -27534
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -27534
+[77fc2d89] times(NULL)                  = -27534
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0igmpproxy/iface", 65664) = 27
+[77ff6acb] writev(8, [{"X\6\0\0\1\0\0\0\f\0\0\0", 12}], 1) = 12
+[77fc2d89] times(NULL)                  = -25609
+[77fc2d89] times(NULL)                  = -25609
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 2 ([{fd=4, revents=POLLIN}, {fd=8, revents=POLLIN|POLLHUP}])
+[77fc2d89] times(NULL)                  = -25609
+[77fc2d89] times(NULL)                  = -25608
+[77ff6acb] read(8, "", 65664)           = 0
+[77ff6acb] close(8)                     = 0
+[77ff6acb] accept4(4, 0, NULL, 0)       = 8
+[77fc2d89] times(NULL)                  = -25602
+[77fc2d89] times(NULL)                  = -25601
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN}])
+[77fc2d89] times(NULL)                  = -25600
+[77fc2d89] times(NULL)                  = -25600
+[77ff6acb] read(8, "\0\0\0\0\377\377\377\377\10\4\0\0system", 65664) = 18
+[77ff6acb] writev(8, [{"\244\4\0\0\0\0\0\0\24\0\0\0", 12}, {"\1\0\0\0\376\377\377\377", 8}], 2) = 20
+[77fc2d89] times(NULL)                  = -25596
+[77fc2d89] times(NULL)                  = -25596
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}, {fd=8, events=POLLIN}], 3, 4294967295) = 1 ([{fd=8, revents=POLLIN|POLLHUP}])
+[77fc2d89] times(NULL)                  = -23546
+[77fc2d89] times(NULL)                  = -23545
+[77ff6acb] read(8, "", 65664)           = 0
+[77ff6acb] close(8)                     = 0
+[77fc2d89] times(NULL)                  = -23545
+[77fc2d89] times(NULL)                  = -23545
+[77ff6acb] poll([{fd=4, events=POLLIN}, {fd=5, events=POLLIN}], 2, 4294967295) = ? ERESTART_RESTARTBLOCK (Interrupted by signal)
+[77ff6acb] --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+[????????????????] +++ killed by SIGINT +++

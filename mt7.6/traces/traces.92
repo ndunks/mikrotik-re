@@ -1,0 +1,147 @@
+[77eced89] gettid()                     = 92
+[77eced89] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[77eced89] execve("/nova/bin/mode", ["/nova/bin/mode"], ["SHLVL=3", "TERM=vt100", "PWD=/", "arch=i386", "PATH=/sbin:/bin", "LD_LIBRARY_PATH=/pckg/wireless/lib:/pckg/security/lib:/pckg/ppp/lib:/pckg/hotspot/lib:/pckg/dhcp/lib:/lib"]) = 0
+[77ff68d3] mprotect(0x77ffd000, 4096, PROT_READ) = 0
+[77ff68d3] open("/pckg/wireless/lib/libumsg.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/security/lib/libumsg.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/ppp/lib/libumsg.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/hotspot/lib/libumsg.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/dhcp/lib/libumsg.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/lib/libumsg.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+[77ff68d3] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77ff68d3] fstat64(3, {st_dev=makedev(7, 0), st_ino=299, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=657, st_size=336100, st_atime=2022/10/17-10:58:25, st_mtime=2022/10/17-10:58:25, st_ctime=2022/10/17-10:58:25}) = 0
+[77ff68d3] read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\200\257\1\0004\0\0\0\374\34\5\0\0\0\0\0004\0 \0\t\0(\0\31\0\30\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\340}\1\0\340}\1\0\4\0\0\0\0\20\0\0\1\0\0\0\0\200\1\0\0\200\1\0\0\200\1\0\365F\3\0\365F\3\0\5\0\0\0\0\20\0\0\1\0\0\0\0\320\4\0\0\320\4\0\0\320\4\0\310+\0\0\310+\0\0\4\0\0\0\0\20\0\0\1\0\0\0l\5\5\0l\25\5\0l\25\5\0\324\26\0\0\0(\0\0\6\0\0\0\0\20\0\0\2\0\0\0 \r\5\0 \35\5\0 \35\5\0\310\0\0\0\310\0\0\0\6\0\0\0\4\0\0\0\4\0\0\0\240\373\4\0\240\373\4\0\240\373\4\0(\0\0\0(\0\0\0\4\0\0\0\4\0\0\0S\345td\240\373\4\0\240\373\4\0\240\373\4\0(\0\0\0(\0\0\0\4\0\0\0\4\0\0\0Q\345td\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\7\0\0\0\20\0\0\0R\345tdl\5\5\0l\25\5\0l\25\5\0\224\n\0\0\224\n\0\0\4\0\0\0\1\0\0\0\7\4\0\0s\5\0\0\0\0\0\0\0\0\0\0\242\2\0\0\241\3\0\0\246\1\0\0\0\0\0\0u\1\0\0z\1\0\0\26\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\213\1\0\0b\2\0\0P\5\0\0d\4\0\0?\3\0\0\305\3\0\0\372\0\0\0\0\0\0\0\371\2\0\0Z\3\0\0J\2\0\0\0\0\0\0\0\0\0\0\337\4\0\0<\4\0\0\241\0\0\0\273\4\0\0 \3\0\0\0\0\0\0\0\0\0\0h\1\0\0^\0\0\0\354\2\0\0\26\0\0\0 \4\0\0\0\0\0\0\350\4\0\0\0\0\0\0\202\3\0\0U\1\0\0\304\2\0\0\315\0\0\0\0\0\0\0\27\4\0\0\360\3\0\0\0\0\0\0\275\3\0\0\376\0\0\0\234\0\0\0\0\0\0\0\300\4\0\0\n\5\0\0\377\4\0\0\0\0\0\0&\3\0\0\316\3\0\0\227\2\0\0#\4\0\0\266\1\0\0\17\3\0\0`\0\0\0\337\3\0\0\0\0\0\0\30\4\0\0\0\0\0\0\0\0\0\0\347\1\0\0\0\0\0\0\200\3\0\0b\0\0\0007\4\0\0S\0\0\0)\3\0\0\0\0\0\0\255\0\0\0\262\0\0\0\303\4\0\0G\2\0\0\255\3\0\0\0\0\0\0R\1\0\0\335\1\0\0\316\1\0\0\304\4\0\0\0\0\0\0\0\0\0\0\271\1\0\0\0\0\0\0\0\0\0\0\202\0\0\0\355\2\0\0\0\0\0\0\312\2\0\0\360\4\0\0\v\4\0\0\263\0\0\0`\1\0\0L\4\0\0\275\4\0\0,\2\0\0\235\4\0\0\373\4\0\0\0\0\0\0n\0\0\0\315\1\0\0\323\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\3\0\0\0\0\0\0006\0\0\0\17\1\0\0\245\4\0\0K\2\0\0\0\0\0\0\7\2\0\0s\1\0\0[\5\0\0\375\4\0\0\200\1\0\0\0\0\0\0n\3\0\0I\0\0\0\244\0\0\0\216\1\0\0\21\5\0\0\224\4\0\0\336\3\0\0008\2\0\0\272\1\0\0\0\0\0\0\326\0\0\0\0\0\0\0\0\0\0\0E\0\0\0g\1\0\0+\0\0\0\204\1\0\0\0\0\0\0\353\2\0\0a\1\0\0\311\1\0\0\0\0\0\0o\3\0\0", 936) = 936
+[77ff68d3] mmap2(NULL, 344064, PROT_READ, MAP_PRIVATE, 3, 0) = 0x77f6a000
+[77ff68d3] mmap2(0x77f82000, 217088, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED, 3, 0x18000) = 0x77f82000
+[77ff68d3] mmap2(0x77fb7000, 12288, PROT_READ, MAP_PRIVATE|MAP_FIXED, 3, 0x4d000) = 0x77fb7000
+[77ff68d3] mmap2(0x77fbb000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 3, 0x50000) = 0x77fbb000
+[77ff68d3] mmap2(0x77fbd000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x77fbd000
+[77ff68d3] close(3)                     = 0
+[77ff68d3] open("/pckg/wireless/lib/libuc++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/security/lib/libuc++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/ppp/lib/libuc++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/hotspot/lib/libuc++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/dhcp/lib/libuc++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/lib/libuc++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+[77ff68d3] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77ff68d3] fstat64(3, {st_dev=makedev(7, 0), st_ino=296, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=140, st_size=71484, st_atime=2022/10/17-10:58:12, st_mtime=2022/10/17-10:58:12, st_ctime=2022/10/17-10:58:12}) = 0
+[77ff68d3] read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0 z\0\0004\0\0\0T\23\1\0\0\0\0\0004\0 \0\t\0(\0\31\0\30\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\4d\0\0\4d\0\0\4\0\0\0\0\20\0\0\1\0\0\0\0p\0\0\0p\0\0\0p\0\0e\211\0\0e\211\0\0\5\0\0\0\0\20\0\0\1\0\0\0\0\0\1\0\0\0\1\0\0\0\1\0\270\3\0\0\270\3\0\0\4\0\0\0\0\20\0\0\1\0\0\0004\f\1\0004\34\1\0004\34\1\0d\6\0\0`\7\0\0\6\0\0\0\0\20\0\0\2\0\0\0\320\16\1\0\320\36\1\0\320\36\1\0\300\0\0\0\300\0\0\0\6\0\0\0\4\0\0\0\4\0\0\0\220\3\1\0\220\3\1\0\220\3\1\0(\0\0\0(\0\0\0\4\0\0\0\4\0\0\0S\345td\220\3\1\0\220\3\1\0\220\3\1\0(\0\0\0(\0\0\0\4\0\0\0\4\0\0\0Q\345td\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\7\0\0\0\20\0\0\0R\345td4\f\1\0004\34\1\0004\34\1\0\314\3\0\0\314\3\0\0\4\0\0\0\1\0\0\0\7\1\0\0\262\1\0\0\261\1\0\0\0\1\0\0\224\0\0\0*\1\0\0$\0\0\0$\1\0\0\0\0\0\0\205\0\0\0z\1\0\0!\1\0\0\214\0\0\0\206\1\0\0\17\1\0\0V\1\0\0\251\0\0\0\"\0\0\0f\1\0\0\243\1\0\0\35\1\0\0K\1\0\0\253\1\0\0\330\0\0\0\242\0\0\0005\1\0\0\0\0\0\0q\0\0\0\16\1\0\0&\1\0\0X\0\0\0\27\1\0\0\301\0\0\0\212\0\0\0\0\0\0\0\0\0\0\0008\1\0\0\257\0\0\0\337\0\0\0\203\0\0\0\272\0\0\0(\0\0\0\0\0\0\0\322\0\0\0\0\0\0\0\31\0\0\0\0\0\0\0\216\0\0\0\253\0\0\0\0\0\0\0\33\0\0\0\266\0\0\0\0\0\0\0\251\1\0\0\344\0\0\0\0\0\0\0\0\0\0\0\177\0\0\0004\1\0\0\261\0\0\0\0\0\0\0\314\0\0\0\247\1\0\0\252\1\0\0\257\1\0\0f\0\0\0\276\0\0\0\2\1\0\0\234\0\0\0\35\0\0\0*\0\0\0\t\1\0\0\226\0\0\0\206\0\0\0\201\1\0\0003\1\0\0001\0\0\0-\1\0\0\211\1\0\0009\1\0\0W\0\0\0x\1\0\0\350\0\0\0\316\0\0\0 \0\0\0\227\1\0\0\300\0\0\0t\1\0\0:\0\0\0\0\0\0\0j\0\0\0+\0\0\0;\0\0\0\0\0\0\0\f\1\0\0\306\0\0\0\271\0\0\0\231\0\0\0|\1\0\0\317\0\0\0008\0\0\0\336\0\0\0c\0\0\0\343\0\0\0\6\1\0\0A\1\0\0n\0\0\0\215\1\0\0G\1\0\0\211\0\0\0\352\0\0\0\223\1\0\0[\0\0\0v\0\0\0\\\0\0\0N\1\0\0\224\1\0\0\0\0\0\0\0\0\0\0E\0\0\0\217\1\0\0\22\0\0\0\311\0\0\0^\0\0\0\325\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\214\1\0\0(\1\0\0\356\0\0\0\0\0\0\0\262\0\0\0g\0\0\0\320\0\0\0\340\0\0\0007\0\0\0\246\1\0\0y\1\0\0006\0\0\0\0\0\0\0\0\0\0\0_\0\0\0\376\0\0\0Q\0\0\0\36\1\0\0\365\0\0\0\23\1\0\0\r\0\0\0", 936) = 936
+[77ff68d3] mmap2(NULL, 77824, PROT_READ, MAP_PRIVATE, 3, 0) = 0x77f57000
+[77ff68d3] mmap2(0x77f5e000, 36864, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED, 3, 0x7000) = 0x77f5e000
+[77ff68d3] mmap2(0x77f67000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED, 3, 0x10000) = 0x77f67000
+[77ff68d3] mmap2(0x77f68000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 3, 0x10000) = 0x77f68000
+[77ff68d3] close(3)                     = 0
+[77ff68d3] mprotect(0x77fbb000, 4096, PROT_READ) = 0
+[77ff68d3] mprotect(0x77f68000, 4096, PROT_READ) = 0
+[77ff68d3] mprotect(0x804c000, 4096, PROT_READ) = 0
+[77ff6a53] set_thread_area(0x7ffffce8)  = 0
+[77ff68d3] set_tid_address(0x77ffe7bc)  = 92
+[77ff6acb] open("/rw/rosmode.msg", O_RDONLY|O_LARGEFILE) = 3
+[77ff6acb] read(3, "M2\1\0\0)\7M2\n\0\0\t\0", 65535) = 14
+[77ff6acb] close(3)                     = 0
+[77fc2d89] uname({sysname="Linux", nodename="(none)", release="5.6.3-64", version="#1 SMP Mon Oct 17 11:05:29 UTC 2022", machine="x86_64", domainname="(none)"}) = 0
+[77ff6acb] open("/pckg", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=659, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=648, d_off=2, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=675, d_off=3, d_type=DT_LNK, d_reclen=32, d_name="wireless"} {d_ino=674, d_off=4, d_type=DT_LNK, d_reclen=24, d_name="ups"} {d_ino=673, d_off=5, d_type=DT_LNK, d_reclen=32, d_name="security"} {d_ino=672, d_off=6, d_type=DT_LNK, d_reclen=24, d_name="ppp"} {d_ino=671, d_off=7, d_type=DT_LNK, d_reclen=24, d_name="ipv6"} {d_ino=670, d_off=8, d_type=DT_LNK, d_reclen=32, d_name="hotspot"} {d_ino=669, d_off=9, d_type=DT_LNK, d_reclen=24, d_name="dhcp"} {d_ino=668, d_off=10, d_type=DT_LNK, d_reclen=40, d_name="advanced-tools"}}, 2048) = 280
+[77fc2d89] stat64("/pckg/wireless/lib/modules/5.6.3-64/drivers/char/vt1211wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ups/lib/modules/5.6.3-64/drivers/char/vt1211wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/security/lib/modules/5.6.3-64/drivers/char/vt1211wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ppp/lib/modules/5.6.3-64/drivers/char/vt1211wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ipv6/lib/modules/5.6.3-64/drivers/char/vt1211wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/hotspot/lib/modules/5.6.3-64/drivers/char/vt1211wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/dhcp/lib/modules/5.6.3-64/drivers/char/vt1211wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/advanced-tools/lib/modules/5.6.3-64/drivers/char/vt1211wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/lib/modules/5.6.3-64/drivers/char/vt1211wdt.ko", O_RDONLY|O_LARGEFILE) = 3
+[77fc2d89] syscall_350(0x3, 0x804b02c, 0, 0x7ffffb20, 0x3, 0x7ffffaf8) = -1 (errno 19)
+[77ff6acb] close(3)                     = 0
+[77fc2d89] uname({sysname="Linux", nodename="(none)", release="5.6.3-64", version="#1 SMP Mon Oct 17 11:05:29 UTC 2022", machine="x86_64", domainname="(none)"}) = 0
+[77ff6acb] open("/pckg", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=659, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=648, d_off=2, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=675, d_off=3, d_type=DT_LNK, d_reclen=32, d_name="wireless"} {d_ino=674, d_off=4, d_type=DT_LNK, d_reclen=24, d_name="ups"} {d_ino=673, d_off=5, d_type=DT_LNK, d_reclen=32, d_name="security"} {d_ino=672, d_off=6, d_type=DT_LNK, d_reclen=24, d_name="ppp"} {d_ino=671, d_off=7, d_type=DT_LNK, d_reclen=24, d_name="ipv6"} {d_ino=670, d_off=8, d_type=DT_LNK, d_reclen=32, d_name="hotspot"} {d_ino=669, d_off=9, d_type=DT_LNK, d_reclen=24, d_name="dhcp"} {d_ino=668, d_off=10, d_type=DT_LNK, d_reclen=40, d_name="advanced-tools"}}, 2048) = 280
+[77fc2d89] stat64("/pckg/wireless/lib/modules/5.6.3-64/kernel/arch/x86/platform/scx200/scx200.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ups/lib/modules/5.6.3-64/kernel/arch/x86/platform/scx200/scx200.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/security/lib/modules/5.6.3-64/kernel/arch/x86/platform/scx200/scx200.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ppp/lib/modules/5.6.3-64/kernel/arch/x86/platform/scx200/scx200.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ipv6/lib/modules/5.6.3-64/kernel/arch/x86/platform/scx200/scx200.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/hotspot/lib/modules/5.6.3-64/kernel/arch/x86/platform/scx200/scx200.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/dhcp/lib/modules/5.6.3-64/kernel/arch/x86/platform/scx200/scx200.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/advanced-tools/lib/modules/5.6.3-64/kernel/arch/x86/platform/scx200/scx200.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/lib/modules/5.6.3-64/kernel/arch/x86/platform/scx200/scx200.ko", O_RDONLY|O_LARGEFILE) = -1 ENOENT (No such file or directory)
+[77fc2d89] uname({sysname="Linux", nodename="(none)", release="5.6.3-64", version="#1 SMP Mon Oct 17 11:05:29 UTC 2022", machine="x86_64", domainname="(none)"}) = 0
+[77ff6acb] open("/pckg", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=659, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=648, d_off=2, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=675, d_off=3, d_type=DT_LNK, d_reclen=32, d_name="wireless"} {d_ino=674, d_off=4, d_type=DT_LNK, d_reclen=24, d_name="ups"} {d_ino=673, d_off=5, d_type=DT_LNK, d_reclen=32, d_name="security"} {d_ino=672, d_off=6, d_type=DT_LNK, d_reclen=24, d_name="ppp"} {d_ino=671, d_off=7, d_type=DT_LNK, d_reclen=24, d_name="ipv6"} {d_ino=670, d_off=8, d_type=DT_LNK, d_reclen=32, d_name="hotspot"} {d_ino=669, d_off=9, d_type=DT_LNK, d_reclen=24, d_name="dhcp"} {d_ino=668, d_off=10, d_type=DT_LNK, d_reclen=40, d_name="advanced-tools"}}, 2048) = 280
+[77fc2d89] stat64("/pckg/wireless/lib/modules/5.6.3-64/drivers/watchdog/scx200_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ups/lib/modules/5.6.3-64/drivers/watchdog/scx200_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/security/lib/modules/5.6.3-64/drivers/watchdog/scx200_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ppp/lib/modules/5.6.3-64/drivers/watchdog/scx200_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ipv6/lib/modules/5.6.3-64/drivers/watchdog/scx200_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/hotspot/lib/modules/5.6.3-64/drivers/watchdog/scx200_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/dhcp/lib/modules/5.6.3-64/drivers/watchdog/scx200_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/advanced-tools/lib/modules/5.6.3-64/drivers/watchdog/scx200_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/lib/modules/5.6.3-64/drivers/watchdog/scx200_wdt.ko", O_RDONLY|O_LARGEFILE) = -1 ENOENT (No such file or directory)
+[77fc2d89] uname({sysname="Linux", nodename="(none)", release="5.6.3-64", version="#1 SMP Mon Oct 17 11:05:29 UTC 2022", machine="x86_64", domainname="(none)"}) = 0
+[77ff6acb] open("/pckg", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=659, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=648, d_off=2, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=675, d_off=3, d_type=DT_LNK, d_reclen=32, d_name="wireless"} {d_ino=674, d_off=4, d_type=DT_LNK, d_reclen=24, d_name="ups"} {d_ino=673, d_off=5, d_type=DT_LNK, d_reclen=32, d_name="security"} {d_ino=672, d_off=6, d_type=DT_LNK, d_reclen=24, d_name="ppp"} {d_ino=671, d_off=7, d_type=DT_LNK, d_reclen=24, d_name="ipv6"} {d_ino=670, d_off=8, d_type=DT_LNK, d_reclen=32, d_name="hotspot"} {d_ino=669, d_off=9, d_type=DT_LNK, d_reclen=24, d_name="dhcp"} {d_ino=668, d_off=10, d_type=DT_LNK, d_reclen=40, d_name="advanced-tools"}}, 2048) = 280
+[77fc2d89] stat64("/pckg/wireless/lib/modules/5.6.3-64/kernel/drivers/watchdog/wdat_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ups/lib/modules/5.6.3-64/kernel/drivers/watchdog/wdat_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/security/lib/modules/5.6.3-64/kernel/drivers/watchdog/wdat_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ppp/lib/modules/5.6.3-64/kernel/drivers/watchdog/wdat_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ipv6/lib/modules/5.6.3-64/kernel/drivers/watchdog/wdat_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/hotspot/lib/modules/5.6.3-64/kernel/drivers/watchdog/wdat_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/dhcp/lib/modules/5.6.3-64/kernel/drivers/watchdog/wdat_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/advanced-tools/lib/modules/5.6.3-64/kernel/drivers/watchdog/wdat_wdt.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/lib/modules/5.6.3-64/kernel/drivers/watchdog/wdat_wdt.ko", O_RDONLY|O_LARGEFILE) = 3
+[77fc2d89] syscall_350(0x3, 0x804b02c, 0, 0x7ffffb20, 0x3, 0x7ffffaf8) = 0
+[77ff6acb] close(3)                     = 0
+[77fc2d89] uname({sysname="Linux", nodename="(none)", release="5.6.3-64", version="#1 SMP Mon Oct 17 11:05:29 UTC 2022", machine="x86_64", domainname="(none)"}) = 0
+[77ff6acb] open("/pckg", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=659, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=648, d_off=2, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=675, d_off=3, d_type=DT_LNK, d_reclen=32, d_name="wireless"} {d_ino=674, d_off=4, d_type=DT_LNK, d_reclen=24, d_name="ups"} {d_ino=673, d_off=5, d_type=DT_LNK, d_reclen=32, d_name="security"} {d_ino=672, d_off=6, d_type=DT_LNK, d_reclen=24, d_name="ppp"} {d_ino=671, d_off=7, d_type=DT_LNK, d_reclen=24, d_name="ipv6"} {d_ino=670, d_off=8, d_type=DT_LNK, d_reclen=32, d_name="hotspot"} {d_ino=669, d_off=9, d_type=DT_LNK, d_reclen=24, d_name="dhcp"} {d_ino=668, d_off=10, d_type=DT_LNK, d_reclen=40, d_name="advanced-tools"}}, 2048) = 280
+[77fc2d89] stat64("/pckg/wireless/lib/modules/5.6.3-64/kernel/drivers/watchdog/softdog.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ups/lib/modules/5.6.3-64/kernel/drivers/watchdog/softdog.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/security/lib/modules/5.6.3-64/kernel/drivers/watchdog/softdog.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ppp/lib/modules/5.6.3-64/kernel/drivers/watchdog/softdog.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ipv6/lib/modules/5.6.3-64/kernel/drivers/watchdog/softdog.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/hotspot/lib/modules/5.6.3-64/kernel/drivers/watchdog/softdog.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/dhcp/lib/modules/5.6.3-64/kernel/drivers/watchdog/softdog.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/advanced-tools/lib/modules/5.6.3-64/kernel/drivers/watchdog/softdog.ko", 0x7ffffa40) = -1 ENOENT (No such file or directory)
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/lib/modules/5.6.3-64/kernel/drivers/watchdog/softdog.ko", O_RDONLY|O_LARGEFILE) = 3
+[77fc2d89] syscall_350(0x3, 0x804b02c, 0, 0x7ffffb20, 0x3, 0x7ffffaf8) = 0
+[77ff6acb] close(3)                     = 0
+[77fc2d89] stat64("/rw/REBOOT", {st_dev=makedev(8, 2), st_ino=36, st_mode=S_IFREG|0644, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=0, st_atime=2022/12/09-07:10:18, st_mtime=2022/12/09-07:10:18, st_ctime=2022/12/09-07:10:18}) = 0
+[77fc2d89] unlink("/rw/REBOOT")         = 0
+[77fc2d89] stat64("/rw/NOPING_REBOOT", 0x7ffffd70) = -1 ENOENT (No such file or directory)
+[77fc2d89] brk(0)                       = 0x804e000
+[77fc2d89] brk(0x804f000)               = 0x804f000
+[77fc2d89] brk(0x8050000)               = 0x8050000
+[77fc2d89] brk(0x8051000)               = 0x8051000
+[77fc2d89] brk(0x8052000)               = 0x8052000
+[77fc2d89] brk(0x8054000)               = 0x8054000
+[77fc2d89] socket(PF_FILE, SOCK_SEQPACKET, 0) = 3
+[77fc2d89] dup(3)                       = 4
+[77ff6acb] close(3)                     = 0
+[77ff6acb] connect(4, {sa_family=AF_FILE, sun_path="/ram/storereg"}, 110) = 0
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"scheduler", 9}], 2) = 21
+[77ff6acb] read(4, "(\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"net/devices", 11}], 2) = 23
+[77ff6acb] read(4, "0\4\0\0\0\0\0\0\20\0\0\0\1\0\0\0", 1032) = 16
+[77ff6acb] write(4, "\1\0\0\0000\4\0\0\1\0\0\0\10\4\0\0", 16) = 16
+[77ff6acb] read(4, "0\4\0\0\1\0\0\0\4\1\0\0M2h\0\1\1\1\0\376\t\1\1\0\1\t\1\2\0\1\10o\"\4\0\f\0\1\10\374\377\377\377;\0\1\t\0\6\0\1!\6ether1\20\0\1!\f0000:00:03.00\0\1!\02152:54:00:12:34:56\t\0\1!\02152:54:00:12:34:56\10\0\1)\222M2\f\4\0\210\5\0\0\0\0\0\1\0\0\0\2\0\0\0\3\0\0\0\5\0\0\0\364\3\0\1\0\4\0\0\r\0\1\0\n\0\376\0\363\3\0\1\370\3\0\t\0\371\3\0\t\0\372\3\0\t\0\7\4\0\t\0\10\4\0\t\0.\0\1\t\1d\0\1\10\334\5\0\0\352\3\0\t\1\26\4\0\t\0\30\4\0\t\5\27\4\0\t\1\31\4\0\10,\1\0\0\362\3\0\t\2\365\3\0\t\2\4\4\0001\6RT\0\0224V\351\3\0001\6RT\0\0224V", 1032) = 272
+[77ff6acb] open("/ram/rosmode", O_WRONLY|O_CREAT|O_LARGEFILE, 0666) = 3
+[77ff6acb] write(3, "\0\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\0\377\1\0", 21) = 21
+[77fc2d89] fchmod(3, 0444)              = 0
+[77ff6acb] close(3)                     = 0
+[77fc2d89] exit_group(0)                = ?
+[????????????????] +++ exited with 0 +++

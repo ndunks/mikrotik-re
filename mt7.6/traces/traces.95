@@ -1,0 +1,545 @@
+[77eced89] gettid()                     = 95
+[77eced89] rt_sigprocmask(SIG_SETMASK, [], NULL, 8) = 0
+[77f02acb] open("/dev/null", O_RDONLY|O_LARGEFILE) = 3
+[77eced89] dup2(3, 0)                   = 0
+[77f02acb] open("/dev/log1", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE, 0666) = 4
+[77eced89] dup2(4, 1)                   = 1
+[77f02acb] open("/dev/log1", O_WRONLY|O_CREAT|O_TRUNC|O_LARGEFILE, 0666) = 5
+[77eced89] dup2(5, 2)                   = 2
+[77f02acb] close(3)                     = 0
+[77f02acb] close(4)                     = 0
+[77f02acb] close(5)                     = 0
+[77eced89] execve("/nova/bin/starter", ["/nova/bin/starter"], ["SHLVL=3", "TERM=vt100", "PWD=/", "arch=i386", "PATH=/sbin:/bin", "LD_LIBRARY_PATH=/pckg/wireless/lib:/pckg/security/lib:/pckg/ppp/lib:/pckg/hotspot/lib:/pckg/dhcp/lib:/lib"]) = 0
+[77ff68d3] mprotect(0x77ffd000, 4096, PROT_READ) = 0
+[77ff68d3] open("/pckg/wireless/lib/libumsg.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/security/lib/libumsg.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/ppp/lib/libumsg.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/hotspot/lib/libumsg.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/dhcp/lib/libumsg.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/lib/libumsg.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+[77ff68d3] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77ff68d3] fstat64(3, {st_dev=makedev(7, 0), st_ino=299, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=657, st_size=336100, st_atime=2022/10/17-10:58:25, st_mtime=2022/10/17-10:58:25, st_ctime=2022/10/17-10:58:25}) = 0
+[77ff68d3] read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\200\257\1\0004\0\0\0\374\34\5\0\0\0\0\0004\0 \0\t\0(\0\31\0\30\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\340}\1\0\340}\1\0\4\0\0\0\0\20\0\0\1\0\0\0\0\200\1\0\0\200\1\0\0\200\1\0\365F\3\0\365F\3\0\5\0\0\0\0\20\0\0\1\0\0\0\0\320\4\0\0\320\4\0\0\320\4\0\310+\0\0\310+\0\0\4\0\0\0\0\20\0\0\1\0\0\0l\5\5\0l\25\5\0l\25\5\0\324\26\0\0\0(\0\0\6\0\0\0\0\20\0\0\2\0\0\0 \r\5\0 \35\5\0 \35\5\0\310\0\0\0\310\0\0\0\6\0\0\0\4\0\0\0\4\0\0\0\240\373\4\0\240\373\4\0\240\373\4\0(\0\0\0(\0\0\0\4\0\0\0\4\0\0\0S\345td\240\373\4\0\240\373\4\0\240\373\4\0(\0\0\0(\0\0\0\4\0\0\0\4\0\0\0Q\345td\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\7\0\0\0\20\0\0\0R\345tdl\5\5\0l\25\5\0l\25\5\0\224\n\0\0\224\n\0\0\4\0\0\0\1\0\0\0\7\4\0\0s\5\0\0\0\0\0\0\0\0\0\0\242\2\0\0\241\3\0\0\246\1\0\0\0\0\0\0u\1\0\0z\1\0\0\26\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\213\1\0\0b\2\0\0P\5\0\0d\4\0\0?\3\0\0\305\3\0\0\372\0\0\0\0\0\0\0\371\2\0\0Z\3\0\0J\2\0\0\0\0\0\0\0\0\0\0\337\4\0\0<\4\0\0\241\0\0\0\273\4\0\0 \3\0\0\0\0\0\0\0\0\0\0h\1\0\0^\0\0\0\354\2\0\0\26\0\0\0 \4\0\0\0\0\0\0\350\4\0\0\0\0\0\0\202\3\0\0U\1\0\0\304\2\0\0\315\0\0\0\0\0\0\0\27\4\0\0\360\3\0\0\0\0\0\0\275\3\0\0\376\0\0\0\234\0\0\0\0\0\0\0\300\4\0\0\n\5\0\0\377\4\0\0\0\0\0\0&\3\0\0\316\3\0\0\227\2\0\0#\4\0\0\266\1\0\0\17\3\0\0`\0\0\0\337\3\0\0\0\0\0\0\30\4\0\0\0\0\0\0\0\0\0\0\347\1\0\0\0\0\0\0\200\3\0\0b\0\0\0007\4\0\0S\0\0\0)\3\0\0\0\0\0\0\255\0\0\0\262\0\0\0\303\4\0\0G\2\0\0\255\3\0\0\0\0\0\0R\1\0\0\335\1\0\0\316\1\0\0\304\4\0\0\0\0\0\0\0\0\0\0\271\1\0\0\0\0\0\0\0\0\0\0\202\0\0\0\355\2\0\0\0\0\0\0\312\2\0\0\360\4\0\0\v\4\0\0\263\0\0\0`\1\0\0L\4\0\0\275\4\0\0,\2\0\0\235\4\0\0\373\4\0\0\0\0\0\0n\0\0\0\315\1\0\0\323\4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\3\0\0\0\0\0\0006\0\0\0\17\1\0\0\245\4\0\0K\2\0\0\0\0\0\0\7\2\0\0s\1\0\0[\5\0\0\375\4\0\0\200\1\0\0\0\0\0\0n\3\0\0I\0\0\0\244\0\0\0\216\1\0\0\21\5\0\0\224\4\0\0\336\3\0\0008\2\0\0\272\1\0\0\0\0\0\0\326\0\0\0\0\0\0\0\0\0\0\0E\0\0\0g\1\0\0+\0\0\0\204\1\0\0\0\0\0\0\353\2\0\0a\1\0\0\311\1\0\0\0\0\0\0o\3\0\0", 936) = 936
+[77ff68d3] mmap2(NULL, 344064, PROT_READ, MAP_PRIVATE, 3, 0) = 0x77f6a000
+[77ff68d3] mmap2(0x77f82000, 217088, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED, 3, 0x18000) = 0x77f82000
+[77ff68d3] mmap2(0x77fb7000, 12288, PROT_READ, MAP_PRIVATE|MAP_FIXED, 3, 0x4d000) = 0x77fb7000
+[77ff68d3] mmap2(0x77fbb000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 3, 0x50000) = 0x77fbb000
+[77ff68d3] mmap2(0x77fbd000, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x77fbd000
+[77ff68d3] close(3)                     = 0
+[77ff68d3] open("/pckg/wireless/lib/libuxml++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/security/lib/libuxml++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/ppp/lib/libuxml++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/hotspot/lib/libuxml++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/dhcp/lib/libuxml++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/lib/libuxml++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+[77ff68d3] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77ff68d3] fstat64(3, {st_dev=makedev(7, 0), st_ino=301, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=27, st_size=13532, st_atime=2022/10/17-10:58:34, st_mtime=2022/10/17-10:58:34, st_ctime=2022/10/17-10:58:34}) = 0
+[77ff68d3] read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0`\22\0\0004\0\0\0D1\0\0\0\0\0\0004\0 \0\t\0(\0\27\0\26\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0`\17\0\0`\17\0\0\4\0\0\0\0\20\0\0\1\0\0\0\0\20\0\0\0\20\0\0\0\20\0\0\365\r\0\0\365\r\0\0\5\0\0\0\0\20\0\0\1\0\0\0\0 \0\0\0 \0\0\0 \0\0@\0\0\0@\0\0\0\4\0\0\0\0\20\0\0\1\0\0\0\f/\0\0\f?\0\0\f?\0\0\224\1\0\0\264\1\0\0\6\0\0\0\0\20\0\0\2\0\0\0\34/\0\0\34?\0\0\34?\0\0\300\0\0\0\300\0\0\0\6\0\0\0\4\0\0\0\4\0\0\0\30 \0\0\30 \0\0\30 \0\0(\0\0\0(\0\0\0\4\0\0\0\4\0\0\0S\345td\30 \0\0\30 \0\0\30 \0\0(\0\0\0(\0\0\0\4\0\0\0\4\0\0\0Q\345td\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\7\0\0\0\20\0\0\0R\345td\f/\0\0\f?\0\0\f?\0\0\364\0\0\0\364\0\0\0\4\0\0\0\1\0\0\0%\0\0\0A\0\0\0002\0\0\0\f\0\0\0\22\0\0\0\0\0\0\0\t\0\0\0\35\0\0\0\37\0\0\0\0\0\0\0/\0\0\0000\0\0\0\0\0\0\0\26\0\0\0\0\0\0\0\31\0\0\0'\0\0\0#\0\0\0$\0\0\0\32\0\0\0-\0\0\0\25\0\0\0\36\0\0\0\"\0\0\0\0\0\0\0004\0\0\0%\0\0\0)\0\0\0\0\0\0\0<\0\0\0>\0\0\0003\0\0\0!\0\0\0&\0\0\0\23\0\0\0\33\0\0\0\30\0\0\0@\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\0\0:\0\0\0\0\0\0\0\5\0\0\0\0\0\0\0\0\0\0\0\3\0\0\0\0\0\0\0\0\0\0\0\7\0\0\0\0\0\0\0\2\0\0\0\0\0\0\0.\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0006\0\0\0*\0\0\0\21\0\0\0;\0\0\0\0\0\0\0,\0\0\0\16\0\0\0\v\0\0\0005\0\0\0?\0\0\0\27\0\0\0\20\0\0\0\34\0\0\0\6\0\0\0(\0\0\0008\0\0\0\0\0\0\0001\0\0\0\n\0\0\0+\0\0\0\0\0\0\0\0\0\0\0\17\0\0\0\0\0\0\0\0\0\0\0 \0\0\0\0\0\0\0=\0\0\0\0\0\0\0\4\0\0\0007\0\0\0\0\0\0\0\10\0\0\0\0\0\0\0\r\0\0\0\0\0\0\0009\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\24\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\21\0\0\0'\0\0\0\10\0\0\0\10\0\0\0\242\5\r\23\0\4\0\2B\211\2004\0\1\0@\2\4\0\202A)\220!\0\0\0\0\0\24,1'\0\0\0(\0\0\0*\0\0\0.\0\0\0/\0\0\0000\0\0\0\0\0\0\0001\0\0\0\0\0\0\0\0\0\0\0004\0\0\0005\0\0\0009\0\0\0:\0\0\0<\0\0\0=\0\0\0>\0\0\0\275\353\356\211V|\274=\353\323\357\16\270\215\361\16\30\271\266\212\362\235\232,A\257L\346\241\206\367\343\177\310!FI:\201EJ}\210\265\\\6\2579\23\30\23\3739j\243\323\6\205$\300\352SCx", 936) = 936
+[77ff68d3] mmap2(NULL, 20480, PROT_READ, MAP_PRIVATE, 3, 0) = 0x77f65000
+[77ff68d3] mmap2(0x77f66000, 4096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED, 3, 0x1000) = 0x77f66000
+[77ff68d3] mmap2(0x77f67000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED, 3, 0x2000) = 0x77f67000
+[77ff68d3] mmap2(0x77f68000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 3, 0x2000) = 0x77f68000
+[77ff68d3] close(3)                     = 0
+[77ff68d3] open("/pckg/wireless/lib/libuc++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/security/lib/libuc++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/ppp/lib/libuc++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/hotspot/lib/libuc++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/pckg/dhcp/lib/libuc++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+[77ff68d3] open("/lib/libuc++.so", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+[77ff68d3] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77ff68d3] fstat64(3, {st_dev=makedev(7, 0), st_ino=296, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=140, st_size=71484, st_atime=2022/10/17-10:58:12, st_mtime=2022/10/17-10:58:12, st_ctime=2022/10/17-10:58:12}) = 0
+[77ff68d3] read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0 z\0\0004\0\0\0T\23\1\0\0\0\0\0004\0 \0\t\0(\0\31\0\30\0\1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\4d\0\0\4d\0\0\4\0\0\0\0\20\0\0\1\0\0\0\0p\0\0\0p\0\0\0p\0\0e\211\0\0e\211\0\0\5\0\0\0\0\20\0\0\1\0\0\0\0\0\1\0\0\0\1\0\0\0\1\0\270\3\0\0\270\3\0\0\4\0\0\0\0\20\0\0\1\0\0\0004\f\1\0004\34\1\0004\34\1\0d\6\0\0`\7\0\0\6\0\0\0\0\20\0\0\2\0\0\0\320\16\1\0\320\36\1\0\320\36\1\0\300\0\0\0\300\0\0\0\6\0\0\0\4\0\0\0\4\0\0\0\220\3\1\0\220\3\1\0\220\3\1\0(\0\0\0(\0\0\0\4\0\0\0\4\0\0\0S\345td\220\3\1\0\220\3\1\0\220\3\1\0(\0\0\0(\0\0\0\4\0\0\0\4\0\0\0Q\345td\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\7\0\0\0\20\0\0\0R\345td4\f\1\0004\34\1\0004\34\1\0\314\3\0\0\314\3\0\0\4\0\0\0\1\0\0\0\7\1\0\0\262\1\0\0\261\1\0\0\0\1\0\0\224\0\0\0*\1\0\0$\0\0\0$\1\0\0\0\0\0\0\205\0\0\0z\1\0\0!\1\0\0\214\0\0\0\206\1\0\0\17\1\0\0V\1\0\0\251\0\0\0\"\0\0\0f\1\0\0\243\1\0\0\35\1\0\0K\1\0\0\253\1\0\0\330\0\0\0\242\0\0\0005\1\0\0\0\0\0\0q\0\0\0\16\1\0\0&\1\0\0X\0\0\0\27\1\0\0\301\0\0\0\212\0\0\0\0\0\0\0\0\0\0\0008\1\0\0\257\0\0\0\337\0\0\0\203\0\0\0\272\0\0\0(\0\0\0\0\0\0\0\322\0\0\0\0\0\0\0\31\0\0\0\0\0\0\0\216\0\0\0\253\0\0\0\0\0\0\0\33\0\0\0\266\0\0\0\0\0\0\0\251\1\0\0\344\0\0\0\0\0\0\0\0\0\0\0\177\0\0\0004\1\0\0\261\0\0\0\0\0\0\0\314\0\0\0\247\1\0\0\252\1\0\0\257\1\0\0f\0\0\0\276\0\0\0\2\1\0\0\234\0\0\0\35\0\0\0*\0\0\0\t\1\0\0\226\0\0\0\206\0\0\0\201\1\0\0003\1\0\0001\0\0\0-\1\0\0\211\1\0\0009\1\0\0W\0\0\0x\1\0\0\350\0\0\0\316\0\0\0 \0\0\0\227\1\0\0\300\0\0\0t\1\0\0:\0\0\0\0\0\0\0j\0\0\0+\0\0\0;\0\0\0\0\0\0\0\f\1\0\0\306\0\0\0\271\0\0\0\231\0\0\0|\1\0\0\317\0\0\0008\0\0\0\336\0\0\0c\0\0\0\343\0\0\0\6\1\0\0A\1\0\0n\0\0\0\215\1\0\0G\1\0\0\211\0\0\0\352\0\0\0\223\1\0\0[\0\0\0v\0\0\0\\\0\0\0N\1\0\0\224\1\0\0\0\0\0\0\0\0\0\0E\0\0\0\217\1\0\0\22\0\0\0\311\0\0\0^\0\0\0\325\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\214\1\0\0(\1\0\0\356\0\0\0\0\0\0\0\262\0\0\0g\0\0\0\320\0\0\0\340\0\0\0007\0\0\0\246\1\0\0y\1\0\0006\0\0\0\0\0\0\0\0\0\0\0_\0\0\0\376\0\0\0Q\0\0\0\36\1\0\0\365\0\0\0\23\1\0\0\r\0\0\0", 936) = 936
+[77ff68d3] mmap2(NULL, 77824, PROT_READ, MAP_PRIVATE, 3, 0) = 0x77f52000
+[77ff68d3] mmap2(0x77f59000, 36864, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED, 3, 0x7000) = 0x77f59000
+[77ff68d3] mmap2(0x77f62000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED, 3, 0x10000) = 0x77f62000
+[77ff68d3] mmap2(0x77f63000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED, 3, 0x10000) = 0x77f63000
+[77ff68d3] close(3)                     = 0
+[77ff68d3] mprotect(0x77fbb000, 4096, PROT_READ) = 0
+[77ff68d3] mprotect(0x77f68000, 4096, PROT_READ) = 0
+[77ff68d3] mprotect(0x77f63000, 4096, PROT_READ) = 0
+[77ff68d3] mprotect(0x804c000, 4096, PROT_READ) = 0
+[77ff6a53] set_thread_area(0x7ffffce8)  = 0
+[77ff68d3] set_tid_address(0x77ffe7bc)  = 95
+[77fc2d89] stat64("/nova/etc/loader.x3", 0x7ffff710) = -1 ENOENT (No such file or directory)
+[77ff6acb] open("/pckg", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=659, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=648, d_off=2, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=675, d_off=3, d_type=DT_LNK, d_reclen=32, d_name="wireless"} {d_ino=674, d_off=4, d_type=DT_LNK, d_reclen=24, d_name="ups"} {d_ino=673, d_off=5, d_type=DT_LNK, d_reclen=32, d_name="security"} {d_ino=672, d_off=6, d_type=DT_LNK, d_reclen=24, d_name="ppp"} {d_ino=671, d_off=7, d_type=DT_LNK, d_reclen=24, d_name="ipv6"} {d_ino=670, d_off=8, d_type=DT_LNK, d_reclen=32, d_name="hotspot"} {d_ino=669, d_off=9, d_type=DT_LNK, d_reclen=24, d_name="dhcp"} {d_ino=668, d_off=10, d_type=DT_LNK, d_reclen=40, d_name="advanced-tools"}}, 2048) = 280
+[77fc2d89] stat64("/pckg/wireless/nova/etc/loader", {st_dev=makedev(7, 0), st_ino=244, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=34, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77fc2d89] statfs("/pckg/wireless/nova/etc/loader", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=7599595017440817199, f_frsize=7939691607537509746}) = 0
+[77fc2d89] stat64("/pckg/ups/nova/etc/loader", {st_dev=makedev(7, 0), st_ino=274, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=29, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77fc2d89] statfs("/pckg/ups/nova/etc/loader", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=8103435225752891439, f_frsize=7291153483039649651}) = 0
+[77fc2d89] stat64("/pckg/security/nova/etc/loader", {st_dev=makedev(7, 0), st_ino=162, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=34, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77fc2d89] statfs("/pckg/security/nova/etc/loader", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=7310238741382262831, f_frsize=7939698208969749859}) = 0
+[77fc2d89] stat64("/pckg/ppp/nova/etc/loader", {st_dev=makedev(7, 0), st_ino=186, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=29, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77fc2d89] statfs("/pckg/ppp/nova/etc/loader", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=8102027850869338159, f_frsize=7291153483039649648}) = 0
+[77fc2d89] stat64("/pckg/ipv6/nova/etc/loader", {st_dev=makedev(7, 0), st_ino=262, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=30, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77fc2d89] statfs("/pckg/ipv6/nova/etc/loader", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=8100057526032363567, f_frsize=3414140213485581942}) = 0
+[77fc2d89] stat64("/pckg/hotspot/nova/etc/loader", {st_dev=makedev(7, 0), st_ino=216, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=33, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77fc2d89] statfs("/pckg/hotspot/nova/etc/loader", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=8027718457017724975, f_frsize=8029407362780525428}) = 0
+[77fc2d89] stat64("/pckg/dhcp/nova/etc/loader", {st_dev=makedev(7, 0), st_ino=151, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=30, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77fc2d89] statfs("/pckg/dhcp/nova/etc/loader", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=7522189398845386799, f_frsize=3414140213485596771}) = 0
+[77fc2d89] stat64("/pckg/advanced-tools/nova/etc/loader", {st_dev=makedev(7, 0), st_ino=141, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=35, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77fc2d89] statfs("/pckg/advanced-tools/nova/etc/loader", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=7233114597763543087, f_frsize=8371457668974272886}) = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77fc2d89] stat64("/nova/etc/loader", {st_dev=makedev(7, 0), st_ino=112, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=32, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77ff6acb] open("/pckg/wireless/nova/etc/loader", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=244, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=248, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=905, d_off=34, d_type=DT_REG, d_reclen=32, d_name="wireless.x3"}}, 2048) = 80
+[77fc2d89] stat64("/pckg/wireless/nova/etc/loader/wireless.x3", {st_dev=makedev(7, 0), st_ino=905, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=163, st_atime=2022/10/17-11:34:43, st_mtime=2022/10/17-11:34:43, st_ctime=2022/10/17-11:34:43}) = 0
+[77ff6acb] open("/pckg/wireless/nova/etc/loader/wireless.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=905, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=163, st_atime=2022/10/17-11:34:43, st_mtime=2022/10/17-11:34:43, st_ctime=2022/10/17-11:34:43}) = 0
+[77fc2d89] mmap2(NULL, 163, PROT_READ, MAP_SHARED, 4, 0) = 0x77f51000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/pckg/ups/nova/etc/loader", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=274, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=275, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=932, d_off=29, d_type=DT_REG, d_reclen=32, d_name="ups.x3"}}, 2048) = 80
+[77fc2d89] stat64("/pckg/ups/nova/etc/loader/ups.x3", {st_dev=makedev(7, 0), st_ino=932, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=108, st_atime=2022/10/17-11:25:55, st_mtime=2022/10/17-11:25:55, st_ctime=2022/10/17-11:25:55}) = 0
+[77ff6acb] open("/pckg/ups/nova/etc/loader/ups.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=932, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=108, st_atime=2022/10/17-11:25:55, st_mtime=2022/10/17-11:25:55, st_ctime=2022/10/17-11:25:55}) = 0
+[77fc2d89] mmap2(NULL, 108, PROT_READ, MAP_SHARED, 4, 0) = 0x77f50000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/pckg/security/nova/etc/loader", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=162, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=166, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=800, d_off=34, d_type=DT_REG, d_reclen=32, d_name="security.x3"}}, 2048) = 80
+[77fc2d89] stat64("/pckg/security/nova/etc/loader/security.x3", {st_dev=makedev(7, 0), st_ino=800, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=389, st_atime=2022/10/17-11:25:18, st_mtime=2022/10/17-11:25:18, st_ctime=2022/10/17-11:25:18}) = 0
+[77ff6acb] open("/pckg/security/nova/etc/loader/security.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=800, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=389, st_atime=2022/10/17-11:25:18, st_mtime=2022/10/17-11:25:18, st_ctime=2022/10/17-11:25:18}) = 0
+[77fc2d89] mmap2(NULL, 389, PROT_READ, MAP_SHARED, 4, 0) = 0x77f4f000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/pckg/ppp/nova/etc/loader", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=186, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=190, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=826, d_off=29, d_type=DT_REG, d_reclen=32, d_name="ppp.x3"}}, 2048) = 80
+[77fc2d89] stat64("/pckg/ppp/nova/etc/loader/ppp.x3", {st_dev=makedev(7, 0), st_ino=826, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=289, st_atime=2022/10/17-11:30:58, st_mtime=2022/10/17-11:30:58, st_ctime=2022/10/17-11:30:58}) = 0
+[77ff6acb] open("/pckg/ppp/nova/etc/loader/ppp.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=826, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=289, st_atime=2022/10/17-11:30:58, st_mtime=2022/10/17-11:30:58, st_ctime=2022/10/17-11:30:58}) = 0
+[77fc2d89] mmap2(NULL, 289, PROT_READ, MAP_SHARED, 4, 0) = 0x77f4e000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/pckg/ipv6/nova/etc/loader", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=262, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=264, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=923, d_off=30, d_type=DT_REG, d_reclen=32, d_name="ipv6.x3"}}, 2048) = 80
+[77fc2d89] stat64("/pckg/ipv6/nova/etc/loader/ipv6.x3", {st_dev=makedev(7, 0), st_ino=923, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=210, st_atime=2022/10/17-11:26:10, st_mtime=2022/10/17-11:26:10, st_ctime=2022/10/17-11:26:10}) = 0
+[77ff6acb] open("/pckg/ipv6/nova/etc/loader/ipv6.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=923, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=210, st_atime=2022/10/17-11:26:10, st_mtime=2022/10/17-11:26:10, st_ctime=2022/10/17-11:26:10}) = 0
+[77fc2d89] mmap2(NULL, 210, PROT_READ, MAP_SHARED, 4, 0) = 0x77f4d000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/pckg/hotspot/nova/etc/loader", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=216, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=219, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=854, d_off=33, d_type=DT_REG, d_reclen=32, d_name="hotspot.x3"}}, 2048) = 80
+[77fc2d89] stat64("/pckg/hotspot/nova/etc/loader/hotspot.x3", {st_dev=makedev(7, 0), st_ino=854, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=112, st_atime=2022/10/17-11:28:01, st_mtime=2022/10/17-11:28:01, st_ctime=2022/10/17-11:28:01}) = 0
+[77ff6acb] open("/pckg/hotspot/nova/etc/loader/hotspot.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=854, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=112, st_atime=2022/10/17-11:28:01, st_mtime=2022/10/17-11:28:01, st_ctime=2022/10/17-11:28:01}) = 0
+[77fc2d89] mmap2(NULL, 112, PROT_READ, MAP_SHARED, 4, 0) = 0x77f4c000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/pckg/dhcp/nova/etc/loader", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=151, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=153, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=793, d_off=30, d_type=DT_REG, d_reclen=32, d_name="dhcp.x3"}}, 2048) = 80
+[77fc2d89] stat64("/pckg/dhcp/nova/etc/loader/dhcp.x3", {st_dev=makedev(7, 0), st_ino=793, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=237, st_atime=2022/10/17-11:27:56, st_mtime=2022/10/17-11:27:56, st_ctime=2022/10/17-11:27:56}) = 0
+[77ff6acb] open("/pckg/dhcp/nova/etc/loader/dhcp.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=793, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=237, st_atime=2022/10/17-11:27:56, st_mtime=2022/10/17-11:27:56, st_ctime=2022/10/17-11:27:56}) = 0
+[77fc2d89] mmap2(NULL, 237, PROT_READ, MAP_SHARED, 4, 0) = 0x77f4b000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/pckg/advanced-tools/nova/etc/loader", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=141, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=143, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=785, d_off=35, d_type=DT_REG, d_reclen=32, d_name="adv-tools.x3"}}, 2048) = 80
+[77fc2d89] stat64("/pckg/advanced-tools/nova/etc/loader/adv-tools.x3", {st_dev=makedev(7, 0), st_ino=785, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=2, st_size=783, st_atime=2022/10/17-11:25:46, st_mtime=2022/10/17-11:25:46, st_ctime=2022/10/17-11:25:46}) = 0
+[77ff6acb] open("/pckg/advanced-tools/nova/etc/loader/adv-tools.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=785, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=2, st_size=783, st_atime=2022/10/17-11:25:46, st_mtime=2022/10/17-11:25:46, st_ctime=2022/10/17-11:25:46}) = 0
+[77fc2d89] mmap2(NULL, 783, PROT_READ, MAP_SHARED, 4, 0) = 0x77f4a000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/nova/etc/loader", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=112, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=124, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=687, d_off=32, d_type=DT_REG, d_reclen=32, d_name="system.x3"}}, 2048) = 80
+[77fc2d89] stat64("/nova/etc/loader/system.x3", {st_dev=makedev(7, 0), st_ino=687, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=13, st_size=6499, st_atime=2022/10/17-11:02:06, st_mtime=2022/10/17-11:02:06, st_ctime=2022/10/17-11:02:06}) = 0
+[77ff6acb] open("/nova/etc/loader/system.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=687, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=13, st_size=6499, st_atime=2022/10/17-11:02:06, st_mtime=2022/10/17-11:02:06, st_ctime=2022/10/17-11:02:06}) = 0
+[77fc2d89] mmap2(NULL, 6499, PROT_READ, MAP_SHARED, 4, 0) = 0x77f48000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77fc2d89] stat64("/nova/etc/starter.x3", 0x7ffff710) = -1 ENOENT (No such file or directory)
+[77ff6acb] open("/pckg", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=659, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=648, d_off=2, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=675, d_off=3, d_type=DT_LNK, d_reclen=32, d_name="wireless"} {d_ino=674, d_off=4, d_type=DT_LNK, d_reclen=24, d_name="ups"} {d_ino=673, d_off=5, d_type=DT_LNK, d_reclen=32, d_name="security"} {d_ino=672, d_off=6, d_type=DT_LNK, d_reclen=24, d_name="ppp"} {d_ino=671, d_off=7, d_type=DT_LNK, d_reclen=24, d_name="ipv6"} {d_ino=670, d_off=8, d_type=DT_LNK, d_reclen=32, d_name="hotspot"} {d_ino=669, d_off=9, d_type=DT_LNK, d_reclen=24, d_name="dhcp"} {d_ino=668, d_off=10, d_type=DT_LNK, d_reclen=40, d_name="advanced-tools"}}, 2048) = 280
+[77fc2d89] stat64("/pckg/wireless/nova/etc/starter", 0x7ffff480) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/ups/nova/etc/starter", 0x7ffff480) = -1 ENOENT (No such file or directory)
+[77fc2d89] stat64("/pckg/security/nova/etc/starter", {st_dev=makedev(7, 0), st_ino=163, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=34, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77fc2d89] statfs("/pckg/security/nova/etc/starter", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=7310238741382262831, f_frsize=7939698208969749859}) = 0
+[77fc2d89] stat64("/pckg/ppp/nova/etc/starter", {st_dev=makedev(7, 0), st_ino=187, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=29, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77fc2d89] statfs("/pckg/ppp/nova/etc/starter", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=8102027850869338159, f_frsize=7291153483039649648}) = 0
+[77fc2d89] stat64("/pckg/ipv6/nova/etc/starter", {st_dev=makedev(7, 0), st_ino=263, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=30, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77fc2d89] statfs("/pckg/ipv6/nova/etc/starter", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=8100057526032363567, f_frsize=3414140213485581942}) = 0
+[77fc2d89] stat64("/pckg/hotspot/nova/etc/starter", {st_dev=makedev(7, 0), st_ino=217, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=33, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77fc2d89] statfs("/pckg/hotspot/nova/etc/starter", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=8027718457017724975, f_frsize=8029407362780525428}) = 0
+[77fc2d89] stat64("/pckg/dhcp/nova/etc/starter", {st_dev=makedev(7, 0), st_ino=152, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=30, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77fc2d89] statfs("/pckg/dhcp/nova/etc/starter", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=7522189398845386799, f_frsize=3414140213485596771}) = 0
+[77fc2d89] stat64("/pckg/advanced-tools/nova/etc/starter", {st_dev=makedev(7, 0), st_ino=142, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=35, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77fc2d89] statfs("/pckg/advanced-tools/nova/etc/starter", {f_type=0x73717368, f_bsize=57, f_blocks=4054449127424, f_bfree=7696581394432, f_bavail=1099511627776, f_files=17733920227328, f_ffree=0, f_fsid={0, 0}, f_namelen=7233114597763543087, f_frsize=8371457668974272886}) = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77fc2d89] stat64("/nova/etc/starter", {st_dev=makedev(7, 0), st_ino=113, st_mode=S_IFDIR|0755, st_nlink=2, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=0, st_size=32, st_atime=2022/10/17-11:35:57, st_mtime=2022/10/17-11:35:57, st_ctime=2022/10/17-11:35:57}) = 0
+[77ff6acb] open("/pckg/security/nova/etc/starter", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=163, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=166, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=801, d_off=34, d_type=DT_REG, d_reclen=32, d_name="security.x3"}}, 2048) = 80
+[77fc2d89] stat64("/pckg/security/nova/etc/starter/security.x3", {st_dev=makedev(7, 0), st_ino=801, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=396, st_atime=2022/10/17-11:25:18, st_mtime=2022/10/17-11:25:18, st_ctime=2022/10/17-11:25:18}) = 0
+[77ff6acb] open("/pckg/security/nova/etc/starter/security.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=801, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=396, st_atime=2022/10/17-11:25:18, st_mtime=2022/10/17-11:25:18, st_ctime=2022/10/17-11:25:18}) = 0
+[77fc2d89] mmap2(NULL, 396, PROT_READ, MAP_SHARED, 4, 0) = 0x77f47000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/pckg/ppp/nova/etc/starter", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] brk(0)                       = 0x804e000
+[77fc2d89] brk(0x804f000)               = 0x804f000
+[77fc2d89] getdents64(3, {{d_ino=187, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=190, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=827, d_off=29, d_type=DT_REG, d_reclen=32, d_name="ppp.x3"}}, 2048) = 80
+[77fc2d89] stat64("/pckg/ppp/nova/etc/starter/ppp.x3", {st_dev=makedev(7, 0), st_ino=827, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=5, st_size=2172, st_atime=2022/10/17-11:30:58, st_mtime=2022/10/17-11:30:58, st_ctime=2022/10/17-11:30:58}) = 0
+[77ff6acb] open("/pckg/ppp/nova/etc/starter/ppp.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=827, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=5, st_size=2172, st_atime=2022/10/17-11:30:58, st_mtime=2022/10/17-11:30:58, st_ctime=2022/10/17-11:30:58}) = 0
+[77fc2d89] mmap2(NULL, 2172, PROT_READ, MAP_SHARED, 4, 0) = 0x77f46000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/pckg/ipv6/nova/etc/starter", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=263, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=264, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=924, d_off=30, d_type=DT_REG, d_reclen=32, d_name="ipv6.x3"}}, 2048) = 80
+[77fc2d89] stat64("/pckg/ipv6/nova/etc/starter/ipv6.x3", {st_dev=makedev(7, 0), st_ino=924, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=315, st_atime=2022/10/17-11:26:10, st_mtime=2022/10/17-11:26:10, st_ctime=2022/10/17-11:26:10}) = 0
+[77ff6acb] open("/pckg/ipv6/nova/etc/starter/ipv6.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=924, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=315, st_atime=2022/10/17-11:26:10, st_mtime=2022/10/17-11:26:10, st_ctime=2022/10/17-11:26:10}) = 0
+[77fc2d89] mmap2(NULL, 315, PROT_READ, MAP_SHARED, 4, 0) = 0x77f45000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/pckg/hotspot/nova/etc/starter", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=217, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=219, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=855, d_off=33, d_type=DT_REG, d_reclen=32, d_name="hotspot.x3"}}, 2048) = 80
+[77fc2d89] stat64("/pckg/hotspot/nova/etc/starter/hotspot.x3", {st_dev=makedev(7, 0), st_ino=855, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=165, st_atime=2022/10/17-11:28:01, st_mtime=2022/10/17-11:28:01, st_ctime=2022/10/17-11:28:01}) = 0
+[77ff6acb] open("/pckg/hotspot/nova/etc/starter/hotspot.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=855, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=1, st_size=165, st_atime=2022/10/17-11:28:01, st_mtime=2022/10/17-11:28:01, st_ctime=2022/10/17-11:28:01}) = 0
+[77fc2d89] mmap2(NULL, 165, PROT_READ, MAP_SHARED, 4, 0) = 0x77f44000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/pckg/dhcp/nova/etc/starter", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=152, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=153, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=794, d_off=30, d_type=DT_REG, d_reclen=32, d_name="dhcp.x3"}}, 2048) = 80
+[77fc2d89] stat64("/pckg/dhcp/nova/etc/starter/dhcp.x3", {st_dev=makedev(7, 0), st_ino=794, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=3, st_size=1083, st_atime=2022/10/17-11:27:56, st_mtime=2022/10/17-11:27:56, st_ctime=2022/10/17-11:27:56}) = 0
+[77ff6acb] open("/pckg/dhcp/nova/etc/starter/dhcp.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=794, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=3, st_size=1083, st_atime=2022/10/17-11:27:56, st_mtime=2022/10/17-11:27:56, st_ctime=2022/10/17-11:27:56}) = 0
+[77fc2d89] mmap2(NULL, 1083, PROT_READ, MAP_SHARED, 4, 0) = 0x77f43000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/pckg/advanced-tools/nova/etc/starter", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=142, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=143, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=786, d_off=35, d_type=DT_REG, d_reclen=32, d_name="adv-tools.x3"}}, 2048) = 80
+[77fc2d89] stat64("/pckg/advanced-tools/nova/etc/starter/adv-tools.x3", {st_dev=makedev(7, 0), st_ino=786, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=2, st_size=605, st_atime=2022/10/17-11:25:46, st_mtime=2022/10/17-11:25:46, st_ctime=2022/10/17-11:25:46}) = 0
+[77ff6acb] open("/pckg/advanced-tools/nova/etc/starter/adv-tools.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=786, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=2, st_size=605, st_atime=2022/10/17-11:25:46, st_mtime=2022/10/17-11:25:46, st_ctime=2022/10/17-11:25:46}) = 0
+[77fc2d89] mmap2(NULL, 605, PROT_READ, MAP_SHARED, 4, 0) = 0x77f42000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/nova/etc/starter", O_RDONLY|O_LARGEFILE|O_DIRECTORY|O_CLOEXEC) = 3
+[77fc2d89] fcntl64(3, F_SETFD, FD_CLOEXEC) = 0
+[77fc2d89] getdents64(3, {{d_ino=113, d_off=1, d_type=DT_DIR, d_reclen=24, d_name="."} {d_ino=124, d_off=3, d_type=DT_DIR, d_reclen=24, d_name=".."} {d_ino=688, d_off=32, d_type=DT_REG, d_reclen=32, d_name="system.x3"}}, 2048) = 80
+[77fc2d89] stat64("/nova/etc/starter/system.x3", {st_dev=makedev(7, 0), st_ino=688, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=13, st_size=6532, st_atime=2022/10/17-11:02:06, st_mtime=2022/10/17-11:02:06, st_ctime=2022/10/17-11:02:06}) = 0
+[77ff6acb] open("/nova/etc/starter/system.x3", O_RDONLY|O_LARGEFILE) = 4
+[77fc2d89] fstat64(4, {st_dev=makedev(7, 0), st_ino=688, st_mode=S_IFREG|0755, st_nlink=1, st_uid=0, st_gid=0, st_blksize=4096, st_blocks=13, st_size=6532, st_atime=2022/10/17-11:02:06, st_mtime=2022/10/17-11:02:06, st_ctime=2022/10/17-11:02:06}) = 0
+[77fc2d89] mmap2(NULL, 6532, PROT_READ, MAP_SHARED, 4, 0) = 0x77f40000
+[77ff6acb] close(4)                     = 0
+[77fc2d89] getdents64(3, {}, 2048)      = 0
+[77ff6acb] close(3)                     = 0
+[77fc2d89] socket(PF_FILE, SOCK_SEQPACKET, 0) = 3
+[77fc2d89] dup(3)                       = 4
+[77ff6acb] close(3)                     = 0
+[77ff6acb] connect(4, {sa_family=AF_FILE, sun_path="/ram/storereg"}, 110) = 0
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"ipsec/policy", 12}], 2) = 24
+[77ff6acb] read(4, "K\4\0\0\0\0\0\0\24\0\0\0\377\377\377\0\376\377\377\377", 1032) = 20
+[77ff6acb] write(4, "\1\0\0\0K\4\0\0\377\377\377\0\10\4\0\0", 16) = 16
+[77ff6acb] read(4, "K\4\0\0\377\377\377\0`\0\0\0M2\34\0\0\1\n\0\376\0\33\0\0\t\2\7\0\0\t\377\17\0\0\t\0\1\0\376\10\377\377\377\0\26\0\0\t\0\30\0\0\t\0\5\0\376\10\377\377\377\377\t\0\376!\0\27\0\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\25\0\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0K\4\0\0\376\377\377\377\22\0\0\0M2\1\0\376\10\376\377\377\377\5\0\376\10\377\377\377\0", 1032) = 138
+[77ff6acb] write(1, "store /nova/store/ipsec/policy: sched(85)\n", 42) = 42
+[77ff6acb] write(1, "prog id=85, should be started anyway\n", 37) = 37
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"ipsec/peer", 10}], 2) = 22
+[77ff6acb] read(4, "L\4\0\0\0\0\0\0\20\0\0\0\376\377\377\377", 1032) = 16
+[77ff6acb] write(4, "\1\0\0\0L\4\0\0\376\377\377\377\10\4\0\0", 16) = 16
+[77ff6acb] read(4, "L\4\0\0\376\377\377\377\22\0\0\0M2\1\0\376\10\376\377\377\377\5\0\376\10\377\377\377\377", 1032) = 30
+[77ff6acb] write(1, "store /nova/store/ipsec/peer:\n", 30) = 30
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"net/devices", 11}], 2) = 23
+[77ff6acb] read(4, "0\4\0\0\0\0\0\0\20\0\0\0\1\0\0\0", 1032) = 16
+[77ff6acb] write(4, "\1\0\0\0000\4\0\0\1\0\0\0\10\4\0\0", 16) = 16
+[77ff6acb] read(4, "0\4\0\0\1\0\0\0\4\1\0\0M2h\0\1\1\1\0\376\t\1\1\0\1\t\1\2\0\1\10o\"\4\0\f\0\1\10\374\377\377\377;\0\1\t\0\6\0\1!\6ether1\20\0\1!\f0000:00:03.00\0\1!\02152:54:00:12:34:56\t\0\1!\02152:54:00:12:34:56\10\0\1)\222M2\f\4\0\210\5\0\0\0\0\0\1\0\0\0\2\0\0\0\3\0\0\0\5\0\0\0\364\3\0\1\0\4\0\0\r\0\1\0\n\0\376\0\363\3\0\1\370\3\0\t\0\371\3\0\t\0\372\3\0\t\0\7\4\0\t\0\10\4\0\t\0.\0\1\t\1d\0\1\10\334\5\0\0\352\3\0\t\1\26\4\0\t\0\30\4\0\t\5\27\4\0\t\1\31\4\0\10,\1\0\0\362\3\0\t\2\365\3\0\t\2\4\4\0001\6RT\0\0224V\351\3\0001\6RT\0\0224V", 1032) = 272
+[77ff6acb] write(1, "store /nova/store/net/devices:\n", 31) = 31
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"pptp/server", 11}], 2) = 23
+[77ff6acb] read(4, ")\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/pptp/server:[empty]\n", 38) = 38
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"pppoe-services", 14}], 2) = 26
+[77ff6acb] read(4, "*\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/pppoe-services:[empty]\n", 41) = 41
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"l2tp/server", 11}], 2) = 23
+[77ff6acb] read(4, "+\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/l2tp/server:[empty]\n", 38) = 38
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"ovpn/server", 11}], 2) = 23
+[77ff6acb] read(4, "P\4\0\0\0\0\0\0\20\0\0\0\0\0\0\0", 1032) = 16
+[77ff6acb] write(4, "\1\0\0\0P\4\0\0\0\0\0\0\10\4\0\0", 16) = 16
+[77ff6acb] read(4, "P\4\0\0\0\0\0\0U\0\0\0M2\322\0\0\0\310\0\0\0\312\0\0\10\334\5\0\0\314\0\0\t\0\315\0\0\t\0\316\0\0\10\377\377\377\0\320\0\0\t<\321\0\0\t\0\323\0\0\t\33\324\0\0\t\3\325\0\0\t\0\326\0\0\t\0\311\0\0\10\252\4\0\0\317\0\0001\6\376\307\254t\215\357", 1032) = 97
+[77ff6acb] write(1, "store /nova/store/ovpn/server:\n", 31) = 31
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"sstp/server", 11}], 2) = 23
+[77ff6acb] read(4, ",\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/sstp/server:[empty]\n", 38) = 38
+[77ff6acb] write(1, "prog id=31, should be started anyway\n", 37) = 37
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"radvd/prefix", 12}], 2) = 24
+[77ff6acb] read(4, "-\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/radvd/prefix:[empty]\n", 39) = 39
+[77ff6acb] write(1, "prog id=31, should be started anyway\n", 37) = 37
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"radvd/iface", 11}], 2) = 23
+[77ff6acb] read(4, "S\4\0\0\0\0\0\0\20\0\0\0\1\0\0\0", 1032) = 16
+[77ff6acb] write(4, "\1\0\0\0S\4\0\0\1\0\0\0\10\4\0\0", 16) = 16
+[77ff6acb] read(4, "S\4\0\0\1\0\0\0a\0\0\0M2\17\0\0\250\0\0\10\0\376\0\n\0\376\0\v\0\0\1\f\0\0\1\r\0\0\0\16\0\0\0\r\0\376\1\4\0\0\10X\2\0\0\5\0\0\t\3\6\0\0\t\0\7\0\0\t\0\10\0\0\t\0\t\0\0\t\0\n\0\0\10\10\7\0\0\20\0\0\t\0\1\0\376\t\1\1\0\0\t\0\3\0\0\t\310", 1032) = 109
+[77ff6acb] write(1, "store /nova/store/radvd/iface:\n", 31) = 31
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"hotspot/iface", 13}], 2) = 25
+[77ff6acb] read(4, ".\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/hotspot/iface:[empty]\n", 40) = 40
+[77ff6acb] write(1, "prog id=43, should be started anyway\n", 37) = 37
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"dhcp/client", 11}], 2) = 23
+[77ff6acb] read(4, "/\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/dhcp/client:[empty]\n", 38) = 38
+[77ff6acb] write(1, "prog id=43, should be started anyway\n", 37) = 37
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"dhcp/alert", 10}], 2) = 22
+[77ff6acb] read(4, "0\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/dhcp/alert:[empty]\n", 37) = 37
+[77ff6acb] write(1, "prog id=43, should be started anyway\n", 37) = 37
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"dhcp/client6", 12}], 2) = 24
+[77ff6acb] read(4, "1\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/dhcp/client6:[empty]\n", 39) = 39
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"dhcp/server/server", 18}], 2) = 30
+[77ff6acb] read(4, "2\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/dhcp/server/server:[empty]\n", 45) = 45
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"dhcp/server/server6", 19}], 2) = 31
+[77ff6acb] read(4, "3\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/dhcp/server/server6:[empty]\n", 46) = 46
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"dhcp/relay", 10}], 2) = 22
+[77ff6acb] read(4, "4\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/dhcp/relay:[empty]\n", 37) = 37
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"dhcp/relay6", 11}], 2) = 23
+[77ff6acb] read(4, "5\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/dhcp/relay6:[empty]\n", 38) = 38
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"netwatch", 8}], 2) = 20
+[77ff6acb] read(4, "6\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/netwatch:[empty]\n", 35) = 35
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"netwatch2", 9}], 2) = 21
+[77ff6acb] read(4, "7\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/netwatch2:[empty]\n", 36) = 36
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"sms-config", 10}], 2) = 22
+[77ff6acb] read(4, "8\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/sms-config:[empty]\n", 37) = 37
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"sigwatch", 8}], 2) = 20
+[77ff6acb] read(4, "9\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/sigwatch:[empty]\n", 35) = 35
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"radius", 6}], 2) = 18
+[77ff6acb] read(4, "K\5\0\0\0\0\0\0\20\0\0\0\376\377\377\377", 1032) = 16
+[77ff6acb] write(4, "\1\0\0\0K\5\0\0\376\377\377\377\10\4\0\0", 16) = 16
+[77ff6acb] read(4, "K\5\0\0\376\377\377\377\22\0\0\0M2\1\0\376\10\376\377\377\377\5\0\376\10\377\377\377\377", 1032) = 30
+[77ff6acb] write(1, "store /nova/store/radius:\n", 26) = 26
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"radius/incoming", 15}], 2) = 27
+[77ff6acb] read(4, ":\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/radius/incoming:[empty]\n", 42) = 42
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"file-master", 11}], 2) = 23
+[77ff6acb] read(4, ";\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/file-master:[empty]\n", 38) = 38
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"file-sources", 12}], 2) = 24
+[77ff6acb] read(4, "<\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/file-sources:[empty]\n", 39) = 39
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"snmpd", 5}], 2) = 17
+[77ff6acb] read(4, "O\5\0\0\0\0\0\0\20\0\0\0\0\0\0\0", 1032) = 16
+[77ff6acb] write(4, "\1\0\0\0O\5\0\0\0\0\0\0\10\4\0\0", 16) = 16
+[77ff6acb] read(4, "O\5\0\0\0\0\0\0]\0\0\0M2\23\0\0\210\1\0\2\0\274\n\32\0\0\250\0\0\1\0\0\0\22\0\376\t\1\21\0\0\t\0\22\0\0\t\0\35\0\0\t\0\r\0\0\t\2\34\0\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\n\0\0!\0\3\0\0!\0\2\0\0!\0\4\0\0!\6public", 1032) = 105
+[77ff6acb] write(1, "store /nova/store/snmpd:\n", 25) = 25
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"resolver/config", 15}], 2) = 27
+[77ff6acb] read(4, "=\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/resolver/config:[empty]\n", 42) = 42
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"trafflow-config", 15}], 2) = 27
+[77ff6acb] read(4, ">\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/trafflow-config:[empty]\n", 42) = 42
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"scheduler", 9}], 2) = 21
+[77ff6acb] read(4, "(\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/scheduler:[empty]\n", 36) = 36
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"www/socks/config", 16}], 2) = 28
+[77ff6acb] read(4, "?\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/www/socks/config:[empty]\n", 43) = 43
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"upnpm", 5}], 2) = 17
+[77ff6acb] read(4, "@\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/upnpm:[empty]\n", 32) = 32
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"wproxy/config", 13}], 2) = 25
+[77ff6acb] read(4, "T\5\0\0\0\0\0\0\20\0\0\0\0\0\0\0", 1032) = 16
+[77ff6acb] write(4, "\1\0\0\0T\5\0\0\0\0\0\0\10\4\0\0", 16) = 16
+[77ff6acb] read(4, "T\5\0\0\0\0\0\0\4\1\0\0M2\2\0\0\210\1\0\220\37\0\0\33\0\0\250\1\0\26\0M2\27\0\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\1\0\0\0\r\0\0\0\34\0\0\0\22\0\0\0\23\0\0\0\0\1\0\t\0\1\1\0\t\0\2\1\0\t\0\3\1\0\t\0\4\1\0\t\0\5\1\0\t\0\6\1\0\t\0\7\1\0\t\0\10\1\0\t\0\t\1\0\t\0\n\1\0\t\0\v\1\0\t\0\4\0\0\t\0\5\0\0\10X\2\0\0\6\0\0\10X\2\0\0\v\0\0\10\377\377\377\377\21\0\0\10\200\364\3\0\30\0\0\t\4\32\0\0\10\0\10\0\0\200\0\0\t\0\201\0\0\t\0\202\0\0\t\0\203\0\0\t\0\204\0\0\t\0\205\0\0\t\0\206\0\0\t\0\207\0\0\t\0\16\0\0!\tweb-proxy\t\0\0!\twebmaster\26\0\0\30\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0", 1032) = 272
+[77ff6acb] write(1, "store /nova/store/wproxy/config:\n", 33) = 33
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"net/devices", 11}], 2) = 23
+[77ff6acb] read(4, "0\4\0\0\0\0\0\0\20\0\0\0\1\0\0\0", 1032) = 16
+[77ff6acb] write(4, "\1\0\0\0000\4\0\0\1\0\0\0\10\4\0\0", 16) = 16
+[77ff6acb] read(4, "0\4\0\0\1\0\0\0\4\1\0\0M2h\0\1\1\1\0\376\t\1\1\0\1\t\1\2\0\1\10o\"\4\0\f\0\1\10\374\377\377\377;\0\1\t\0\6\0\1!\6ether1\20\0\1!\f0000:00:03.00\0\1!\02152:54:00:12:34:56\t\0\1!\02152:54:00:12:34:56\10\0\1)\222M2\f\4\0\210\5\0\0\0\0\0\1\0\0\0\2\0\0\0\3\0\0\0\5\0\0\0\364\3\0\1\0\4\0\0\r\0\1\0\n\0\376\0\363\3\0\1\370\3\0\t\0\371\3\0\t\0\372\3\0\t\0\7\4\0\t\0\10\4\0\t\0.\0\1\t\1d\0\1\10\334\5\0\0\352\3\0\t\1\26\4\0\t\0\30\4\0\t\5\27\4\0\t\1\31\4\0\10,\1\0\0\362\3\0\t\2\365\3\0\t\2\4\4\0001\6RT\0\0224V\351\3\0001\6RT\0\0224V", 1032) = 272
+[77ff6acb] write(1, "store /nova/store/net/devices:\n", 31) = 31
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"bridge-vlans", 12}], 2) = 24
+[77ff6acb] read(4, "A\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/bridge-vlans:[empty] sched(16)\n", 49) = 49
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"graphing/conf/ifaces", 20}], 2) = 32
+[77ff6acb] read(4, "B\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/graphing/conf/ifaces:[empty]\n", 47) = 47
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"graphing/conf/queues", 20}], 2) = 32
+[77ff6acb] read(4, "C\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/graphing/conf/queues:[empty]\n", 47) = 47
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"graphing/conf/cpumem", 20}], 2) = 32
+[77ff6acb] read(4, "D\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/graphing/conf/cpumem:[empty]\n", 47) = 47
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"sertcp", 6}], 2) = 18
+[77ff6acb] read(4, "E\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/sertcp:[empty]\n", 33) = 33
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"btest", 5}], 2) = 17
+[77ff6acb] read(4, "F\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/btest:[empty] sched(29)\n", 42) = 42
+[77ff6acb] write(1, "prog id=24, should be started anyway\n", 37) = 37
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"serial-login", 12}], 2) = 24
+[77ff6acb] read(4, "p\4\0\0\0\0\0\0\20\0\0\0\1\0\0\0", 1032) = 16
+[77ff6acb] write(4, "\1\0\0\0p\4\0\0\1\0\0\0\10\4\0\0", 16) = 16
+[77ff6acb] read(4, "p\4\0\0\1\0\0\0+\0\0\0M2\r\0\376\1\n\0\376\0\7\0\0\t\0\1\0\376\t\1\1\0\0\t\1\2\0\0\10\377\377\377\377\3\0\0!\5vt102", 1032) = 55
+[77ff6acb] write(1, "store /nova/store/serial-login:\n", 32) = 32
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"macping", 7}], 2) = 19
+[77ff6acb] read(4, "G\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/macping:[empty] sched(18)\n", 44) = 44
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"mactel", 6}], 2) = 18
+[77ff6acb] read(4, "H\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/mactel:[empty] sched(15)\n", 43) = 43
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"vm", 2}], 2) = 14
+[77ff6acb] read(4, "I\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/vm:[empty]\n", 29) = 29
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"tftp", 4}], 2) = 16
+[77ff6acb] read(4, "^\5\0\0\0\0\0\0\20\0\0\0\376\377\377\377", 1032) = 16
+[77ff6acb] write(4, "\1\0\0\0^\5\0\0\376\377\377\377\10\4\0\0", 16) = 16
+[77ff6acb] read(4, "^\5\0\0\376\377\377\377\22\0\0\0M2\1\0\376\10\376\377\377\377\5\0\376\10\377\377\377\377", 1032) = 30
+[77ff6acb] write(1, "store /nova/store/tftp: sched(64)\n", 34) = 34
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"smb", 3}], 2) = 15
+[77ff6acb] read(4, "J\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/smb:[empty]\n", 30) = 30
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"usbip-exp", 9}], 2) = 21
+[77ff6acb] read(4, "K\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/usbip-exp:[empty]\n", 36) = 36
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"usbip-imp", 9}], 2) = 21
+[77ff6acb] read(4, "L\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/usbip-imp:[empty]\n", 36) = 36
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"cert/scep_server", 16}], 2) = 28
+[77ff6acb] read(4, "M\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/cert/scep_server:[empty]\n", 43) = 43
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"cert/scep_client", 16}], 2) = 28
+[77ff6acb] read(4, "N\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/cert/scep_client:[empty]\n", 43) = 43
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"lcdtouch", 8}], 2) = 20
+[77ff6acb] read(4, "z\4\0\0\0\0\0\0\20\0\0\0\0\0\0\0", 1032) = 16
+[77ff6acb] write(4, "\1\0\0\0z\4\0\0\0\0\0\0\10\4\0\0", 16) = 16
+[77ff6acb] read(4, "z\4\0\0\0\0\0\0D\0\0\0M2n\0\0\1q\0\0\0s\0\0\0\n\0\376\0i\0\0\0k\0\0\0r\0\0\t\1e\0\0\10\10\7\0\0f\0\0\t\1g\0\0\t\1o\0\0\t\1p\0\0\t\1j\0\0!\0041234", 1032) = 80
+[77ff6acb] write(1, "store /nova/store/lcdtouch:\n", 28) = 28
+[77ff6acb] write(1, "prog id=24, should be started anyway\n", 37) = 37
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"upgrader", 8}], 2) = 20
+[77ff6acb] read(4, "O\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/upgrader:[empty]\n", 35) = 35
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"cloud", 5}], 2) = 17
+[77ff6acb] read(4, "P\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/cloud:[empty] sched(123)\n", 43) = 43
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"romon", 5}], 2) = 17
+[77ff6acb] read(4, "Q\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/romon:[empty]\n", 32) = 32
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"ntp", 3}], 2) = 15
+[77ff6acb] read(4, "g\5\0\0\0\0\0\0\20\0\0\0\0\0\0\0", 1032) = 16
+[77ff6acb] write(4, "\1\0\0\0g\5\0\0\0\0\0\0\10\4\0\0", 16) = 16
+[77ff6acb] read(4, "g\5\0\0\0\0\0\0R\0\0\0M2\f\0\0\240\0\0\n\0\0\210\0\0\4\0\0\0\6\0\0\0\7\0\0\0\10\0\0\0\t\0\0\0\17\0\0\0\21\0\0\1\5\0\0\t\0\16\0\0\t\0\20\0\0\t\5\22\0\0\t\0\24\0\0\t\0\25\0\0\t\0\1\0\0\t\0\2\0\0\t\0", 1032) = 94
+[77ff6acb] write(1, "store /nova/store/ntp:\n", 23) = 23
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"dot1x/client", 12}], 2) = 24
+[77ff6acb] read(4, "R\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/dot1x/client:[empty]\n", 39) = 39
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"dot1x/port", 10}], 2) = 22
+[77ff6acb] read(4, "S\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/dot1x/port:[empty]\n", 37) = 37
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"detnet-settings", 15}], 2) = 27
+[77ff6acb] read(4, "T\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/detnet-settings:[empty]\n", 42) = 42
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"kidcontrol/user", 15}], 2) = 27
+[77ff6acb] read(4, "U\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/kidcontrol/user:[empty]\n", 42) = 42
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"ptp/ptp", 7}], 2) = 19
+[77ff6acb] read(4, "V\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/ptp/ptp:[empty]\n", 34) = 34
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"letsencrypt", 11}], 2) = 23
+[77ff6acb] read(4, "W\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/letsencrypt:[empty]\n", 38) = 38
+[77ff6acb] writev(4, [{"\0\0\0\0\377\377\377\377\10\4\0\0", 12}, {"igmpproxy/iface", 15}], 2) = 27
+[77ff6acb] read(4, "X\6\0\0\1\0\0\0\f\0\0\0", 1032) = 12
+[77ff6acb] write(1, "store /nova/store/igmpproxy/iface:[empty]\n", 42) = 42
+[77ff6acb] write(1, "starting: 2 3 6 10 15 16 18 20 24 29 30 31 43 44 54 64 68 79 85 88 118 120 123 129 133\n", 87) = 87
+[77ff6acb] open("/ram/rosmode", O_RDONLY|O_LARGEFILE) = 3
+[77ff6acb] read(3, "\0\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\1\0\377\1\0", 21) = 21
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/dev/jiffies", O_RDONLY|O_LARGEFILE) = 3
+[77fc2d89] mmap2(NULL, 4096, PROT_READ, MAP_PRIVATE, 3, 0) = 0x77f3f000
+[77ff6acb] close(3)                     = 0
+[77ff6acb] open("/proc/meminfo", O_RDONLY|O_LARGEFILE) = 3
+[77ff6acb] readv(3, [{"", 0}, {"MemTotal:          66228 kB\nMemFree:           22660 kB\nMemAvailable:      45244 kB\nBuffers:            6556 kB\nCached:            25100 kB\nSwapCached:            0 kB\nActive:            15308 kB\nInactive:          16872 kB\nActive(anon):       1764 kB\nInactive(anon):      836 kB\nActive(file):      13544 kB\nInactive(file):    16036 kB\nUnevictable:           0 kB\nMlocked:               0 kB\nSwapTotal:             0 kB\nSwapFree:              0 kB\nDirty:                28 kB\nWriteback:             0 kB\nAnonPages:           556 kB\nMapped:             1432 kB\nShmem:              2044 kB\nKReclaimable:       1804 kB\nSlab:               8556 kB\nSReclaimable:       1804 kB\nSUnreclaim:         6752 kB\nKernelStack:         800 kB\nPageTables:           84 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:       33112 kB\nCommitted_AS:       3384 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:        2148 kB\nVmallocChunk:          0 kB\nPercpu:              208 kB\nDirectMap4k: ", 1024}], 2) = 1024
+[77fc2d89] brk(0x8052000)               = 0x8052000
+[77fc2d89] sigaltstack({ss_sp=0x804e010, ss_flags=0x2000 /* SS_??? */, ss_size=9223363929969338465}, NULL) = 0
+[77fc2d89] _llseek(3, -1000, [24], SEEK_CUR) = 0
+[77fc2d89] close(3)                     = 0
+[77fc2d89] rt_sigprocmask(SIG_UNBLOCK, [RT_1 RT_2], NULL, 8) = 0
+[77fc2d89] rt_sigaction(SIGSEGV, {0x77f8e748, [], SA_STACK|SA_RESTART|SA_NODEFER|SA_SIGINFO}, NULL, 8) = 0
+[77fc2d89] rt_sigaction(SIGILL, {0x77f8e748, [], SA_STACK|SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+[77fc2d89] rt_sigaction(SIGABRT, {0x77f8e748, [], SA_STACK|SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+[77fc2d89] rt_sigaction(SIGBUS, {0x77f8e748, [], SA_STACK|SA_RESTART|SA_NODEFER|SA_SIGINFO}, NULL, 8) = 0
+[77fc2d89] rt_sigaction(SIGFPE, {0x77f8e748, [], SA_STACK|SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+[77fc2d89] rt_sigaction(SIGUSR2, {0x77f8e748, [], SA_STACK|SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+[77fc2d89] rt_sigaction(SIGTRAP, {0x77f8e748, [], SA_RESTART|SA_SIGINFO}, NULL, 8) = 0
+[77fc2d89] getsockname(3, 0x7ffff5de, [110]) = -1 EBADF (Bad file descriptor)
+[77fc2d89] socket(PF_FILE, SOCK_STREAM, 0) = 3
+[77ff6acb] connect(3, {sa_family=AF_FILE, sun_path="/ram/novasock"}, 110) = 0
+[77fc2d89] fcntl64(3, F_SETFL, O_RDONLY|O_NONBLOCK|O_LARGEFILE) = 0
+[77ff6acb] sendmsg(3, {msg_name(0)=NULL, msg_iov(1)=[{"M\0\0\0M2\1\0\377\210\1\0\1\0\0\0\2\0\377\210\0\0\1\0\0\210\f\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\r\0\377\t\5", 81}], msg_controllen=0, msg_flags=0}, 0) = 81
+[77ff6acb] recvmsg(3, 0x7ffff4d4, 0)    = -1 EAGAIN (Resource temporarily unavailable)
+[77ff6acb] poll([{fd=3, events=POLLIN}], 1, 20000) = 1 ([{fd=3, revents=POLLIN}])
+[77ff6acb] recvmsg(3, {msg_name(0)=NULL, msg_iov(1)=[{"6\0\0\0M2\6\0\0\10\7\4\0\0\10\0\0\t\3\r\0\377\t\10\1\0\0\t\0\2\0\0\t\0\3\0\0\t\2\5\0\0)\2M2\7\0\0\20\265\307\16O\344\1\0\0", 1024}], msg_controllen=0, msg_flags=0}, 0) = 58
+[77fc2d89] mkdir("/ram/rtrace", 0777)   = -1 EEXIST (File exists)
+[77ff6acb] open("/ram/rtrace/control", O_RDWR|O_CREAT|O_LARGEFILE, 0666) = 5
+[77fc2d89] ftruncate64(5, 4096)         = 0
+[77fc2d89] mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_SHARED|MAP_POPULATE, 5, 0) = 0x77f3e000
+[77ff6acb] sendmsg(3, {msg_name(0)=NULL, msg_iov(1)=[{"\342\0\0\0M2\1\0\377\2103\0\2\0\377\0\1\0\0\0\2\0\0\0\1\0\0\0\3\0\0\0\1\0\0\0\6\0\0\0\1\0\0\0\n\0\0\0\1\0\0\0\17\0\0\0\1\0\0\0\20\0\0\0\1\0\0\0\22\0\0\0\1\0\0\0\24\0\0\0\1\0\0\0\30\0\0\0\1\0\0\0\35\0\0\0\1\0\0\0\36\0\0\0\1\0\0\0\37\0\0\0\1\0\0\0+\0\0\0\1\0\0\0,\0\0\0\1\0\0\0006\0\0\0\1\0\0\0@\0\0\0\1\0\0\0D\0\0\0\1\0\0\0O\0\0\0\1\0\0\0U\0\0\0\1\0\0\0X\0\0\0\1\0\0\0v\0\0\0\1\0\0\0x\0\0\0\1\0\0\0{\0\0\0\1\0\0\0\201\0\0\0\1\0\0\0\205\0\0\0\2\0\377\210\0\0\7\0\377\10\0\0\376\0", 230}], msg_controllen=0, msg_flags=0}, 0) = 230
+[77ff6acb] close(3)                     = 0
+[77fc2d89] munmap(0x77f47000, 396)      = 0
+[77fc2d89] munmap(0x77f46000, 2172)     = 0
+[77fc2d89] munmap(0x77f45000, 315)      = 0
+[77fc2d89] munmap(0x77f44000, 165)      = 0
+[77fc2d89] munmap(0x77f43000, 1083)     = 0
+[77fc2d89] munmap(0x77f42000, 605)      = 0
+[77fc2d89] munmap(0x77f40000, 6532)     = 0
+[77fc2d89] munmap(0x77f51000, 163)      = 0
+[77fc2d89] munmap(0x77f50000, 108)      = 0
+[77fc2d89] munmap(0x77f4f000, 389)      = 0
+[77fc2d89] munmap(0x77f4e000, 289)      = 0
+[77fc2d89] munmap(0x77f4d000, 210)      = 0
+[77fc2d89] munmap(0x77f4c000, 112)      = 0
+[77fc2d89] munmap(0x77f4b000, 237)      = 0
+[77fc2d89] munmap(0x77f4a000, 783)      = 0
+[77fc2d89] munmap(0x77f48000, 6499)     = 0
+[77fc2d89] exit_group(0)                = ?
+[????????????????] +++ exited with 0 +++
