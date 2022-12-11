@@ -1,0 +1,103 @@
+#-------------------------------------------------------------------------------
+# Note: script will not execute at all (will throw a syntax error) if
+#       dhcp or wireless-fp packages are not installed
+#-------------------------------------------------------------------------------
+
+#| WPS Sync Configuration:
+#|  * Wireless and ethernet interfaces bridged with enabled DHCP client
+#|  * wlan1/2 access points and wlan3 wps sync repeater
+#| Wireless: CAP enabled on wlan1/2
+#| WPS Sync:
+#|     mode:          repeater;
+#| LAN Configuration:
+#|     DHCP client: enabled;
+
+
+# bridge port name
+:global brName  "bridgeLocal";
+:global logPref "defconf:";
+:global ssid;
+
+:global action;
+
+:log info $action
+
+:if ($action = "apply") do={
+
+  # wait for ethernet interfaces
+  :local count 0;
+  :while ([/interface ethernet find] = "") do={
+    :if ($count = 30) do={
+      :log warning "DefConf: Unable to find ethernet interfaces";
+      /quit;
+    }
+    :delay 1s; :set count ($count + 1);
+  }
+
+  :local macSet 0;
+  :local tmpMac "";
+
+  :foreach k in=[/interface ethernet find] do={
+    # first ethernet is found; add bridge and set mac address of the ethernet port
+    :if ($macSet = 0) do={
+      :set tmpMac [/interface ethernet get $k mac-address];
+      /interface bridge add name=$brName auto-mac=no admin-mac=$tmpMac comment="defconf";
+      :set macSet 1;
+    }
+    # add bridge ports
+    /interface bridge port add bridge=$brName interface=$k comment="defconf"
+  }
+
+  # try to add dhcp client on bridge interface (may fail if already exist)
+  :do {
+    /ip dhcp-client add interface=$brName disabled=no comment="defconf"
+  } on-error={ :log warning "$logPref unable to add dhcp client";}
+
+
+  :local count 0;
+  :while ([/interface wireless print count-only] < 3) do={
+    :set count ($count +1);
+    :if ($count = 40) do={
+      :log warning "DefConf: Unable to find wireless interfaces";
+      /ip address add address=192.168.88.1/24 interface=ether1 comment="defconf";
+      /quit
+    }
+    :delay 1s;
+  };
+
+  :foreach k in=[/interface wireless find] do={
+    # add bridge ports
+    /interface bridge port add bridge=$brName interface=$k comment="defconf"
+  }
+
+  :local hwInfo [/interface wireless info hw-info [.. find where default-name="wlan3"] as-value];
+  #:if (($hwInfo->"locked-countries")~"russia") do={
+    /interface wireless set [find where default-name="wlan3"] channel-width=20/40mhz-XX band=5ghz-a/n/ac
+  #} else={
+  #  /interface wireless set [find where default-name="wlan3"] channel-width=20/40/80mhz-XXXX band=5ghz-a/n/ac
+  #}
+
+  /interface wireless cap
+    set discovery-interfaces=bridgeLocal enabled=yes interfaces=wlan1,wlan2
+  /interface wireless
+    setup-repeater wlan3 duration=2m
+}
+
+:if ($action = "revert") do={
+  :local o [/ip dhcp-client find comment="defconf"]
+  :if ([:len $o] != 0) do={ /ip dhcp-client remove $o }
+
+  /interface bridge port remove [find comment="defconf"]
+  /interface bridge remove [find comment="defconf"]
+
+  /interface wireless cap set enabled=no interfaces="" discovery-interfaces=""
+  /interface wireless reset-configuration wlan1
+  /interface wireless reset-configuration wlan2
+  /interface wireless reset-configuration wlan3
+
+
+}
+
+:set brName;
+:set logPref;
+:set ssid;

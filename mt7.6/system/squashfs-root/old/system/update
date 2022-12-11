@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#
+# Update net config files
+#
+
+if [ -f /nova/store/net/addr.idx ]; then
+	mv /nova/store/net/addr.idx /nova/store/net/addrs.idx
+	mv /nova/store/net/addr.dat /nova/store/net/addrs.dat
+fi
+
+if [ -f /nova/store/net/route.idx ]; then
+	mv /nova/store/net/route.idx /nova/store/net/routes.idx
+	mv /nova/store/net/route.dat /nova/store/net/routes.dat
+fi
+
+## convert fw 2.4->2.5
+/nova/bin/convertfw
+
+## convert queues 2.4->2.5
+/nova/bin/convertqueue
+
+# convert bridge config
+/nova/bin/convertbr

@@ -1,0 +1,150 @@
+mpls_router
+ipw:	usb_wwan
+mbim:	packet_hook
+ip_tablesx_tables
+i40e:	ptp
+nf_conntracknfnetlink
+x_tables
+ipv6
+cxgb3:	mdio
+nf_conntracknf_natnf_conntrack_tftp
+x_tables
+x_tables
+x_tables
+bnx2x:	mdio ptp zlib_inflate
+vmxnet3:	packet_hook
+ne2k-pci:	8390
+mesh:	packet_hook
+ip_tablesx_tables
+nf_conntrackx_tables
+ip6_tablesx_tables
+x_tables
+x_tables
+nf_conntrack
+nf_natnf_conntracknf_conntrack_irc
+arc4:	libarc4
+snifx_tables
+x_tables
+x_tables
+x_tables
+ipv6xfrm_algo
+imq:	cls_fw cls_linear
+cxgb4:	ptp zlib_deflate
+x_tables
+r6040:	libphy
+qcserial:	usb_wwan
+nf_conntrack
+x_tables
+nf_conntracknf_natx_tables
+nf_conntrackx_tables
+x_tables
+smsc95xx:	usbnet
+nf_natx_tables
+wireguard:	libblake2s libchacha20poly1305 curve25519-x86_64 libcurve25519-generic ipv6 udp_tunnel ip6_udp_tunnel
+nf_defrag_ipv6
+sierra_net:	usbnet
+x_tables
+nf_defrag_ipv6
+romon:	packet_hook
+x_tables
+x_tables
+mlx4_en:	mlx4_core ptp
+nf_reject_ipv4x_tables
+dot1x:	packet_hook
+nf_conntrackx_tables
+e1000e:	ptp
+x_tables
+libchacha20poly1305:	chacha-x86_64 poly1305-x86_64
+vxlan:	udp_tunnel ip6_udp_tunnel
+aesni-intel:	glue_helper crypto_simd
+x_tables
+x_tables
+nf_conntrack
+x_tables
+nf_natnf_conntracknf_conntrack_pptp
+libblake2s:	blake2s-x86_64
+x_tables
+x_tables
+nf_conntrack
+nf_conntrack
+ixgbe:	libphy mdio ptp
+vrf:	ipv6
+x_tables
+ip6_tablesx_tables
+b44:	libphy ssb
+packet_hook:	nf_conntrack ipv6 tunnel6
+mlx5_core:	ptp
+ipv6xfrm_algo
+option:	usb_wwan
+nf_conntrack
+x_tables
+x_tables
+igb:	i2c-algo-bit ptp
+x_tables
+x_tables
+x_tables
+snifx_tables
+nf_conntrack
+packet_hooknf_conntrackx_tables
+nf_conntracknf_natx_tables
+x_tables
+nf_conntrack
+nf_natnf_conntrack_h323nf_conntrack
+x_tables
+chacha-x86_64:	libchacha
+curve25519-x86_64:	libcurve25519-generic
+blake2s-x86_64:	libblake2s-generic
+crypto_simd:	cryptd
+nf_conntrackx_tables
+x_tables
+nf_reject_ipv6x_tables
+realtek:	libphy
+nf_conntrack
+packet_hookx_tables
+ebtables
+sfc:	mdio ptp
+x_tables
+nf_natnf_conntracknf_conntrack_rtsp
+des_generic:	libdes
+hso:	rfkill
+ipv6ip6_tablesx_tables
+ulogx_tables
+r8169:	libphy
+nf_natnf_conntrack_sipnf_conntrack
+x_tables
+ip_tablesx_tables
+x_tables
+x_tables
+packet_hookipv6switch
+nf_conntrack
+nf_conntrackx_tables
+x_tables
+ip_tunnel
+ptp:	pps_core
+it87:	hwmon-vid
+virtio_net:	packet_hook net_failover
+x_tables
+lm87:	hwmon-vid
+ip_tablesnf_nat
+ulogx_tables
+traffic_gen:	packet_hook
+ax88179_178a:	usbnet
+bridge2ipv6
+net_failover:	failover
+nf_conntracknf_natx_tables
+fp_usbnet:	packet_hook
+switch:	packet_hook phy_helper
+smsc75xx:	usbnet
+x_tables
+alx:	mdio
+igc:	ptp
+nf_conntracknf_natx_tables
+nf_natnf_conntracknf_conntrack_ftp
+ebtables
+atl1c:	packet_hook
+x_tables
+x_tables
+x_tables
+ip6_tablesnf_nat
+x_tables
+tg3:	libphy ptp
