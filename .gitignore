@@ -1,5 +1,5 @@
 /tmp
-/mount_*/*
+/part_*/
 /installer
 /disk*.img
 _*.extracted

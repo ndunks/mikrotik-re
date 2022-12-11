@@ -1,0 +1,6 @@
+*.squashfs binary
+*.xml  -crlf
+*.html  -crlf
+*.txt  -crlf
+*.js  -crlf
+*.xsd  -crlf
