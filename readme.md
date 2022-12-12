@@ -6,9 +6,14 @@ in init:
 Demo license expired!
 Please reinstall the router.
 ```
+### Software ID based on
+
+- Installation ID ?
+- Storage Type: HDD/Removable
+- HDD Model
+- HDD Serial
 
 ### Notes
-
 - Same serial of storage will get different "Software ID" if it emulated as USB or as HDD
 - Same serial but different installation will get different serial
 - https://github.com/Ygnecz/MTLic - Mikrotik license file structure
