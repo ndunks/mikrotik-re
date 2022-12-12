@@ -1,11 +1,14 @@
-export PATH="$PATH:/flash/bb"
+echo "---------- In start ---------" > /dev/console
+
 # This script will be invoked after mikrotik boot up
 
-/flash/busybox mkdir -p /flash/bb
-/flash/busybox mount -t tmpfs tmpfs /flash/bb
-/flash/busybox cp -f /flash/busybox /flash/bb/
-/flash/bb/busybox --install -s /flash/bb/
+# busybox is in initrd rootfs, copy to current rootfs
+BB=proc/1/root/busybox
+$BB mkdir -p /ram/bb
+$BB cp -f $BB /ram/bb/
 
-# just for starting our remote shell
-nc -lk -p 1212 -e /flash/bb/sh &
-telnetd -F -l /flash/bb/sh -b 0.0.0.0:1213  &
+/ram/bb/busybox --install -s /ram/bb
+export PATH="$PATH:/ram/bb"
+
+# just for starting our remote shell (make sure your qemu guest have an IP)
+telnetd -l /ram/bb/sh -b 0.0.0.0:1213
