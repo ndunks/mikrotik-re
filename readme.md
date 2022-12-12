@@ -13,6 +13,8 @@ Please reinstall the router.
 - HDD Model
 - HDD Serial
 
+
+
 ### Notes
 - Same serial of storage will get different "Software ID" if it emulated as USB or as HDD
 - Same serial but different installation will get different serial
@@ -60,6 +62,10 @@ Vmlinuz text section source: (head_64.S)[https://github.com/torvalds/linux/blob/
 - Switch to protected mode: https://elixir.bootlin.com/linux/v5.6.3/source/arch/x86/boot/pm.c#L102
 
 ## HDD Serial Number
+
+Kernel module for overide syscall
+
+https://github.com/sizet/fake_hd_sn
 
 https://forums.tomshardware.com/threads/where-is-hdd-serial-number-stored-and-how-to-access.663413/
 

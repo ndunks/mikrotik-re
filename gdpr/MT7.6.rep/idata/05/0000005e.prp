@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FILE_INFO>
+    <BASIC_INFO>
+        <STATE NAME="CONTENT_TYPE" TYPE="string" VALUE="Program" />
+        <STATE NAME="PARENT" TYPE="string" VALUE="/lib/modules/5.6.3-64/kernel/net/sched" />
+        <STATE NAME="FILE_ID" TYPE="string" VALUE="7f0118c8b8815496508419" />
+        <STATE NAME="FILE_TYPE" TYPE="int" VALUE="0" />
+        <STATE NAME="READ_ONLY" TYPE="boolean" VALUE="false" />
+        <STATE NAME="NAME" TYPE="string" VALUE="sch_red.ko" />
+    </BASIC_INFO>
+</FILE_INFO>

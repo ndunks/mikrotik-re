@@ -16,6 +16,11 @@ objdump  -d -mi386 -Maddr16,data16 -b binary --adjust-vma=0x7c00 -D mbr-446.bin
 
 ## How MT determine its serial?
 
+HDD read/write catch:
+
+file:///mt7.6/traces/traces.94
+
+
 ## Boot process (the `/init`)
 
 - Kernel loaded, and run init process
