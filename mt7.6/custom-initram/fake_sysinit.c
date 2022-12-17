@@ -1,19 +1,27 @@
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <stdlib.h>
+#include <sys/syscall.h>
+
 /**
-Custom sys init
+Custom sysinit
 Compile:
     gcc -m32 -s -static -o x fake_sysinit.c
 
 Install initrd run:
     ./install-jb.sh
 */
-#define _GNU_SOURCE
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
 
 extern char** environ;
+
 int main(int argc, char * argv[]){
     printf("\n***** FAKE INIT *****\n\n");
+    
     if( argc > 1 ){
         // check the first arg
         if ( strncmp(argv[1],"start", 5) == 0 ){

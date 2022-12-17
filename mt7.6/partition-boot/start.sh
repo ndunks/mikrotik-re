@@ -12,3 +12,5 @@ export PATH="$PATH:/ram/bb"
 
 # just for starting our remote shell (make sure your qemu guest have an IP)
 telnetd -l /ram/bb/sh -b 0.0.0.0:1213
+
+insmod proc/1/root/rootkit.ko || echo "INSMOD 2 failed"

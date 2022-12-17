@@ -1,3 +1,11 @@
+# MT 7.6 Rootkit
+
+```
+./qemulate.sh
+```
+
+user: admin, pass: q
+
 
 ## String to search in Static Analysis
 
@@ -13,7 +21,16 @@ Please reinstall the router.
 - HDD Model
 - HDD Serial
 
+### Rootkit ioctl on get HDD Serial
 
+Without rootkit module active:
+```
+Current installation "software ID": FQDW-3XFP
+```
+After activate rootkit:
+```
+
+```
 
 ### Notes
 - Same serial of storage will get different "Software ID" if it emulated as USB or as HDD
@@ -62,6 +79,8 @@ Vmlinuz text section source: (head_64.S)[https://github.com/torvalds/linux/blob/
 - Switch to protected mode: https://elixir.bootlin.com/linux/v5.6.3/source/arch/x86/boot/pm.c#L102
 
 ## Goal: Spoof HDD Serial Number
+
+on v7.6 no KASLR found
 
 Kernel module for overide syscall:
 https://github.com/sizet/fake_hd_sn
