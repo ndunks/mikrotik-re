@@ -128,42 +128,70 @@ static int find_syscall_table64_ia32(void)
 // 1	i386	exit			sys_exit			__ia32_sys_exit
 // 5	i386	open			sys_open			__ia32_compat_sys_open
 // 54	i386	ioctl			sys_ioctl			__ia32_compat_sys_ioctl
-#define target_syscall 54
+// 11	i386	execve			sys_execve			__ia32_compat_sys_execve
+#define nr_ioctl 54
+#define nr_execve 11
 #define HDIO_GET_IDENTITY	0x030d	/* get IDE identification info */
 
 typedef asmlinkage long (*syscall_fun_t)(struct pt_regs *pt_regs);
-static syscall_fun_t original;
+static syscall_fun_t old_ioctl, old_execve;
 static struct hd_driveid *hd;
 // maks 40
 static char * fakeModel = "ASDFG";
 // maks 20
-static char * fakeSerial = "10101010101010xxx";
-asmlinkage long fake_syscall(struct pt_regs *pt_regs)
+static char * fakeSerial = "000220002220002";
+static char * execve_str = "/sbin/kexec";
+asmlinkage long fake_ioctl(struct pt_regs *pt_regs)
 {
-    int ret = original(pt_regs);
+    int ret = old_ioctl(pt_regs);
     if( pt_regs->cx == HDIO_GET_IDENTITY ){
         // https://www.kernel.org/doc/Documentation/printk-formats.txt
-        printk("Hooked ioctl ( %lx, %lx, %px )\n", pt_regs->bx, pt_regs->cx, pt_regs->dx);
         hd = (void *) pt_regs->dx;
+        printk("Hooked ioctl ( %lx, %lx, %px )\n", pt_regs->bx, pt_regs->cx, hd);
         // LEN + 1
-        memcpy(&(hd->model), fakeModel, 6);
-        memcpy(&(hd->serial_no), fakeSerial, 18);
+        memcpy((hd->model), fakeModel, 6);
+        memcpy((hd->serial_no), fakeSerial, 18);
     }
     return ret;
+}
+
+asmlinkage long fake_execve(struct pt_regs *pt_regs)
+{
+    unsigned int * args = (void *) pt_regs->cx;
+    if( args[0] && args[1] && args[2]) {
+        char *arg0 = (void *) args[0];
+        char *arg1 = (void *) args[1];
+        char *arg2 = (void *) args[2];
+        printk("Hooked execve %s: %s %s %s\n", (void *) pt_regs->bx, arg0, arg1, arg2);
+        if( strncmp( (void *) pt_regs->bx, execve_str, 11 ) == 0){
+            printk(" *** FAKED KEXEC ***\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+            return 0;
+        }
+    }
+    // if( args && (*args)[0] && (*args)[1] && (*args)[2] && strncmp( (*args)[2], execve_str, 10 ) ){
+    //     printk("Hooked execve kexec %s: %s\n", (void *) pt_regs->bx, (*args)[2]);
+    //     return 0;
+    // }else {
+        return old_execve(pt_regs);
+    // }
 }
 
 unsigned int level;
 pte_t *pte;
 static int override_syscall(void)
 {
-    original = (syscall_fun_t)table[target_syscall];
-    pr_info("ORIGINAL %i : %px\n", target_syscall, original);
-    pr_info("FAKE     %i : %px\n", target_syscall, fake_syscall);
+    old_ioctl = (syscall_fun_t)table[nr_ioctl];
+    pr_info("ORIGINAL %i : %px\n", nr_ioctl, old_ioctl);
+    pr_info("FAKE     %i : %px\n", nr_ioctl, fake_ioctl);
+    old_execve = (syscall_fun_t)table[nr_execve];
+    pr_info("ORIGINAL %i : %px\n", nr_execve, old_execve);
+    pr_info("FAKE     %i : %px\n", nr_execve, fake_execve);
     // unprotect sys_call_table memory page
     pte = lookup_address((unsigned long)table, &level);
     // change PTE to allow writing
     set_pte_atomic(pte, pte_mkwrite(*pte));
-    table[target_syscall] = (void *)fake_syscall;
+    table[nr_ioctl] = (void *)fake_ioctl;
+    table[nr_execve] = (void *)fake_execve;
     // reprotect page
     set_pte_atomic(pte, pte_clear_flags(*pte, _PAGE_RW));
     pr_info("override_syscall done");
@@ -175,7 +203,8 @@ static int restore_syscall(void)
     // change PTE to allow writing
     set_pte_atomic(pte, pte_mkwrite(*pte));
     pr_info("sys_call_table writable");
-    table[target_syscall] = (fun)original;
+    table[nr_ioctl] = (fun)old_ioctl;
+    table[nr_execve] = (fun)old_execve;
     // reprotect page
     set_pte_atomic(pte, pte_clear_flags(*pte, _PAGE_RW));
     return 0;
@@ -203,7 +232,7 @@ static int main_init(void)
 
 static void main_exit(void)
 {
-    if (original != NULL)
+    if (old_ioctl != NULL)
     {
         pr_info("Restoring hook..\n");
         restore_syscall();

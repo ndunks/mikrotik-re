@@ -26,6 +26,8 @@ Please reinstall the router.
 Without rootkit module active:
 ```
 Current installation "software ID": FQDW-3XFP
+Current installation "software ID": D9S7-5FZ2
+
 ```
 After activate rootkit:
 ```

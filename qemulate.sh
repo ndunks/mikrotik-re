@@ -4,18 +4,18 @@
 # Dont use KVM or breakpoint not work in gdb
 #	-enable-kvm \
 qemu-system-x86_64 \
-	-m 128 \
+	-m 1G \
 	-smp 1 \
     -bios /usr/share/ovmf/OVMF.fd \
     -nodefaults \
     -vga std \
     -net none \
-	-drive if=none,id=disk0,format=raw,file=disk.img \
-    -device "ide-hd,model=QEMU HARDDISK,drive=disk0,serial=00000000000000000001,bootindex=1" \
+	-drive id=disk0,format=raw,file=disk.img \
     -netdev user,id=net0,hostfwd=tcp::8080-:80,hostfwd=tcp::8022-:22,hostfwd=tcp::8291-:8291,hostfwd=tcp::1212-:1212,hostfwd=tcp::1213-:1213 \
     -device e1000,netdev=net0 \
 	-serial mon:stdio \
     $*
+#    -device "ide-hd,model=QEMU HARDDISK,drive=disk0,serial=00000000000000000001,bootindex=1" \
 
 exit 0
 

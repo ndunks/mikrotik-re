@@ -5,8 +5,8 @@ if [ ! -f part_boot/EFI/BOOT/refind.conf ]; then
     echo "Installing bootloader.."
     mv part_boot/EFI/BOOT/BOOTX64.EFI part_boot/EFI/BOOT/KernelOriginal.efi
     cp mt7.6/partition-boot/EFI/BOOT/BOOTX64.EFI part_boot/EFI/BOOT/
-    cp mt7.6/partition-boot/EFI/BOOT/refind.conf part_boot/EFI/BOOT/
-    cp mt7.6/partition-boot/linux* part_boot/
+    cp -f mt7.6/partition-boot/EFI/BOOT/refind.conf part_boot/EFI/BOOT/
+    cp -f mt7.6/partition-boot/linux* part_boot/
 fi
 
 cp -f mt7.6/partition-boot/initrd* part_boot/
