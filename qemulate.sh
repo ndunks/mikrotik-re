@@ -10,13 +10,14 @@ qemu-system-x86_64 \
     -nodefaults \
     -vga std \
     -net none \
-	-drive id=disk0,format=raw,file=disk.img \
+	-drive if=none,id=disk0,format=raw,file=disk.img \
+	-usb -device qemu-xhci,id=xhci \
+	-device "ide-hd,drive=disk0,bootindex=1,serial=00000000000000000001" \
     -netdev user,id=net0,hostfwd=tcp::8080-:80,hostfwd=tcp::8022-:22,hostfwd=tcp::8291-:8291,hostfwd=tcp::1212-:1212,hostfwd=tcp::1213-:1213 \
     -device e1000,netdev=net0 \
 	-serial mon:stdio \
     $*
 #    -device "ide-hd,model=QEMU HARDDISK,drive=disk0,serial=00000000000000000001,bootindex=1" \
-
 exit 0
 
 # no set serial

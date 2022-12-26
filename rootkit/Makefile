@@ -6,7 +6,7 @@ TARGET_FILE = $(SOURCE_FILE:.c=.ko)
 
 #KERNEL_PATH = /lib/modules/$(shell uname -r)/build
 KERNEL_PATH = /rifin/app/linux-5.6.3
-CFLAGS_get_syscall.o := -fstack-protector
+CFLAGS_get_syscall.o := -fno-stack-protector
 
 obj-m := $(OBJECT_FILE)
 
