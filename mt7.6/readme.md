@@ -19,7 +19,8 @@ mkfs.fat storage.img
 ```
 Modify `qemulate.sh` to attach storage:
 ```
--drive id=disk1,format=raw,file=storage.img \
+	-drive if=none,id=disk1,format=raw,file=storage.img \
+  -device "ide-hd,drive=disk1" \
 ```
 Modify init to activate tracing
 
@@ -31,6 +32,23 @@ Mount / Unmount storage to check the trace result
 ./mount-storage.sh u
 ```
 
+## Known license MT 6
+```
+ â `☻  ¶00000000000000000001☻☺ DATA     VMware Virtual IDE Hard Drive           00000000000000000001
+
+ â `☻  ¶VB72f35e39-804cf5ec ☻☺ DATA     VBOX HARDDISK                           VB72f35e39-804cf5ec
+
+
+ZJ3M-ESHW
+
+License:
+
+-----BEGIN MIKROTIK SOFTWARE KEY------------
+nn4EPKerddfjpKWvoBx3diWxAm/NzvDHUnAQs0clu1PO
+C6VGKyxT9JYIslckCx7DJC2gedmQi4VLNrWRqaFGGA==
+-----END MIKROTIK SOFTWARE KEY--------------
+
+```
 
 ## Disassembly MBR
 

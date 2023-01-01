@@ -152,12 +152,12 @@ static syscall_fun_t old_ioctl32, old_ioctl64, old_execve32;
 static struct hd_driveid *hd;
 static struct sg_io_hdr *sg;
 // size 40
-static char *fakeModel = "ASDF ASDF ASDF ASDF                     ";
+static char *fakeModel = "VMware Virtual IDE Hard Drive           ";
 // size 20
-static char *fakeSerial = "X3RH-3XRC00222000212";
-// "software ID": RVG6-Z5IM
+static char *fakeSerial = "00000000000000000001";
+// "software ID": 48QX-ALEW
+
 static char *execve_str = "/sbin/kexec";
-//"software ID": N7AC-TPGP
 
 asmlinkage int sg_ata_get_chars(const u_int16_t *word_arr, int start_word,
                                 int num_words, int is_big_endian, char *ochars)
