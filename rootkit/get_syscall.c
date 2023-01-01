@@ -6,6 +6,7 @@
 #include <linux/fs.h>
 #include <linux/path.h>
 #include <linux/namei.h>
+#include <linux/hdreg.h>
 #include <linux/version.h>
 #include <asm/pgtable.h>
 #include <linux/device.h>
@@ -14,6 +15,8 @@
 #include <scsi/scsi_ioctl.h>
 #include <scsi/sg.h>
 #include "get_syscall.h"
+
+static int fake_atta_info(char *buf, int len);
 
 typedef void (*fun)(void);
 /** x64 sys_call_table: https://elixir.bootlin.com/linux/v5.6.3/source/arch/x86/entry/syscalls/syscall_64.tbl */
@@ -152,6 +155,7 @@ static struct sg_io_hdr *sg;
 static char *fakeModel = "ASDF ASDF ASDF ASDF                     ";
 // size 20
 static char *fakeSerial = "X3RH-3XRC00222000212";
+// "software ID": RVG6-Z5IM
 static char *execve_str = "/sbin/kexec";
 //"software ID": N7AC-TPGP
 
@@ -215,36 +219,82 @@ asmlinkage int sg_ata_put_chars(const u_int16_t *word_arr, int start_word,
 asmlinkage long fake_ioctl32(struct pt_regs *pt_regs)
 {
     // printk("ioctl32: %lx, %lx, %px\n", pt_regs->bx, pt_regs->cx, pt_regs->dx);
-    int ret = old_ioctl32(pt_regs);
-    if (pt_regs->cx == HDIO_GET_IDENTITY)
+    uint8_t *args;
+    int ret;
+    ret = old_ioctl32(pt_regs);
+    switch (pt_regs->cx)
     {
-        // https://www.kernel.org/doc/Documentation/printk-formats.txt
-        hd = (void *)pt_regs->dx;
-        printk("ioctl32 HDIO_GET_IDENTITY ( %lx, %lx, %px )\n", pt_regs->bx, pt_regs->cx, hd);
-        memcpy((hd->model), fakeModel, 40);
-        memcpy((hd->serial_no), fakeSerial, 20);
-    }
-    else if (pt_regs->cx == SG_IO)
-    {
-        sg = (void *)pt_regs->dx;
-        printk("ioctl32 SG_IO: 0x%x 0x%x 0x%x 0x%x\n", sg->cmdp[0], sg->cmdp[1], sg->cmdp[2], sg->cmdp[3]);
+    // https://www.kernel.org/doc/Documentation/ioctl/hdio.txt
+    case HDIO_DRIVE_CMD:
+        /*
+          args[] buffer is filled with register values followed by any
+          data returned by the disk.
+            args[0]	status
+            args[1]	error
+            args[2]	NSECTOR
+            args[3]	undefined
+            args[4+]	NSECTOR * 512 bytes of data returned by the command.
+        */
+        printk("ioctl32 HDIO_DRIVE_CMD ( %lx, %lx, %px )\n", pt_regs->bx, pt_regs->cx, pt_regs->dx);
+        // printk("REQ %8ph\n", pt_regs->dx);
+        // ret = old_ioctl32(pt_regs);
+        printk("RET %8ph : ", pt_regs->dx);
+        args = (void *)pt_regs->dx;
+        // printk("RET %516pEhp\n", pt_regs->dx + 4);
+        //  https://elixir.bootlin.com/linux/v5.6.3/source/include/uapi/linux/hdreg.h#L239
+        //  WIN_IDENTIFY = 0xEC /* ask drive to identify itself	*/
+
+        if (args[0] == 0xec && args[2] == 0 && args[3] > 0)
+        {
+            printk("FAKED \n");
+            // int size = args[3] * 512;
+            printk("RET %512pEhp\n", pt_regs->dx + 4);
+            sg_ata_put_chars((const unsigned short *)(args + 4), 10, 10, 0, fakeSerial);
+            sg_ata_put_chars((const unsigned short *)(args + 4), 27, 20, 0, fakeModel);
+            printk("RET %512pEhp\n", pt_regs->dx + 4);
+            // print_hex_dump(KERN_DEFAULT, "", DUMP_PREFIX_OFFSET, 16, 2, pt_regs->dx + 4, size, true);
+        }
+        else
+        {
+            printk("Ignored \n");
+        }
+        break;
+    // case HDIO_GET_IDENTITY:
+    //     hd = (void *)pt_regs->dx;
+    //     printk("ioctl32 HDIO_GET_IDENTITY ( %lx, %lx, %px )\n", pt_regs->bx, pt_regs->cx, hd);
+    //     if (pt_regs->bx == 3)
+    //     { // file handle may vary
+    //         memcpy((void *)hd->model, fakeModel, 40);
+    //         memcpy((void *)hd->serial_no, fakeSerial, 20);
+    //     }
+    //     break;
+
+    // case SG_IO:
+    //     sg = (void *)pt_regs->dx;
+    //     printk("ioctl32 SG_IO: 0x%x 0x%x 0x%x 0x%x\n", sg->cmdp[0], sg->cmdp[1], sg->cmdp[2], sg->cmdp[3]);
+    //     break;
     }
     return ret;
 }
 asmlinkage long fake_ioctl64(struct pt_regs *pt_regs)
 {
     int ret = old_ioctl64(pt_regs);
-
-    if (pt_regs->si == HDIO_GET_IDENTITY)
+    switch (pt_regs->si)
     {
+    case HDIO_DRIVE_CMD:
+
+        printk("ioctl64 HDIO_DRIVE_CMD ( %lx, %lx, %px )\n", pt_regs->di, pt_regs->si, pt_regs->dx);
+
+        break;
+    case HDIO_GET_IDENTITY:
         // https://www.kernel.org/doc/Documentation/printk-formats.txt
         printk("ioctl64 HDIO_GET_IDENTITY ( %lx, %lx, %px )\n", pt_regs->di, pt_regs->si, pt_regs->dx);
         hd = (void *)pt_regs->dx;
         memcpy(&(hd->model), fakeModel, 40);
         memcpy(&(hd->serial_no), fakeSerial, 20);
-    }
-    else if (pt_regs->si == SG_IO)
-    {
+        break;
+
+    case SG_IO:
         sg = (void *)pt_regs->dx;
         char *buf = sg->dxferp;
         printk("ioctl64 SG_IO: 0x%x 0x%x 0x%x 0x%x\n", sg->cmdp[0], sg->cmdp[1], sg->cmdp[2], sg->cmdp[3]);
@@ -286,19 +336,21 @@ asmlinkage long fake_ioctl64(struct pt_regs *pt_regs)
                 const char *cp;
                 cc = sg_ata_get_chars((const unsigned short *)buf, 27, 20, 0, tmp);
                 tmp[cc] = '\0';
-                printk("SG_IO 0x85 MODEL  %s\n", tmp);
+                printk("ioctl64 SG_IO 0x85 MODEL  %s\n", tmp);
                 cc = sg_ata_get_chars((const unsigned short *)buf, 10, 10, 0, tmp);
                 tmp[cc] = '\0';
-                printk("SG_IO 0x85 SERIAL %s\n", tmp);
+                printk("ioctl64 SG_IO 0x85 SERIAL %s\n", tmp);
                 cc = sg_ata_get_chars((const unsigned short *)buf, 23, 4, 0, tmp);
                 tmp[cc] = '\0';
-                printk("SG_IO 0x85 FIRMRV %s\n", tmp);
+                printk("ioctl64 SG_IO 0x85 FIRMRV %s\n", tmp);
                 // Fake it
                 sg_ata_put_chars((const unsigned short *)buf, 27, 20, 0, fakeModel);
                 sg_ata_put_chars((const unsigned short *)buf, 10, 10, 0, fakeSerial);
             }
         }
+        break;
     }
+
     return ret;
 }
 asmlinkage long fake_execve32(struct pt_regs *pt_regs)
@@ -377,16 +429,16 @@ static int fake_atta_info(char *buf, int len)
         printk("No atta data found\n");
         return -1;
     }
-    sg_ata_put_chars((const unsigned short *)(buf + 60), 27, 20, 0, fakeModel);
     sg_ata_put_chars((const unsigned short *)(buf + 60), 10, 10, 0, fakeSerial);
+    sg_ata_put_chars((const unsigned short *)(buf + 60), 27, 20, 0, fakeModel);
     cc = sg_ata_get_chars((const unsigned short *)(buf + 60), 27, 20,
                           0, tmp);
     tmp[cc] = '\0';
-    printk("    model: %s\n", tmp);
+    // printk("    model: %s\n", tmp);
     cc = sg_ata_get_chars((const unsigned short *)(buf + 60), 10, 10,
                           0, tmp);
     tmp[cc] = '\0';
-    printk("    serial number: %s\n", tmp);
+    // printk("    serial number: %s\n", tmp);
     return 0;
 }
 
@@ -438,16 +490,16 @@ static int override_sysfs(void)
         //  sdisk = to_scsi_disk(dev);
 
         sdev = to_scsi_device(dev->parent);
-        //printk("Root SCSI Disk %s, %s\n", dev->parent->type->name, sdev->model);
-        // printk("Root SCSI %px %8pEhp\n", sdev->vpd_pg80, sdev->vpd_pg80);
-        //  sdev = (void *)root_device;
+        // printk("Root SCSI Disk %s, %s\n", dev->parent->type->name, sdev->model);
+        //  printk("Root SCSI %px %8pEhp\n", sdev->vpd_pg80, sdev->vpd_pg80);
+        //   sdev = (void *)root_device;
 
         if (scsi_device_supports_vpd(sdev))
         {
 
             // faking 0x80
             memcpy(sdev->vpd_pg80->data + 4, fakeSerial, 20);
-            //printk("Root VPD %s\n", sdev->vpd_pg80->data + 4);
+            // printk("Root VPD %s\n", sdev->vpd_pg80->data + 4);
 
             // faking 0x83
             fake_dev_ids(sdev->vpd_pg83->data + 4, sdev->vpd_pg83->len - 4);

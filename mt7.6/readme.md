@@ -8,6 +8,30 @@ Linux version 5.6.3-64 (agent@cicd-a06.mt.lv) (gcc version 11.1.0 (GCC)) #1 SMP 
 
 Same kernel used in installation & in installed version
 
+## Tracing init
+
+``` sh
+# Creating 50 MiB image for storing traces file
+dd if=/dev/zero bs=1024 count=$(( 50 * 1024 )) of=storage.img
+# Formating without partition table
+mkfs.fat storage.img
+
+```
+Modify `qemulate.sh` to attach storage:
+```
+-drive id=disk1,format=raw,file=storage.img \
+```
+Modify init to activate tracing
+
+Mount / Unmount storage to check the trace result
+``` sh
+# Mounting..
+./mount-storage.sh
+# Unmounting..
+./mount-storage.sh u
+```
+
+
 ## Disassembly MBR
 
 ``` sh

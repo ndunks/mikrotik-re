@@ -13,6 +13,8 @@ qemu-system-x86_64 \
 	-drive if=none,id=disk0,format=raw,file=disk.img \
 	-usb -device qemu-xhci,id=xhci \
 	-device "ide-hd,drive=disk0,bootindex=1,serial=00000000000000000001" \
+	-drive if=none,id=disk1,format=raw,file=storage.img \
+    -device "ide-hd,drive=disk1" \
     -netdev user,id=net0,hostfwd=tcp::8080-:80,hostfwd=tcp::8022-:22,hostfwd=tcp::8291-:8291,hostfwd=tcp::1212-:1212,hostfwd=tcp::1213-:1213 \
     -device e1000,netdev=net0 \
 	-serial mon:stdio \
