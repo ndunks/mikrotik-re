@@ -6,7 +6,6 @@
 qemu-system-x86_64 \
 	-m 1G \
 	-smp 1 \
-    -bios /usr/share/ovmf/OVMF.fd \
     -nodefaults \
     -vga std \
     -net none \

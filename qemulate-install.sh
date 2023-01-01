@@ -15,8 +15,7 @@ qemu-system-x86_64 \
 	-m 128 \
 	-smp 1 \
 	-enable-kvm \
-    -bios /usr/share/ovmf/OVMF.fd \
-    -cdrom installer/mikrotik-7.6.iso \
+    -cdrom installer/mikrotik-6.48.6.iso \
 	-drive format=raw,file=disk.img \
     $*
 

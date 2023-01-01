@@ -1,0 +1,293 @@
+WVSQ
+tZ=v
+XZhZ
+PPhZ
+Y[^_]
+PTRh
+PPhX
+QQhW
+XZhZ
+PPhZ
+[^_]
+9V@t
+N8uZ
+[^_]
+9~@t
+N8uW
+F<;F
+[^_]
+tC9F
+[^_]
+[^_]
+[^_]
+[^_]
+9V@t
+@t	V
+[^_]
+WVSP
+<wts<atv
+[^_]
+t@9r@t
+[^_]
+[^_]
+[^_]
+9V@t
+[^_]
+[^_]
+p@;u
+wI;E
+uD;u
+u?;}
+48#u
+[^_]
+[^_]
+[^_]
+;~,tL
+;N,tM
+[^_]
+([^_]
+<-u	
+Yu7F
+<-t*
+<=t	
+ux;E
+[^_]
+[^_]
+[^_]
+[^_]
+Z@Yu
+[^_]
+[^_]
+[^_]
+VL^_]
+VL^_]
+VT^_]
+[^_]
+[^_]
+WVSQ
+Z[^_]
+ZY[^]
+[^_]
+[^_]
+AB;M
+[^_]
+9V@t
+N8uc
+WVSQ
+:0u.
+Y[^_]
+tS~Q
+t5~3
+Y^_]
+>*u:
+U[^_]
+9V@t
+N8uP
+F<;F
+9V@t
+N8uI
+[^_]
+[^_]
+t*QV
+[^_]
+[^_]
++P(e
+[^_]
+[^_]
+[^_]
+t&f%
+z:u8
+0000
+[^_]
+Z^_]
+7^_]
+t2r%
+tPr:
+,^_]
+WVSQ
+Y[^_]
+9V@t
+[^_]
+t%Jt"
+[^_]
+Try `%s --help' for more information.
+Usage: %s [OPTION]... DIR...
+Generates readahead lists by watching open events with inotify.
+Mandatory arguments to long options are mandatory for short options too.
+Options:
+  -o, --output=FILE          write output to this file.
+      --help                 display this help and exit.
+      --version              output version information and exit.
+Report bugs to <ubuntu-devel@lists.ubuntu.com>
+%s 1.0
+Written by Scott James Remnant.
+Copyright (C) 2006 Canonical ltd.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+%s: no output file specified
+%s: failed to initialise inotify: %s
+output
+help
+version
+Unknown error 
+Success
+Operation not permitted
+No such file or directory
+No such process
+Interrupted system call
+Input/output error
+No such device or address
+Argument list too long
+Exec format error
+Bad file descriptor
+No child processes
+Resource temporarily unavailable
+Cannot allocate memory
+Permission denied
+Bad address
+Block device required
+Device or resource busy
+File exists
+Invalid cross-device link
+No such device
+Not a directory
+Is a directory
+Invalid argument
+Too many open files in system
+Too many open files
+Inappropriate ioctl for device
+Text file busy
+File too large
+No space left on device
+Illegal seek
+Read-only file system
+Too many links
+Broken pipe
+Numerical argument out of domain
+Numerical result out of range
+Resource deadlock avoided
+File name too long
+No locks available
+Function not implemented
+Directory not empty
+Too many levels of symbolic links
+No message of desired type
+Identifier removed
+Channel number out of range
+Level 2 not synchronized
+Level 3 halted
+Level 3 reset
+Link number out of range
+Protocol driver not attached
+No CSI structure available
+Level 2 halted
+Invalid exchange
+Invalid request descriptor
+Exchange full
+No anode
+Invalid request code
+Invalid slot
+Bad font file format
+Device not a stream
+No data available
+Timer expired
+Out of streams resources
+Machine is not on the network
+Package not installed
+Object is remote
+Link has been severed
+Advertise error
+Srmount error
+Communication error on send
+Protocol error
+Multihop attempted
+RFS specific error
+Bad message
+Value too large for defined data type
+Name not unique on network
+File descriptor in bad state
+Remote address changed
+Can not access a needed shared library
+Accessing a corrupted shared library
+.lib section in a.out corrupted
+Attempting to link in too many shared libraries
+Cannot exec a shared library directly
+Invalid or incomplete multibyte or wide character
+Interrupted system call should be restarted
+Streams pipe error
+Too many users
+Socket operation on non-socket
+Destination address required
+Message too long
+Protocol wrong type for socket
+Protocol not available
+Protocol not supported
+Socket type not supported
+Operation not supported
+Protocol family not supported
+Address family not supported by protocol
+Address already in use
+Cannot assign requested address
+Network is down
+Network is unreachable
+Network dropped connection on reset
+Software caused connection abort
+Connection reset by peer
+No buffer space available
+Transport endpoint is already connected
+Transport endpoint is not connected
+Cannot send after transport endpoint shutdown
+Too many references: cannot splice
+Connection timed out
+Connection refused
+Host is down
+No route to host
+Operation already in progress
+Operation now in progress
+Stale NFS file handle
+Structure needs cleaning
+Not a XENIX named type file
+No XENIX semaphores available
+Is a named type file
+Remote I/O error
+Disk quota exceeded
+No medium found
+Wrong medium type
+POSIXLY_CORRECT
+%s: option `%s' is ambiguous
+%s: option `--%s' doesn't allow an argument
+%s: option `%c%s' doesn't allow an argument
+%s: option `%s' requires an argument
+%s: unrecognized option `--%s'
+%s: unrecognized option `%c%s'
+%s: illegal option -- %c
+%s: invalid option -- %c
+%s: option requires an argument -- %c
+/proc/stat
+/proc/cpuinfo
+processor
+/sys/devices/system/cpu
+/dev/null
+(nil)
+(null)
+hlLjztqZ
+npxXoudifFeEgGaACScs
+ +0-#'I
+set_thread_area failed when setting up thread-local storage
+L(knN
+GCC: (GNU) 4.8.2
+.shstrtab
+.init
+.text
+.fini
+.rodata
+.eh_frame
+.tbss
+.ctors
+.dtors
+.jcr
+.got
+.got.plt
+.data
+.bss
+.comment
