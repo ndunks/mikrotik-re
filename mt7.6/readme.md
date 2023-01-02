@@ -8,6 +8,48 @@ Linux version 5.6.3-64 (agent@cicd-a06.mt.lv) (gcc version 11.1.0 (GCC)) #1 SMP 
 
 Same kernel used in installation & in installed version
 
+## Tracing init
+
+``` sh
+# Creating 50 MiB image for storing traces file
+dd if=/dev/zero bs=1024 count=$(( 50 * 1024 )) of=storage.img
+# Formating without partition table
+mkfs.fat storage.img
+
+```
+Modify `qemulate.sh` to attach storage:
+```
+	-drive if=none,id=disk1,format=raw,file=storage.img \
+  -device "ide-hd,drive=disk1" \
+```
+Modify init to activate tracing
+
+Mount / Unmount storage to check the trace result
+``` sh
+# Mounting..
+./mount-storage.sh
+# Unmounting..
+./mount-storage.sh u
+```
+
+## Known license MT 6
+```
+ â `☻  ¶00000000000000000001☻☺ DATA     VMware Virtual IDE Hard Drive           00000000000000000001
+
+ â `☻  ¶VB72f35e39-804cf5ec ☻☺ DATA     VBOX HARDDISK                           VB72f35e39-804cf5ec
+
+
+ZJ3M-ESHW
+
+License:
+
+-----BEGIN MIKROTIK SOFTWARE KEY------------
+nn4EPKerddfjpKWvoBx3diWxAm/NzvDHUnAQs0clu1PO
+C6VGKyxT9JYIslckCx7DJC2gedmQi4VLNrWRqaFGGA==
+-----END MIKROTIK SOFTWARE KEY--------------
+
+```
+
 ## Disassembly MBR
 
 ``` sh
