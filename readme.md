@@ -1,4 +1,4 @@
-# MT 7.6 Rootkit
+# Mikrotik Rootkit
 
 ```
 ./qemulate.sh
@@ -18,8 +18,11 @@ Please reinstall the router.
 
 - Installation ID ?
 - Storage Type: HDD/Removable
-- HDD Model
-- HDD Serial
+- HDD Model (Can be faked)
+- HDD Serial (Can be faked)
+- HDD size (Fake it too?)
+- If hdd 128MB, will make 2 partition. if 60MB just one partition
+- MT <6, can use 60MB, MT 7 require at least 128MB
 
 ### Rootkit ioctl on get HDD Serial
 
@@ -32,6 +35,44 @@ Current installation "software ID": D9S7-5FZ2
 After activate rootkit:
 ```
 
+```
+
+## Known license MT 6
+```
+ â `☻  ¶00000000000000000001☻☺ DATA     VMware Virtual IDE Hard Drive           00000000000000000001
+
+ â `☻  ¶VB72f35e39-804cf5ec ☻☺ DATA     VBOX HARDDISK                           VB72f35e39-804cf5ec
+
+DISK 'RAW'. UUID: b67e0cf4-805a-4790-906b-1a7521b70d64
+
+ZJ3M-ESHW
+
+License:
+
+-----BEGIN MIKROTIK SOFTWARE KEY------------
+nn4EPKerddfjpKWvoBx3diWxAm/NzvDHUnAQs0clu1PO
+C6VGKyxT9JYIslckCx7DJC2gedmQi4VLNrWRqaFGGA==
+-----END MIKROTIK SOFTWARE KEY--------------
+
+```
+
+### MBR INFO
+
+- offset `0x10c` (4 bytes ?) is boot counter in mt7 ?
+
+### Clone HDD (except MBR partition table)
+
+``` bash
+dd if=disk-mt6.40.1.img bs=1 count=446 of=mbr-code.bin
+dd  conv=notrunc if=mbr-code.bin bs=1 of=disk.img
+dd if=disk-mt6.40.1.img bs=1 count=512 skip=512 of=vbr-code.bin
+dd  conv=notrunc if=vbr-code.bin bs=1 seek=512 of=disk.img
+```
+
+Other script
+``` bash
+# append disk
+dd  conv=notrunc if=disk.img of=disk2.img
 ```
 
 ### Notes

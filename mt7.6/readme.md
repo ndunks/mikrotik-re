@@ -38,6 +38,7 @@ Mount / Unmount storage to check the trace result
 
  â `☻  ¶VB72f35e39-804cf5ec ☻☺ DATA     VBOX HARDDISK                           VB72f35e39-804cf5ec
 
+DISK 'RAW'. UUID: b67e0cf4-805a-4790-906b-1a7521b70d64
 
 ZJ3M-ESHW
 
