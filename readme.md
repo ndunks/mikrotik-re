@@ -24,18 +24,6 @@ Please reinstall the router.
 - If hdd 128MB, will make 2 partition. if 60MB just one partition
 - MT <6, can use 60MB, MT 7 require at least 128MB
 
-### Rootkit ioctl on get HDD Serial
-
-Without rootkit module active:
-```
-Current installation "software ID": FQDW-3XFP
-Current installation "software ID": D9S7-5FZ2
-
-```
-After activate rootkit:
-```
-
-```
 
 ## Known license MT 6
 ```
@@ -56,24 +44,19 @@ C6VGKyxT9JYIslckCx7DJC2gedmQi4VLNrWRqaFGGA==
 
 ```
 
-### MBR INFO
-
-- offset `0x10c` (4 bytes ?) is boot counter in mt7 ?
-
-``` sh
-dd if=disk-mt6.40.1.img bs=1 count=446 of=mbr.bin
-objcopy --rename-section .data=.text --set-section-flags .data=alloc,code,load raw$$.elf
-
-objdump -D -b binary -mi386 -Maddr16,data16 --adjust-vma=0x7c00
-```
-
-### Clone HDD (except MBR partition table)
+### Clone License on HDD
 
 ``` bash
-dd if=disk-mt6.40.1.img bs=1 count=446 of=mbr-code.bin
-dd  conv=notrunc if=mbr-code.bin bs=1 of=disk.img
-dd if=disk-mt6.40.1.img bs=1 count=512 skip=512 of=vbr-code.bin
-dd  conv=notrunc if=vbr-code.bin bs=1 seek=512 of=disk.img
+# Licensed disk (60MB capacity)
+dd if=disk-mt6.40.1.img bs=1 count=$((0x80)) skip=$((0x100)) of=mbr-license.bin
+# Target disk (60MB capacity) must have same capacity, or Software ID will changed
+dd conv=notrunc if=mbr-license.bin bs=1 seek=$((0x100)) of=disk.img
+
+# in qemu, use this paramater to matche HDD indo with the licensed disk
+qemu... \
+-drive if=none,id=disk0,format=raw,file='disk.img' \
+-device "ide-hd,drive=disk0,bootindex=1,ver=DATA,model=VMware Virtual IDE Hard Drive,serial=00000000000000000001" \
+
 ```
 
 Other script
@@ -88,10 +71,21 @@ dd  conv=notrunc if=disk.img of=disk2.img
 - https://github.com/Ygnecz/MTLic - Mikrotik license file structure
 - https://elixir.bootlin.com/linux/v5.6.3/C/ident/__le16 - Usefull to explore Linux sources
 
+
+### MBR INFO
+
+- offset `0x10c` (4 bytes ?) is boot counter in mt7 ?
+
+``` sh
+dd if=disk-mt6.40.1.img bs=1 count=446 of=mbr.bin
+objcopy --rename-section .data=.text --set-section-flags .data=alloc,code,load raw$$.elf
+
+objdump -D -b binary -mi386 -Maddr16,data16 --adjust-vma=0x7c00
+```
+
 ## Linux Kernel
 
     Linux version 5.6.3-64 (agent@cicd-a06.mt.lv) (gcc version 11.1.0 (GCC)) #1 SMP Mon Oct 17 11:05:29 UTC 2022
-
 
 Kernel boot vmlinuz:
 
