@@ -3,7 +3,7 @@
 #    -bios /usr/share/ovmf/OVMF.fd \
 # Dont use KVM or breakpoint not work in gdb
 #	-enable-kvm \
-qemu-system-i386 \
+qemu-system-x86_64 \
     -M q35,sata=off \
 	-m 512M \
 	-smp 1 \

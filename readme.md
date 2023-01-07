@@ -45,6 +45,10 @@ C6VGKyxT9JYIslckCx7DJC2gedmQi4VLNrWRqaFGGA==
 ```
 
 ### Clone License on HDD
+ 
+- Install mikrotik 6.x with 60MB HDD
+- Upgrade to Mikrotik 7 (drag-drop and reboot)
+- Fix partition with e2fsck
 
 ``` bash
 # Licensed disk (60MB capacity)
@@ -56,6 +60,14 @@ dd conv=notrunc if=mbr-license.bin bs=1 seek=$((0x100)) of=disk.img
 qemu... \
 -drive if=none,id=disk0,format=raw,file='disk.img' \
 -device "ide-hd,drive=disk0,bootindex=1,ver=DATA,model=VMware Virtual IDE Hard Drive,serial=00000000000000000001" \
+
+```
+
+#### Install MT 7 (License from MT 6) on 60MB hdd
+
+``` sh
+# Create 60 MB hdd
+dd if=/dev/zero bs=1024 count=$(( 60 * 1024 )) of=disk.img
 
 ```
 
