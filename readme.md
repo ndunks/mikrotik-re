@@ -60,6 +60,13 @@ C6VGKyxT9JYIslckCx7DJC2gedmQi4VLNrWRqaFGGA==
 
 - offset `0x10c` (4 bytes ?) is boot counter in mt7 ?
 
+``` sh
+dd if=disk-mt6.40.1.img bs=1 count=446 of=mbr.bin
+objcopy --rename-section .data=.text --set-section-flags .data=alloc,code,load raw$$.elf
+
+objdump -D -b binary -mi386 -Maddr16,data16 --adjust-vma=0x7c00
+```
+
 ### Clone HDD (except MBR partition table)
 
 ``` bash
