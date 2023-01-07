@@ -75,6 +75,9 @@ Other script
 ``` bash
 # append disk
 dd  conv=notrunc if=disk.img of=disk2.img
+cp tmp/disk.img tmp/disk2.img
+dd if=tmp/disk.img bs=1024 count=$(( 60 * 1024 )) of=tmp/disk-test.img
+# 119919 (root 60MB)
 ```
 
 ### Notes

@@ -13,7 +13,7 @@ fi
 # Run emulator with installer cd
 qemu-system-x86_64 \
 	-m 128 \
-	-smp 1,sockets=1,cores=1,threads=1 \
+	-smp 1 \
     -no-user-config -nodefaults -vga std \
     -cdrom installer/mikrotik-6.48.6.iso \
     -drive if=none,id=disk0,format=raw,file='disk.img' \
