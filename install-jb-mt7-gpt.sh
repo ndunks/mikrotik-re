@@ -21,7 +21,12 @@ if [ ! -f ./tmp/boot/EFI/BOOT/refind.conf ]; then
     cp -f mt7.6/partition-boot/linux* ./tmp/boot/
 fi
 
-cp -f mt7.6/partition-boot/initrd* ./tmp/boot/
+echo "Creating initrd"
+cd mt7.6/custom-initram
+find | cpio -o -R root:root -H newc > ../../tmp/initrd.cpio
+cd -
+
+cp -f ./tmp/initrd* ./tmp/boot/
 cp -f mt7.6/partition-boot/start.sh ./tmp/boot/start.sh
 sudo sync
 
