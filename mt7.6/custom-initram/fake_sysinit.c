@@ -20,12 +20,12 @@ Install initrd run:
 extern char** environ;
 
 int main(int argc, char * argv[]){
-    printf("\n***** FAKE INIT *****\n\n");
+    // printf("\n***** FAKE INIT *****\n\n");
     
     if( argc > 1 ){
         // check the first arg
         if ( strncmp(argv[1],"start", 5) == 0 ){
-            printf("\n***** FAKE START *****\n\n");
+            // printf("\n***** FAKE START *****\n\n");
             if( fork() == 0 ){
                 // Make sure the /boot partition is mounted
                 while ( access("/flash/boot/start.sh", F_OK) != 0 ) {

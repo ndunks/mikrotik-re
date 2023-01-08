@@ -7,7 +7,7 @@ qemu-system-x86_64 \
 	-m 512M \
 	-smp 1 \
     -nodefaults \
-    -vga std \
+    -nographic \
 	-bios /usr/share/ovmf/OVMF.fd \
 	-drive if=none,id=disk0,format=raw,file='tmp/disk.img' \
 	-device "ide-hd,drive=disk0,bootindex=1" \

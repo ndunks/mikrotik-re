@@ -16,16 +16,30 @@
 #include <scsi/sg.h>
 #include "get_syscall.h"
 
-static int fake_atta_info(char *buf, int len);
+// Using 32 Bit syscall, because the kernel is compiled with IA32 FLAG. and I targeting IT
+// https://elixir.bootlin.com/linux/v5.6.3/source/arch/x86/entry/syscalls/syscall_32.tbl
+// 1	i386	exit			sys_exit			__ia32_sys_exit
+// 5	i386	open			sys_open			__ia32_compat_sys_open
+// 54	i386	ioctl			sys_ioctl			__ia32_compat_sys_ioctl
+// 11	i386	execve			sys_execve			__ia32_compat_sys_execve
+#define nr_ioctl32 54
 
+typedef asmlinkage long (*syscall_fun_t)(struct pt_regs *pt_regs);
 typedef void (*fun)(void);
-/** x64 sys_call_table: https://elixir.bootlin.com/linux/v5.6.3/source/arch/x86/entry/syscalls/syscall_64.tbl */
-static fun *x64_sys_call_table;
+
 /** x32 sys_call_table: https://elixir.bootlin.com/linux/v5.6.3/source/arch/x86/entry/syscalls/syscall_32.tbl */
 static fun *ia32_sys_call_table;
 
-// 64 bit kernel that support Binary Emulations
-// CONFIG_IA32_EMULATION=y
+static syscall_fun_t old_ioctl32;
+static char *fakeModel = "VMware Virtual IDE Hard Drive           "; // size 40
+static char *fakeSerial = "00000000000000000001";                    // size 20
+static char originalModel[41], originalSerial[21];
+static const char fakeAtta[512] = 
+    "\x40\x00\x79\x00\x00\x00\x10\x00\x00\x7e\x00\x02\x3f\x00\x00\x00\x00\x00\x00\x00\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x30\x31\x30\x03\x00\x00\x02\x04\x00\x2e\x32\x2b\x35\x20\x20\x20\x20\x4d\x56\x61\x77\x65\x72\x56\x20\x72\x69\x75\x74\x6c\x61\x49\x20\x45\x44\x48\x20\x72\x61\x20\x64\x72\x44\x76\x69\x20\x65\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x10\x80\x01\x00\x00\x0b\x00\x00\x00\x02\x00\x02\x07\x00\x79\x00\x10\x00\x3f\x00\x70\xdc\x01\x00\x10\x01\x00\xe0\x01\x00\x07\x00\x07\x04"
+    "\x03\x00\x78\x00\x78\x00\x78\x00\x78\x00\x00\x40\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0\x00\x16\x00\x21\x40\x00\x74\x00\x40\x21\x40\x00\x34\x00\x40\x3f\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x60\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xe0\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x60\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+    "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00"
+    "\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00";
+
 static int find_syscall_table64_ia32(void)
 {
     struct desc_ptr idtr;
@@ -36,13 +50,9 @@ static int find_syscall_table64_ia32(void)
     int i;
     u_char *off;
 
-    // pr_info("Finding sys_call_table x86_64 IA32..\n");
     //  Get CPU IDT table
     asm("sidt %0"
         : "=m"(idtr));
-
-    // pr_info("IDT address %px  %u\n", (void *)idtr.address, idtr.size);
-    //  IDT address fffffe0000000000  4095
 
     if (idtr.size == 0 || idtr.address == 0)
     {
@@ -52,23 +62,15 @@ static int find_syscall_table64_ia32(void)
 
     // set table pointer
     idt_table = (void *)idtr.address;
-
     // set gate_desc for int 0x80
     system_call_gate = &idt_table[0x80];
-
     // get int 0x80 handler offset
     entry_INT80 = (void *)gate_offset(system_call_gate);
-
-    // pr_info("Syscall Gates %px\n", entry_INT80);
-    // pr_info("finding call OPCODE..\n");
     for (i = 0; i < 256; i++)
     {
         entry_INT80++;
         if (*(entry_INT80) == 0xe8)
         {
-            // e8 fe 04 60 ff  call   0xffffffff81001bb0 <do_int80_syscall_32>
-            pr_info("Found at (%i) %px : %02x %02x %02x %02x %02x\n", i,
-                    entry_INT80, *(entry_INT80), *(entry_INT80 + 1), *(entry_INT80 + 2), *(entry_INT80 + 3), *(entry_INT80 + 4));
             // 32 bit adress in x64 system
             offset = *(entry_INT80 + 1) |
                      (*(entry_INT80 + 2) << 8) |
@@ -77,7 +79,6 @@ static int find_syscall_table64_ia32(void)
             // Adjust for $RIP of 5 byte (1 instruction )
             entry_INT80 += 5;
             do_int80_syscall = entry_INT80 + offset;
-            pr_info("do_int80_syscall offset %08lx at %px\n", offset, do_int80_syscall);
             break;
         }
     }
@@ -89,7 +90,6 @@ static int find_syscall_table64_ia32(void)
 
     off = do_int80_syscall;
     // Direct call from sys_call_table
-    pr_info("finding direct call from sys_call_table\n");
     for (i = 0; i < 256; i++)
     {
         do_int80_syscall++;
@@ -107,12 +107,11 @@ static int find_syscall_table64_ia32(void)
 
     if (ia32_sys_call_table != NULL)
     {
-        // Found through call pattern
-        return 0;
+        return 0; // Found through call pattern
     }
+
     do_int80_syscall = off;
     // Finding array access to sys_call_table
-    pr_info("Finding sys_call_table array access\n");
     for (i = 0; i < 256; i++)
     {
         do_int80_syscall++;
@@ -124,40 +123,12 @@ static int find_syscall_table64_ia32(void)
         {
             // syscall address is here
             do_int80_syscall += 4;
-            pr_info("Found at (%i) %px : %02x %02x %02x %02x\n", i,
-                    do_int80_syscall, *(do_int80_syscall), *(do_int80_syscall + 1), *(do_int80_syscall + 2), *(do_int80_syscall + 3));
-
             ia32_sys_call_table = (void *)((0xffffffff00000000U) | *((u32 *)do_int80_syscall));
             return 0;
         }
     }
     return -1;
 }
-
-// Using 32 Bit syscall, because the kernel is compiled with IA32 FLAG. and I targeting IT
-// https://elixir.bootlin.com/linux/v5.6.3/source/arch/x86/entry/syscalls/syscall_32.tbl
-// 1	i386	exit			sys_exit			__ia32_sys_exit
-// 5	i386	open			sys_open			__ia32_compat_sys_open
-// 54	i386	ioctl			sys_ioctl			__ia32_compat_sys_ioctl
-// 11	i386	execve			sys_execve			__ia32_compat_sys_execve
-// 16	64	ioctl			__x64_sys_ioctl
-// #define nr_open32 5
-#define nr_ioctl32 54
-#define nr_ioctl64 16
-#define nr_execve32 11
-#define HDIO_GET_IDENTITY 0x030d /* get IDE identification info */
-
-typedef asmlinkage long (*syscall_fun_t)(struct pt_regs *pt_regs);
-static syscall_fun_t old_ioctl32, old_ioctl64, old_execve32;
-static struct hd_driveid *hd;
-static struct sg_io_hdr *sg;
-// size 40
-static char *fakeModel = "VMware Virtual IDE Hard Drive           ";
-// size 20
-static char *fakeSerial = "00000000000000000001";
-// "software ID": 48QX-ALEW
-
-static char *execve_str = "/sbin/kexec";
 
 asmlinkage int sg_ata_get_chars(const u_int16_t *word_arr, int start_word,
                                 int num_words, int is_big_endian, char *ochars)
@@ -190,10 +161,9 @@ asmlinkage int sg_ata_get_chars(const u_int16_t *word_arr, int start_word,
     return op - ochars;
 }
 
-asmlinkage int sg_ata_put_chars(const u_int16_t *word_arr, int start_word,
+asmlinkage int sg_ata_put_chars(u_int16_t *word_arr, int start_word,
                                 int num_words, int is_big_endian, char *ichars)
 {
-    u_int16_t s;
     char a, b;
     int k = 0;
     u_int16_t *op = word_arr + start_word;
@@ -216,9 +186,12 @@ asmlinkage int sg_ata_put_chars(const u_int16_t *word_arr, int start_word,
     }
     return (op - (word_arr + start_word + num_words));
 }
+
 asmlinkage long fake_ioctl32(struct pt_regs *pt_regs)
 {
-    // printk("ioctl32: %lx, %lx, %px\n", pt_regs->bx, pt_regs->cx, pt_regs->dx);
+    // if( pt_regs->bx < 8 ){
+    //     printk("ioctl32: %lx, %lx, %px\n", pt_regs->bx, pt_regs->cx, pt_regs->dx);
+    // }
     uint8_t *args;
     int ret;
     ret = old_ioctl32(pt_regs);
@@ -235,149 +208,30 @@ asmlinkage long fake_ioctl32(struct pt_regs *pt_regs)
             args[3]	undefined
             args[4+]	NSECTOR * 512 bytes of data returned by the command.
         */
-        printk("ioctl32 HDIO_DRIVE_CMD ( %lx, %lx, %px )\n", pt_regs->bx, pt_regs->cx, pt_regs->dx);
-        // printk("REQ %8ph\n", pt_regs->dx);
-        // ret = old_ioctl32(pt_regs);
-        printk("RET %8ph : ", pt_regs->dx);
+
+        // printk("ioctl32 HDIO_DRIVE_CMD ( %lx, %lx, %px )\n", pt_regs->bx, pt_regs->cx, (void *)pt_regs->dx);
         args = (void *)pt_regs->dx;
-        // printk("RET %516pEhp\n", pt_regs->dx + 4);
-        //  https://elixir.bootlin.com/linux/v5.6.3/source/include/uapi/linux/hdreg.h#L239
-        //  WIN_IDENTIFY = 0xEC /* ask drive to identify itself	*/
 
         if (args[0] == 0xec && args[2] == 0 && args[3] > 0)
         {
-            printk("FAKED \n");
-            // int size = args[3] * 512;
-            printk("RET %512pEhp\n", pt_regs->dx + 4);
-            sg_ata_put_chars((const unsigned short *)(args + 4), 10, 10, 0, fakeSerial);
-            sg_ata_put_chars((const unsigned short *)(args + 4), 27, 20, 0, fakeModel);
-            printk("RET %512pEhp\n", pt_regs->dx + 4);
-            // print_hex_dump(KERN_DEFAULT, "", DUMP_PREFIX_OFFSET, 16, 2, pt_regs->dx + 4, size, true);
-        }
-        else
-        {
-            printk("Ignored \n");
+            // HDD SIZE is not from atainfo
+            //printk("FAKED \n");
+            memcpy((u_int16_t *)(args + 4), fakeAtta, 512);
+            // printk("RETA %512pEh\n", (void *)(pt_regs->dx + 4));
+            // sg_ata_put_chars((u_int16_t *)(args + 4), 10, 10, 0, fakeSerial);
+            // sg_ata_put_chars((u_int16_t *)(args + 4), 27, 20, 0, fakeModel);
+            // printk("RETB %512pEh\n", (void *)(pt_regs->dx + 4));
         }
         break;
-    // case HDIO_GET_IDENTITY:
-    //     hd = (void *)pt_regs->dx;
-    //     printk("ioctl32 HDIO_GET_IDENTITY ( %lx, %lx, %px )\n", pt_regs->bx, pt_regs->cx, hd);
-    //     if (pt_regs->bx == 3)
-    //     { // file handle may vary
-    //         memcpy((void *)hd->model, fakeModel, 40);
-    //         memcpy((void *)hd->serial_no, fakeSerial, 20);
-    //     }
-    //     break;
-
-    // case SG_IO:
-    //     sg = (void *)pt_regs->dx;
-    //     printk("ioctl32 SG_IO: 0x%x 0x%x 0x%x 0x%x\n", sg->cmdp[0], sg->cmdp[1], sg->cmdp[2], sg->cmdp[3]);
-    //     break;
     }
     return ret;
-}
-asmlinkage long fake_ioctl64(struct pt_regs *pt_regs)
-{
-    int ret = old_ioctl64(pt_regs);
-    switch (pt_regs->si)
-    {
-    case HDIO_DRIVE_CMD:
-
-        printk("ioctl64 HDIO_DRIVE_CMD ( %lx, %lx, %px )\n", pt_regs->di, pt_regs->si, pt_regs->dx);
-
-        break;
-    case HDIO_GET_IDENTITY:
-        // https://www.kernel.org/doc/Documentation/printk-formats.txt
-        printk("ioctl64 HDIO_GET_IDENTITY ( %lx, %lx, %px )\n", pt_regs->di, pt_regs->si, pt_regs->dx);
-        hd = (void *)pt_regs->dx;
-        memcpy(&(hd->model), fakeModel, 40);
-        memcpy(&(hd->serial_no), fakeSerial, 20);
-        break;
-
-    case SG_IO:
-        sg = (void *)pt_regs->dx;
-        char *buf = sg->dxferp;
-        printk("ioctl64 SG_IO: 0x%x 0x%x 0x%x 0x%x\n", sg->cmdp[0], sg->cmdp[1], sg->cmdp[2], sg->cmdp[3]);
-        // https://elixir.bootlin.com/linux/v5.6.3/source/include/scsi/scsi_proto.h#L32
-        // https://github.com/hreinecke/sg3_utils/blob/master/src/sg_vpd.c
-        // https://www.seagate.com/files/staticfiles/support/docs/manual/Interface%20manuals/100293068j.pdf
-        if (sg->cmdp[0] == 0x12) // OP CODE 0x12h = inquiry
-        {
-            int evpd = sg->cmdp[2] & 0b10000000;
-            switch (sg->cmdp[2])
-            {
-            case 0x80:      // Unit serial number
-                if (buf[3]) // len
-                {
-                    buf[3] = (char)20;
-                    memcpy(&(buf[4]), fakeSerial, 20);
-                }
-                break;
-
-            case 0x83: // VPD_DEVICE_ID
-
-                break;
-            case 0x89: // VPD_ATA_INFO
-                if (sg->dxfer_len >= 36)
-                {
-                }
-
-                break;
-            }
-            printk("ioctl64 SG_IO 0x12 ( %lx, 0x%x 0x%x ) %i\n%*pEhp\n", pt_regs->di, sg->cmdp[0], sg->cmdp[2], sg->dxfer_len, sg->dxfer_len, sg->dxferp);
-        }
-        else if (sg->cmdp[0] == 0x85)
-        {
-            struct scsi_vpd *vpd = (void *)sg->dxferp;
-            if (sg->cmdp[2] == 0xe)
-            { // ATA INFO
-                int cc;
-                char tmp[80];
-                const char *cp;
-                cc = sg_ata_get_chars((const unsigned short *)buf, 27, 20, 0, tmp);
-                tmp[cc] = '\0';
-                printk("ioctl64 SG_IO 0x85 MODEL  %s\n", tmp);
-                cc = sg_ata_get_chars((const unsigned short *)buf, 10, 10, 0, tmp);
-                tmp[cc] = '\0';
-                printk("ioctl64 SG_IO 0x85 SERIAL %s\n", tmp);
-                cc = sg_ata_get_chars((const unsigned short *)buf, 23, 4, 0, tmp);
-                tmp[cc] = '\0';
-                printk("ioctl64 SG_IO 0x85 FIRMRV %s\n", tmp);
-                // Fake it
-                sg_ata_put_chars((const unsigned short *)buf, 27, 20, 0, fakeModel);
-                sg_ata_put_chars((const unsigned short *)buf, 10, 10, 0, fakeSerial);
-            }
-        }
-        break;
-    }
-
-    return ret;
-}
-asmlinkage long fake_execve32(struct pt_regs *pt_regs)
-{
-    unsigned int *args = (void *)pt_regs->cx;
-    if (args[0] && args[1] && args[2])
-    {
-        char *arg0 = (void *)args[0];
-        char *arg1 = (void *)args[1];
-        char *arg2 = (void *)args[2];
-        printk("execve32 %s: %s %s %s\n", (char *)pt_regs->bx, arg0, arg1, arg2);
-        if (strncmp((void *)pt_regs->bx, execve_str, 11) == 0)
-        {
-            printk(" *** FAKED KEXEC ***\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            return 0;
-        }
-    }
-    return old_execve32(pt_regs);
 }
 
 // VPD PAGE 0x83
 static int fake_dev_ids(u_int8_t *buf, int buf_len)
 {
     int off, desig_type, i_len;
-    const u_int8_t *bp;
-    u_int8_t *ip;
-    const char oriSn[21];
+    u_int8_t *bp, *ip;
     off = -1;
     while ((off + 3) < buf_len)
     {
@@ -397,48 +251,46 @@ static int fake_dev_ids(u_int8_t *buf, int buf_len)
         i_len = bp[3];
         ip = bp + 4;
         desig_type = (bp[1] & 0xf);
-        printk("desig_type %d, len %d, %s 8pEhp \n", desig_type, i_len, ip);
+        //printk("desig_type %d, len %d, %s 8pEhp \n", desig_type, i_len, ip);
         if (desig_type == 0 && i_len == 20)
         {
             // fake serial
-            printk("0x83 Serial ori: %.*s\n", i_len, ip);
-            memcpy(oriSn, ip, i_len);
             memcpy(ip, fakeSerial, i_len);
-            // return 0;
         }
-        else if (desig_type == 1 && i_len > 20)
+        // check for last 20 byte is SN, fake it too
+        else if (desig_type == 1 && i_len > 20 &&
+                 strncmp(ip + i_len - 20, originalSerial, 20) == 0)
         {
-            // check for last 20 byte is SN, fake it too
-            if (strncmp(ip + i_len - 20, oriSn, 20) == 0)
-            {
-                memcpy(ip + i_len - 20, fakeSerial, i_len);
-            }
+            memcpy(ip + i_len - 20, fakeSerial, i_len);
         }
     }
-    // printk("0x83 NOT FOUND\n");
     return 0;
 }
-
+// 0x89
 static int fake_atta_info(char *buf, int len)
 {
     int cc;
-    char tmp[80];
 
     if (buf[56] == 0)
     {
         printk("No atta data found\n");
         return -1;
     }
-    sg_ata_put_chars((const unsigned short *)(buf + 60), 10, 10, 0, fakeSerial);
-    sg_ata_put_chars((const unsigned short *)(buf + 60), 27, 20, 0, fakeModel);
-    cc = sg_ata_get_chars((const unsigned short *)(buf + 60), 27, 20,
-                          0, tmp);
-    tmp[cc] = '\0';
-    // printk("    model: %s\n", tmp);
-    cc = sg_ata_get_chars((const unsigned short *)(buf + 60), 10, 10,
-                          0, tmp);
-    tmp[cc] = '\0';
-    // printk("    serial number: %s\n", tmp);
+    cc = sg_ata_get_chars((u_int16_t *)(buf + 60), 27, 20, 0, originalModel);
+    originalModel[cc] = '\0';
+    cc = sg_ata_get_chars((u_int16_t *)(buf + 60), 10, 10, 0, originalSerial);
+    originalSerial[cc] = '\0';
+    printk(" *** Original Model : %s\n *** Original Serial: %s\n", originalModel, originalSerial);
+
+    sg_ata_put_chars((u_int16_t *)(buf + 60), 10, 10, 0, fakeSerial);
+    sg_ata_put_chars((u_int16_t *)(buf + 60), 27, 20, 0, fakeModel);
+
+    // dump 512 byte, and set as fakeAtta value
+    // printk("FakeAtta Dump 1: %128pEh\n", &fakeAtta[0]);
+    // printk("FakeAtta Dump 2: %128pEh\n", &fakeAtta[128]);
+    // printk("FakeAtta Dump 3: %128pEh\n", &fakeAtta[256]);
+    // printk("FakeAtta Dump 4: %128pEh\n", &fakeAtta[384]);
+
     return 0;
 }
 
@@ -458,24 +310,15 @@ static struct block_device *find_root_dev(const char *path)
         return NULL;
     }
     path_put(&root_path);
-    if ((MAJOR(root_stat.rdev) | MINOR(root_stat.rdev)))
-    {
-        // its a special device like /dev/sda
-        return bdget(root_stat.rdev);
-    }
-    else
-    {
-        return bdget(root_stat.dev);
-    }
+    // Check if its a special device like /dev/sda then use rdev, dev otherwise.
+    return bdget((MAJOR(root_stat.rdev) | MINOR(root_stat.rdev)) ? root_stat.rdev : root_stat.dev);
 }
 // https://elixir.bootlin.com/linux/v5.6.3/source/drivers/scsi/scsi_sysfs.c#L512
 static int override_sysfs(void)
 {
     struct block_device *root_device;
-    struct device *dev, *dev2;
+    struct device *dev;
     struct scsi_device *sdev;
-    // struct scsi_disk *sdisk;
-    struct scsi_vpd *vpd_buf;
     const int vpd_len = 64;
     unsigned char *buf;
 
@@ -485,34 +328,18 @@ static int override_sysfs(void)
     {
         dev = part_to_dev(root_device->bd_part);
         printk("Root /dev/%s\n", dev_name(dev));
-        // dev2 = get_device(dev->parent);
-        // printk("Root SCSI %s %s\n", dev->parent->type->name, dev->class->name);
-        //  sdisk = to_scsi_disk(dev);
-
         sdev = to_scsi_device(dev->parent);
-        // printk("Root SCSI Disk %s, %s\n", dev->parent->type->name, sdev->model);
-        //  printk("Root SCSI %px %8pEhp\n", sdev->vpd_pg80, sdev->vpd_pg80);
-        //   sdev = (void *)root_device;
-
         if (scsi_device_supports_vpd(sdev))
         {
-
-            // faking 0x80
-            memcpy(sdev->vpd_pg80->data + 4, fakeSerial, 20);
-            // printk("Root VPD %s\n", sdev->vpd_pg80->data + 4);
-
+            // faking 0x89 and get original model/serial
+            fake_atta_info(sdev->vpd_pg89->data, sdev->vpd_pg89->len);
             // faking 0x83
             fake_dev_ids(sdev->vpd_pg83->data + 4, sdev->vpd_pg83->len - 4);
-
-            // fakinf 0x89
-            fake_atta_info(sdev->vpd_pg89->data, sdev->vpd_pg89->len);
+            // faking 0x80
+            memcpy(sdev->vpd_pg80->data + 4, fakeSerial, 20);
 
             buf = kmalloc(vpd_len, GFP_KERNEL);
-            if (scsi_get_vpd_page(sdev, 0x80, buf, vpd_len) == 0)
-            {
-                printk("Root SCSI %8pEhp\n", buf + 4);
-            }
-            else
+            if (scsi_get_vpd_page(sdev, 0x80, buf, vpd_len) != 0)
             {
                 printk("Can't get vpd buf\n");
             }
@@ -522,7 +349,7 @@ static int override_sysfs(void)
         {
             printk("Not support SCSI Page\n");
         }
-        // put_device(dev2);
+
         bdput(root_device);
     }
     else
@@ -537,26 +364,14 @@ static int override_syscall(void)
     unsigned int level;
     pte_t *pte;
     old_ioctl32 = (syscall_fun_t)ia32_sys_call_table[nr_ioctl32];
-    // old_open32 = (syscall_fun_t)ia32_sys_call_table[nr_open32];
-    old_ioctl64 = (syscall_fun_t)x64_sys_call_table[nr_ioctl64];
-    old_execve32 = (syscall_fun_t)ia32_sys_call_table[nr_execve32];
 
     pte = lookup_address((unsigned long)ia32_sys_call_table, &level);
     // change PTE to allow writing
     set_pte_atomic(pte, pte_mkwrite(*pte));
-    // ia32_sys_call_table[nr_open32] = (void *)fake_open32;
+    ;
     ia32_sys_call_table[nr_ioctl32] = (void *)fake_ioctl32;
-    ia32_sys_call_table[nr_execve32] = (void *)fake_execve32;
     // reprotect page
     set_pte_atomic(pte, pte_clear_flags(*pte, _PAGE_RW));
-
-    pte = lookup_address((unsigned long)x64_sys_call_table, &level);
-    // change PTE to allow writing
-    set_pte_atomic(pte, pte_mkwrite(*pte));
-    x64_sys_call_table[nr_ioctl64] = (void *)fake_ioctl64;
-    // reprotect page
-    set_pte_atomic(pte, pte_clear_flags(*pte, _PAGE_RW));
-
     pr_info("override_syscall done");
     return 0;
 }
@@ -568,15 +383,7 @@ static int restore_syscall(void)
     pte = lookup_address((unsigned long)ia32_sys_call_table, &level);
     set_pte_atomic(pte, pte_mkwrite(*pte));
     pr_info("sys_call_table writable");
-    // ia32_sys_call_table[nr_open32] = (fun)old_open32;
     ia32_sys_call_table[nr_ioctl32] = (fun)old_ioctl32;
-    ia32_sys_call_table[nr_execve32] = (fun)old_execve32;
-    set_pte_atomic(pte, pte_clear_flags(*pte, _PAGE_RW));
-
-    pte = lookup_address((unsigned long)x64_sys_call_table, &level);
-    set_pte_atomic(pte, pte_mkwrite(*pte));
-    pr_info("sys_call_table writable");
-    x64_sys_call_table[nr_ioctl64] = (fun)old_ioctl64;
     set_pte_atomic(pte, pte_clear_flags(*pte, _PAGE_RW));
     return 0;
 }
@@ -584,33 +391,22 @@ static int restore_syscall(void)
 static int main_init(void)
 {
     override_sysfs();
-    if (find_syscall_table64_ia32())
-    {
-        // Show all available symbols
-        // kallsyms_on_each_symbol(prsyms_print_symbol, NULL);
-    }
+    find_syscall_table64_ia32();
 
     if (ia32_sys_call_table == NULL)
     {
         pr_err("Cannot find sys_call_table\n");
         return -1;
     }
-    x64_sys_call_table = (void *)((unsigned long)ia32_sys_call_table - 4032lu);
-    pr_info("Found ia32_sys_call_table: %px\n", ia32_sys_call_table);
-    pr_info("Found x64_sys_call_table : %px\n", x64_sys_call_table);
-
     return override_syscall();
-    return 0;
 }
 
 static void main_exit(void)
 {
     if (old_ioctl32 != NULL)
     {
-        pr_info("Restoring hook..\n");
         restore_syscall();
     }
-    pr_info("Exit..\n");
     return;
 }
 
@@ -619,5 +415,5 @@ module_exit(main_exit);
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("xxx");
-MODULE_DESCRIPTION("Sample.");
-MODULE_VERSION("0.01");
+MODULE_DESCRIPTION("MT7 Rootkit");
+MODULE_VERSION("0.02");
