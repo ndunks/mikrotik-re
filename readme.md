@@ -78,6 +78,14 @@ dd  conv=notrunc if=disk.img of=disk2.img
 cp tmp/disk.img tmp/disk2.img
 dd if=tmp/disk.img bs=1024 count=$(( 60 * 1024 )) of=tmp/disk-test.img
 # 119919 (root 60MB)
+
+# Clone to real HDD
+dd if=disk-mt7.6-gpt-90MB.img bs=512 of=/dev/sdb
+fdisk
+e2fsk
+resize2fs
+gdisk
+qemu-system-x86_64 -m 512M -smp 1 -bios /usr/share/ovmf/OVMF.fd -drive format=raw,file=/dev/sdb
 ```
 
 ### Notes
