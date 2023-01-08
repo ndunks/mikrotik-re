@@ -13,6 +13,7 @@ qemu-system-x86_64 \
 	-device "ide-hd,drive=disk0,bootindex=1" \
     -netdev user,id=net0,hostfwd=tcp::8080-:80,hostfwd=tcp::8022-:22,hostfwd=tcp::8291-:8291,hostfwd=tcp::1212-:1212,hostfwd=tcp::1213-:1213 \
     -device e1000,netdev=net0 \
+    -device e1000 \
 	-serial mon:stdio \
     $*
 #    -device "ide-hd,model=QEMU HARDDISK,drive=disk0,serial=00000000000000000001,bootindex=1" \
